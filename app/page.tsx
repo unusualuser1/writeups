@@ -35,7 +35,7 @@ const Machine = ({file} : any) => {
 
   return(
       <Link href={`/prova/${name}`}>
-          <div className="w-[300px] h-full justify-center items-center pt-16 pb-32 rounded-xl bg-white m-2">
+          <div className="w-[300px] h-[300px] justify-center items-center pt-16 pb-32 rounded-xl bg-white m-2">
               <h1 className=" text-black text-center align-text-bottom ">{name}</h1>
           </div>
       </Link>
@@ -52,11 +52,13 @@ export default async function Home() {
   return (
     <main>
       <Header/>
-      <div className="flex flex-wrap w-full h-screen  pt-20 pb-36 bg-slate-500 ">
-                {difficulties?.map((difficulty : File)=>{
-                    return <Machine key={difficulty.path} file={difficulty}></Machine>
-                })}
-            </div>
+      <div className="flex flex-wrap w-full h-screen pt-28 pb-36 px-10">
+        {difficulties?.map((difficulty : File)=>{
+            return <Machine key={difficulty.path} file={difficulty}></Machine>
+        })}
+        <DiffPreview/>
+        <DiffPreview/>
+      </div>
       <Footer/>
     </main>
   )
