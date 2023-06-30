@@ -13,7 +13,7 @@ interface File{
   download_url: string;
 }
 
-async function fetchRepoFiles(owner : string, repo : string, token : string):Promise<any[]> {
+async function fetchRepoFiles(owner : string, repo : string, token : string) {
   try {
     const url = `https://api.github.com/repos/${owner}/${repo}/contents/`;
     const headers = { Authorization: `Bearer ${token}` };
@@ -27,7 +27,6 @@ async function fetchRepoFiles(owner : string, repo : string, token : string):Pro
   } catch (error) {
     console.error(error);
   }
-  return [];
 }; 
 
 const Machine = ({file} : any) => {
