@@ -4,6 +4,8 @@ import DiffPreview from "../components/Difficulty"
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { Anybody } from "next/font/google";
+import BorderSpawner from "@/components/BorderSpawner";
+
 const gitToken : string = process.env.TOKEN as string;
 
 interface File{
@@ -30,16 +32,36 @@ async function fetchRepoFiles(owner : string, repo : string, token : string) {
   }
 }; 
 
+
+
+
 const Machine = ({file} : any) => {
   const {name} = file || {};
-
-  return(
-      <Link href={`/${name}`}>
-          <div className="w-[300px] h-full justify-center items-center pt-16 pb-32 rounded-xl bg-white m-2">
-              <h1 className=" text-black text-center align-text-bottom ">{name}</h1>
-          </div>
-      </Link>
-  )
+  if(name == "Easy"){
+    return(
+      <div className=" w-[20vw] h-[300px] justify-center items-center pt-16 pb-32 rounded-xl m-2 border-4 border-Easy bg-local bg-[https://repository-images.githubusercontent.com/518513212/13cd778f-d5ef-4d5a-b156-a7c10bb49c83]">
+          <h1 className=" text-black text-center align-text-bottom ">{name}</h1>
+        </div>
+    )
+  }else if(name == "Medium" ){
+    return(
+      <div className=" w-[20vw] h-[300px] justify-center items-center pt-16 pb-32 rounded-xl m-2 border-4 border-Medium bg-local bg-[https://repository-images.githubusercontent.com/518513212/13cd778f-d5ef-4d5a-b156-a7c10bb49c83]">
+          <h1 className=" text-black text-center align-text-bottom ">{name}</h1>
+        </div>
+    )
+  }else if(name == "Hard" ){
+    return(
+      <div className=" w-[20vw] h-[300px] justify-center items-center pt-16 pb-32 rounded-xl m-2 border-4 border-dashed border-Hard bg-local bg-[https://repository-images.githubusercontent.com/518513212/13cd778f-d5ef-4d5a-b156-a7c10bb49c83]">
+          <h1 className=" text-black text-center align-text-bottom ">{name}</h1>
+        </div>
+    )
+  }else{
+    return(
+      <div className=" w-[20vw] h-[300px] justify-center items-center pt-16 pb-32 rounded-xl m-2 border-4 border-dashed border-Insane bg-local bg-[https://repository-images.githubusercontent.com/518513212/13cd778f-d5ef-4d5a-b156-a7c10bb49c83]">
+          <h1 className=" text-black text-center align-text-bottom ">{name}</h1>
+        </div>
+    )
+  }
 }
 
 export default async function Home() {
@@ -52,11 +74,13 @@ export default async function Home() {
   return (
     <main>
       <Header/>
-      <div className="flex flex-wrap w-full h-screen  pt-20 pb-36 bg-slate-500 ">
-                {difficulties?.map((difficulty : File)=>{
-                    return <Machine key={difficulty.path} file={difficulty}></Machine>
-                })}
-            </div>
+      <div className="flex flex-wrap w-full h-screen items-center justify-center pt-28 pb-36 px-10">
+        {difficulties?.map((difficulty : File)=>{
+            return <Machine key={difficulty.path} file={difficulty}></Machine>
+        })}
+        <DiffPreview/>
+        <DiffPreview/>
+      </div>
       <Footer/>
     </main>
   )

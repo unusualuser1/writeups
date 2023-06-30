@@ -1,7 +1,7 @@
 export default function Header() {
     return (
         <>
-            <div className ="fixed z-50 inline-flex h-26 w-full pr-8 bg-yellow-500">
+            <div className ="fixed z-50 inline-flex h-26 w-full pr-8 bg-Header">
               <div className="px-30 m-1">
                 <img className="w-25 h-20 " src="../logo.ico"></img>
               </div>
