@@ -42,11 +42,11 @@ const Machine = ({file} : any) => {
 }
 
 export default async function Home() {
-  const x = await fetchRepoFiles('Wanasgheo','Writeups','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');
+  const x = await fetchRepoFiles('Wanasgheo','Writeups','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');
 
   const dir = x.find( (file : File) => file.name === 'HackTheBox' && file.type === 'dir');
 
-  const contentHTB = (await fetch(dir.url , { headers: { Authorization: `Bearer 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` } }));
+  const contentHTB = (await fetch(dir.url , { headers: { Authorization: `Bearer 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` } }));
   const difficulties = await contentHTB.json();
   return (
     <main>
