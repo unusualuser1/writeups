@@ -13,9 +13,9 @@ interface File{
   download_url: string;
 }
 
-async function fetchRepoFiles(owner : string, repo : string, token : string, end? :string):Promise<any[]> {
+async function fetchRepoFiles(owner : string, repo : string, token : string):Promise<any[]> {
   try {
-    const url = `https://api.github.com/repos/${owner}/${repo}/contents/${end}`;
+    const url = `https://api.github.com/repos/${owner}/${repo}/contents/`;
     const headers = { Authorization: `Bearer ${token}` };
     const response = await fetch(url, { headers });
 
@@ -43,9 +43,9 @@ const Machine = ({file} : any) => {
 }
 
 export default async function Home() {
-  const x = await fetchRepoFiles('Wanasgheo','Writeups','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','');
+  const x = await fetchRepoFiles('Wanasgheo','Writeups','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');
 
-  const dir : File = x.find( (file : File) => file.name === 'HackTheBox' && file.type === 'dir');
+  const dir = x.find( (file : File) => file.name === 'HackTheBox' && file.type === 'dir');
 
   const contentHTB = (await fetch(dir.url , { headers: { Authorization: `Bearer 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` } }));
   const difficulties = await contentHTB.json();
