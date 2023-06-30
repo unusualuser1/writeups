@@ -1,6 +1,7 @@
-import Header from "../components/Header"
-import Footer from "../components/Footer"
-import MainContent from "../components/MainContent"
+import Header from "./components/Header"
+import Footer from "./components/Footer"
+import MainContent from "./components/MainContent"
+import DiffPreview from "./components/Difficulty"
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { Anybody } from "next/font/google";
@@ -53,7 +54,7 @@ export default async function Home() {
     <main>
       <Header/>
       <MainContent/>
-      <div>
+      <div className="flex flex-wrap w-full h-screen  pt-20 pb-36 bg-slate-500 justify-center items-center ">
                 <h2>GitHub Repositories</h2>
                 {difficulties?.map((difficulty : File)=>{
                     return <Machine key={difficulty.path} file={difficulty}></Machine>
@@ -63,3 +64,6 @@ export default async function Home() {
     </main>
   )
 }
+  const contentHTB = (await fetch(dir.url, { headers: { Authorization: `Bearer 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` } }));
+  const difficulties = await contentHTB.json();
+  
