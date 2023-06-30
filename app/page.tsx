@@ -4,6 +4,7 @@ import DiffPreview from "../components/Difficulty"
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { Anybody } from "next/font/google";
+const gitToken : string = process.env.TOKEN as string;
 
 interface File{
   name: string;
@@ -42,11 +43,11 @@ const Machine = ({file} : any) => {
 }
 
 export default async function Home() {
-  const x = await fetchRepoFiles('Wanasgheo','Writeups','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');
+  const x = await fetchRepoFiles('Wanasgheo','Writeups', gitToken);
 
   const dir = x.find( (file : File) => file.name === 'HackTheBox' && file.type === 'dir');
 
-  const contentHTB = (await fetch(dir.url , { headers: { Authorization: `Bearer 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` } }));
+  const contentHTB = (await fetch(dir.url , { headers: { Authorization: `Bearer ${gitToken}` } }));
   const difficulties = await contentHTB.json();
   return (
     <main>
