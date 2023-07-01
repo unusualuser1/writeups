@@ -39,27 +39,39 @@ const Machine = ({file} : any) => {
   const {name} = file || {};
   if(name == "Easy"){
     return(
-      <div className=" w-[20vw] h-[300px] justify-center items-center pt-16 pb-32 rounded-xl m-2 border-4 border-Easy bg-local bg-[https://repository-images.githubusercontent.com/518513212/13cd778f-d5ef-4d5a-b156-a7c10bb49c83]">
-          <h1 className=" text-black text-center align-text-bottom ">{name}</h1>
+      <Link href={`/${name}`}>
+        <div className=" w-[250px] h-[300px] justify-center items-center rounded-xl bg-slate-300 m-2 border-4 border-Easy bg-[../HTB_logo.png]">
+          <img className="w-full h-3/4 rounded-lg" src="../HTB_logo.png"></img>
+          <h1 className=" pt-6 pb-6 text-black text-center align-text-bottom">{name}</h1>
         </div>
+      </Link>
     )
   }else if(name == "Medium" ){
     return(
-      <div className=" w-[20vw] h-[300px] justify-center items-center pt-16 pb-32 rounded-xl m-2 border-4 border-Medium bg-local bg-[https://repository-images.githubusercontent.com/518513212/13cd778f-d5ef-4d5a-b156-a7c10bb49c83]">
-          <h1 className=" text-black text-center align-text-bottom ">{name}</h1>
+      <Link href={`/${name}`}>
+        <div className=" w-[250px] h-[300px] justify-center items-center rounded-xl m-2 bg-slate-300  ">
+          <img className="w-full h-3/4 rounded-lg border-4 border-Medium bg-[../HTB_logo.png]" src="../HTB_logo.png"></img>
+          <h1 className=" pt-6 pb-6 text-black text-center align-text-bottom">{name}</h1>
         </div>
+      </Link>
     )
   }else if(name == "Hard" ){
     return(
-      <div className=" w-[20vw] h-[300px] justify-center items-center pt-16 pb-32 rounded-xl m-2 border-4 border-dashed border-Hard bg-local bg-[https://repository-images.githubusercontent.com/518513212/13cd778f-d5ef-4d5a-b156-a7c10bb49c83]">
-          <h1 className=" text-black text-center align-text-bottom ">{name}</h1>
-        </div>
+      <Link href={`/${name}`}>
+        <div className=" w-[250px] h-[300px] justify-center items-center rounded-xl m-2 bg-slate-300 border-4 border-dashed border-Hard bg-[../HTB_logo.png]">
+            <img className="w-full h-3/4 rounded-lg" src="../HTB_logo.png"></img>
+            <h1 className=" pt-6 pb-6 text-black text-center align-text-bottom">{name}</h1>
+          </div>
+      </Link>
     )
   }else{
     return(
-      <div className=" w-[20vw] h-[300px] justify-center items-center pt-16 pb-32 rounded-xl m-2 border-4 border-dashed border-Insane bg-local bg-[https://repository-images.githubusercontent.com/518513212/13cd778f-d5ef-4d5a-b156-a7c10bb49c83]">
-          <h1 className=" text-black text-center align-text-bottom ">{name}</h1>
+      <Link href={`/${name}`}>
+        <div className=" w-[300px] h-[300px] justify-center items-center rounded-xl m-2 bg-slate-300 border-4 border-dashed border-Insane bg-[../HTB_logo.png]">
+          <img className="w-full h-full" src="../HTB_logo.png"></img>
+          <h1 className=" pt-6 pb-6 text-black text-center align-text-bottom">{name}</h1>
         </div>
+      </Link>
     )
   }
 }
@@ -78,8 +90,6 @@ export default async function Home() {
         {difficulties?.map((difficulty : File)=>{
             return <Machine key={difficulty.path} file={difficulty}></Machine>
         })}
-        <DiffPreview/>
-        <DiffPreview/>
       </div>
       <Footer/>
     </main>
