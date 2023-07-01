@@ -1,4 +1,4 @@
-import DiffPreview from "./Difficulty"
+import DiffPreview from "./DiffPreview"
 
 export default function MainContent(){
     return(
