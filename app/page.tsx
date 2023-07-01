@@ -34,46 +34,12 @@ async function fetchRepoFiles(owner : string, repo : string, token : string) {
 
 
 
-
 const Machine = ({file} : any) => {
   const {name} = file || {};
-  if(name == "Easy"){
-    return(
-      <Link href={`/${name}`}>
-        <div className=" w-[250px] h-[300px] justify-center items-center rounded-xl bg-slate-300 m-2 border-4 border-Easy bg-[../HTB_logo.png]">
-          <img className="w-full h-3/4 rounded-lg" src="../HTB_logo.png"></img>
-          <h1 className=" pt-6 pb-6 text-black text-center align-text-bottom">{name}</h1>
-        </div>
-      </Link>
-    )
-  }else if(name == "Medium" ){
-    return(
-      <Link href={`/${name}`}>
-        <div className=" w-[250px] h-[300px] justify-center items-center rounded-xl m-2 bg-slate-300  ">
-          <img className="w-full h-3/4 rounded-lg border-4 border-Medium bg-[../HTB_logo.png]" src="../HTB_logo.png"></img>
-          <h1 className=" pt-6 pb-6 text-black text-center align-text-bottom">{name}</h1>
-        </div>
-      </Link>
-    )
-  }else if(name == "Hard" ){
-    return(
-      <Link href={`/${name}`}>
-        <div className=" w-[250px] h-[300px] justify-center items-center rounded-xl m-2 bg-slate-300 border-4 border-dashed border-Hard bg-[../HTB_logo.png]">
-            <img className="w-full h-3/4 rounded-lg" src="../HTB_logo.png"></img>
-            <h1 className=" pt-6 pb-6 text-black text-center align-text-bottom">{name}</h1>
-          </div>
-      </Link>
-    )
-  }else{
-    return(
-      <Link href={`/${name}`}>
-        <div className=" w-[300px] h-[300px] justify-center items-center rounded-xl m-2 bg-slate-300 border-4 border-dashed border-Insane bg-[../HTB_logo.png]">
-          <img className="w-full h-full" src="../HTB_logo.png"></img>
-          <h1 className=" pt-6 pb-6 text-black text-center align-text-bottom">{name}</h1>
-        </div>
-      </Link>
-    )
-  }
+  return (
+    <DiffPreview name = {name} />
+  )
+  
 }
 
 export default async function Home() {
