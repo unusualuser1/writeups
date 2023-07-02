@@ -4,8 +4,16 @@ export default function Box({ response } : any){
         <div>
             {response?.map((resp : File) => {
                 return (
-                    <div>
-                        <h1>{resp.name}</h1>
+                    <div className="w-1/2 h-[150px] 
+                                    rounded-lg bg-orange-400
+                                    ">
+                        <div className="w-full h-3/4 ">
+                            <img className="w-full aspect-[2/3] object-contain" 
+                                 src="../HTB_logo.png"
+                            ></img>
+                        </div>                
+                        
+                        <h1 className="text-center align-text-bottom" >{resp.name}</h1>
                     </div>
                 )
             })}
