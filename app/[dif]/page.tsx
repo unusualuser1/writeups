@@ -3,6 +3,7 @@ const gitToken : string = process.env.TOKEN as string;
 import { fetchRepoFiles } from "@/components/fetchFunc";
 import { json } from "stream/consumers";
 import Box from "@/components/Box";
+import Link from "next/link";
 
 interface File{
     name: string;
@@ -20,7 +21,15 @@ export default async function difficulty({params} : any){
   
     return (
         <div>
-        <Box response={response}/>
+            {response?.map((resp : File) => {
+                    return (
+                        <Link href={`/${dif}/${resp.name}`}>
+                            <div>
+                                <h1>{resp.name}</h1>
+                            </div>
+                        </Link>
+                    )
+                })}
         </div>
     );
 }
