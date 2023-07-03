@@ -3,6 +3,7 @@ const gitToken : string = process.env.TOKEN as string;
 import { fetchRepoFiles } from "@/components/fetchFunc";
 import { json } from "stream/consumers";
 import Box from "@/components/Box";
+import Link from "next/link";
 
 interface File{
     name: string;
