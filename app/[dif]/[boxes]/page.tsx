@@ -7,8 +7,6 @@ const gitToken : string = process.env.TOKEN as string;
 export default async function Boxes({params}:any){
     const {dif, boxes} = params || {};
     let response = await fetchRepoFiles('Wanasgheo','Writeups', gitToken, `/HackTheBox/${dif}/${boxes}/README.md?ref=main`);
-    console.log(response);
-
 
     const decodedContent = response.content
     ? atob(response.content.toString())
