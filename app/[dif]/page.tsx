@@ -20,16 +20,8 @@ export default async function difficulty({params} : any){
     console.log(response);
   
     return (
-        <div>
-            {response?.map((resp : File) => {
-                    return (
-                        <Link href={`/${dif}/${resp.name}`}>
-                            <div>
-                                <h1>{resp.name}</h1>
-                            </div>
-                        </Link>
-                    )
-                })}
+        <div className="w-[50vw] h-[400px] bg-slate-500 translate-y-28 translate-x-1/2 py-4 px-4 rounded-lg">
+            <Box response={response}/>
         </div>
     );
 }
