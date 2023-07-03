@@ -20,13 +20,22 @@ export default async function difficulty({params} : any){
     console.log(response);
   
     return (
-        <div className="w-[50vw] h-[400px] bg-slate-500 translate-y-28 translate-x-1/2 py-4 px-4 rounded-lg">
+        <div className=" w-[full] h-[400px] min-w-[300px] bg-slate-500 translate-y-28 py-8 px-8 rounded-lg">
             {response?.map((resp : File) => {
               return(
-                <Link href={`/${dif}/${resp.name}`}>
-                    <div>
-                        {resp.name}
-                    </div>
+                <Link href={`/${dif}/${resp.name}`} className="w-1/2 h-1/4" >
+
+                  <div className=" inline-flex
+                  bg-orange-500 
+                  rounded-lg ">
+                      <div className="h-full w-ful">
+                        <img className=" h-full" src="../../HTB_logo.png"  alt="" />
+                      </div>
+                      
+                      <div className="flex w-full justify-center items-center "> 
+                        <center><h2 className=" align-middle">{resp.name}</h2></center>
+                      </div>
+                  </div>
                 </Link>
               );
             })}
