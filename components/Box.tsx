@@ -1,15 +1,20 @@
-export default function Box({ response } : any){
-    //console.log(response)
-    return(
-        <div className="
-        h-1/4 w-1/2
-        bg-orange-500 
-        rounded-lg
-        ">
-            
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { oneDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import React from 'react';
+import { Cinzel_Decorative } from 'next/font/google';
 
-          <h1 className=" text-center">dentro</h1>
+ const Component = ({children, className} : any) => {
+  const lang: string = className && className.substring(9);
 
-        </div>
-    );
-}
+  return ( 
+    <div>
+      <SyntaxHighlighter language={lang} style={ oneDark } showLineNumbers={true}
+      codeTagProps={{ style: { fontSize: "inherit" } }}
+      customStyle={{ fontSize: 18 }}>
+        {children}
+      </SyntaxHighlighter>
+    </div>
+    
+  );
+};
+export default Component;
