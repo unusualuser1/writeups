@@ -24,7 +24,7 @@ export default async function difficulty({params} : any){
             return(
               <Link href={`/${dif}/${resp.name}`}>
 
-                <div className="inline-flex w-[30vw] h-1/4 m-2
+                <div className="inline-flex w-[25vw] h-1/4 m-2
                 bg-white 
                 rounded-lg 
                 min-w-[300px]">
@@ -36,7 +36,7 @@ export default async function difficulty({params} : any){
                       <center><h2 className="text-black align-middle">{resp.name}</h2></center>
                     </div>
                 </div>
-              </Link>
+              </Link> 
             );
           })}
       </div>
