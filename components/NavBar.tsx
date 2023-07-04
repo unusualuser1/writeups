@@ -1,50 +1,60 @@
 "use client"
 
-import { motion } from "framer-motion"
+import { animate } from "framer-motion/dom"
+import { delay, motion } from "framer-motion"
 import Link from "next/link"
 
 const links = [
     {href: "/", text: "Home"},
-    {href: "/", text: "Home"}
+    {href: "/HTB", text: "HTB"},
+    {href: "/", text: "Learn"}
 ]
 
 export default function NavBar(){
-    const handleHoverStart = () =>{
-        <div className="bg-white w-screen h-300px pt-[100px]">
-
-        </div>
-    };
+    const box = document.getElementById("box")
     return(
         <div 
             id="NavBar"
-            className=" inline-flex
-                        h-[100px] 
-                        w-screen
-                      bg-lime-500
-                        px-96
-                        text-black
-                        items-center
-                        "
+            className=" fixed
+                        z-10
+                        inline-flex
+                        h-[50px]
+                        w-[50vw] 
+                      bg-[#faf2a1]
+                      text-black
+                        items-center 
+                        justify-center
+                        top-0 left-0 right-0
+                        translate-x-1/2
+                        translate-y-[30px]
+                        rounded-md"
         >
             
             <ul 
-                className=" border-orange-500 
-                            border
-                            space-x-32
+                className=" space-x-32
                             inline-flex"
             >
                 {links.map((l) =>(
-                <li>
-                    <motion.div
-                        whileHover={{
-                            fontWeight: "bold"
-                        }}
-                    >
-                        <Link href = {l.href}>
-                            {l.text}
-                        </Link>
-                    </motion.div>
-                </li>
+                <motion.li
+
+                    whileHover={{
+                        fontWeight: "bold",
+                        scale: 1.3,
+                    }}
+
+                    animate={{
+                        type: "inertia",                            
+                    }}
+
+                    transition={{
+                        duration: 0.3 
+                    }}
+                >
+                    
+                    <Link href = {l.href}>
+                        {l.text}
+                    </Link>
+                </motion.li>
                 ))}
             </ul>
             
