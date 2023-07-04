@@ -26,8 +26,6 @@ export default async function HTB_Home() {
   const difficulties = await contentHTB.json();
   return (
     <main>
-      
-      <Header/>
       <PageWrapper>
         <div className="flex flex-wrap w-full h-screen items-center justify-center pt-28 pb-36 px-10">
           {difficulties?.map((difficulty : File)=>{
@@ -36,7 +34,6 @@ export default async function HTB_Home() {
         </div>
         
       </PageWrapper>
-      <Footer/>
     </main>
   )
 }
