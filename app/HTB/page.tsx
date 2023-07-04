@@ -1,6 +1,6 @@
-import Header from "../components/Header"
-import Footer from "../components/Footer"
-import DiffPreview from "../components/DiffPreview"
+import Header from "../../components/Header"
+import Footer from "../../components/Footer"
+import DiffPreview from "../../components/DiffPreview"
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { Anybody } from "next/font/google";
@@ -18,7 +18,7 @@ interface File{
 }
 
 
-export default async function Home() {
+export default async function HTB_Home() {
   const x = await fetchRepoFiles('Wanasgheo','Writeups', gitToken);
   const dir = x.find( (file : File) => file.name === 'HackTheBox' && file.type === 'dir');
 
