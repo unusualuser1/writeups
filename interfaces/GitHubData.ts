@@ -1,4 +1,4 @@
-export interface File{
+export interface GitHubData{
     name: string;
     path: string;
     type: string;
