@@ -1,17 +1,21 @@
 "use client"
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, useAnimation } from "framer-motion";
+import { useEffect } from 'react';
 
-export const MenuAnimation = ({ children }:any) =>(
-    <>
-        <AnimatePresence>
-            <motion.div
-            initial={{width: "30px", height: "30px", borderRadius: "10px"}}
-            animate={{rotate: 225, width: "50vw", height: "50px"}}
-            exit={{opacity:0, y:15}}
-            transition={{duration:3}}
-            >
-            {children}
-            </motion.div>
-        </AnimatePresence>
-    </>
-);
+const controls = useAnimation();
+
+const animationSequence = async () => {
+    await controls.start({ scale: 1, rotate: 360 , transition: {type: "spring"}}); // Prima animazione
+    await controls.start({ x: 200 }); // Seconda animazione
+};
+
+useEffect(() => {
+    animationSequence();
+  }, []);
+
+const MenuAnimation =()=>{
+    return(
+        <>
+        </>
+    )
+}
