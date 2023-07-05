@@ -2,7 +2,6 @@ import './globals.css'
 import { Comfortaa, Inter } from 'next/font/google'
 import NavBar from '@/components/NavBar'
 import Footer from '@/components/Footer'
-import { MenuAnimation } from '@/components/MenuAnimation'
 
 const inter = Comfortaa({ subsets: ['latin'] })
 
@@ -20,9 +19,7 @@ export default function RootLayout({
     <html lang="en">
       
       <body className={inter.className}>
-        <MenuAnimation>
-          <NavBar/>
-        </MenuAnimation>
+        <NavBar/>
         {children}
         <Footer/>
       </body>
