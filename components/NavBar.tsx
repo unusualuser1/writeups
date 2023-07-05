@@ -11,7 +11,7 @@ const links = [
 ]
 
 export default function NavBar(){
-    const box = document.getElementById("box")
+    //const box = document.getElementById("box")
     return(
         <div 
             id="NavBar"
