@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 export default function DiffPreview ( {difficulty} : any){
+    console.log('aad',difficulty);
     const { name } = difficulty;
      let x ='';
  
