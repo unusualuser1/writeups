@@ -5,23 +5,14 @@ import { json } from "stream/consumers";
 import Box from "@/components/Box";
 import Link from "next/link";
 
-interface File{
-    name: string;
-    path: string;
-    type: string;
-    url: string;
-    download_url: string;
-  }
-
-export default async function difficulty({params} : any){
-    const {dif} = params;
-    let content = null;
-    let response = await fetchRepoFiles('Wanasgheo','Writeups', gitToken, `/HackTheBox/${dif}?ref=main`);
+export default async function Difficulty({params} : any){
+    const {difficulty} = params;
+    let response = await fetchRepoFiles('Wanasgheo','Writeups', gitToken, `/HackTheBox/${difficulty}?ref=main`);
     return (
       <div className=" w-[full] h-[400px] min-w-[300px] bg-slate-500 translate-y-28 py-8 px-8 rounded-lg m-4">
           {response?.map((resp : File) => {
             return(
-              <Link href={`/HTB/${dif}/${resp.name}`}>
+              <Link href={`/HTB/${difficulty}/${resp.name}`}>
 
                 <div className="inline-flex w-[25vw] h-1/4 m-2
                 bg-white 

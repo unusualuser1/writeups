@@ -6,16 +6,8 @@ import Link from 'next/link';
 import { Anybody } from "next/font/google";
 import { fetchRepoFiles } from "@/components/fetchFunc";
 import {PageWrapper} from "@/components/PageWrapper";
+import { File } from "@/interfaces/File";
 const gitToken : string = process.env.TOKEN as string;
-
-interface File{
-  name: string;
-  path: string;
-  type: string;
-  url: string;
-  download_url: string;
-}
-
 
 export default async function HTB_Home() {
   const x = await fetchRepoFiles('Wanasgheo','Writeups', gitToken);
