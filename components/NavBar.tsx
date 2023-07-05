@@ -16,38 +16,6 @@ const links = [
 ]
 
 export default function NavBar(){
-
-  
-    return(
-        <div 
-            id="NavBar"
-            className=" fixed
-                        z-10
-                        inline-flex
-                        h-[50px]
-                        w-[50vw] 
-                      bg-[#faf2a1]
-                      text-black
-                        items-center 
-                        justify-center
-                        top-0 left-0 right-0
-                        translate-x-1/2
-                        translate-y-[30px]
-                        rounded-md"
-        >
-            
-            <ul 
-                className=" space-x-32
-                            inline-flex"
-            >
-                {links.map((l) =>(
-                <motion.li
-
-                    whileHover={{
-                        fontWeight: "bold",
-                        scale: 1.3,
-                    }}
-
     const controls = useAnimation();
 
 
@@ -63,8 +31,9 @@ export default function NavBar(){
     useEffect(() => {
         animationSequence();
       }, []);
-
+  
     return(
+        
         <>
             <motion.div
                 initial={{scale: 0, y: "30px", x: "25vw" }}
