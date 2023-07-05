@@ -1,5 +1,5 @@
 "use client"
-import { animate, motion, useAnimation } from "framer-motion"
+import { motion, useAnimation } from "framer-motion"
 import Link from "next/link"
 import { useEffect } from 'react';
 
@@ -20,12 +20,14 @@ export default function NavBar(){
 
 
     const animationSequence = async () => {
-        await controls.start({  scale: 1, 
-                                rotate: 360 , 
-                                transition: {type: "spring", }}); 
-                                // Prima animazione
-        await controls.start({ width: "50vw"}); // Seconda animazione
-        await controls.start({y: -15})
+        await controls.start({    
+            scale: 1, 
+            rotate: 360 , 
+            transition: {type: "spring", }}); 
+            await controls.start({y: -45})
+            await controls.start({ width: "50vw", x:"25vw"});
+            await controls.start({y: -15})
+        
     };
     
     useEffect(() => {
@@ -36,7 +38,7 @@ export default function NavBar(){
         
         <>
             <motion.div
-                initial={{scale: 0, y: "30px", x: "25vw" }}
+                initial={{scale: 0, y: "30px", x: "50vw" }}
                 animate={controls}
                 onMouseOver={()=>  controls.start({height: "50px", y: 20, transition:{duration:0.5} })}
                 onMouseLeave={()=>  controls.start({height: "40px", y: -15, transition:{duration:0.5} })}
@@ -51,7 +53,7 @@ export default function NavBar(){
                             items-center 
                             justify-center
                             top-0 left-0 right-0
-                            rounded-2xl"
+                             rounded-md"
             >         
                 <ul 
                     className=" space-x-32
