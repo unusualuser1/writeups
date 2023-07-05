@@ -19,45 +19,76 @@ export default function NavBar(){
     const controls = useAnimation();
 
 
-    const animationSequence = async () => {
+    const MenuAnimation = async () => {
         await controls.start({    
-            scale: 1, 
-            rotate: 360 , 
+            scale: 1,
             transition: {type: "spring", }}); 
-            await controls.start({y: -45})
-            await controls.start({ width: "50vw", x:"25vw"});
-            await controls.start({y: -15})
+
+        await controls.start({
+            scale: 0,
+            x: "120vw",
+            });
+
+        await controls.start({ 
+            scale: 1,
+            width: "50vw",
+            height:"65vh", y: "10vh"});
+
+        await controls.start({
+            x: "80vw"
+        });
         
     };
     
     useEffect(() => {
-        animationSequence();
+        MenuAnimation();
       }, []);
   
     return(
         
         <>
             <motion.div
-                initial={{scale: 0, y: "30px", x: "50vw" }}
+                initial={{scale: 0, y: "40vh", x: "80vw" }}
                 animate={controls}
-                onMouseOver={()=>  controls.start({height: "50px", y: 20, transition:{duration:0.5} })}
-                onMouseLeave={()=>  controls.start({height: "40px", y: -15, transition:{duration:0.5} })}
+
+                onMouseOver={()=> controls.start({
+                    width: "70vw",
+                    height: "50vh",
+                    x: "70vw",
+                    y: "20vh",
+                    transition:{duration:0.5} })}
+
+                onMouseLeave={()=> controls.start({
+                    width: "50vw",
+                    height:"65vh",
+                    y: "10vh",
+                    x:"80vw",
+                    transition:{duration:0.5} })}
+
                 className=" 
                             fixed
                             z-10
                             inline-flex
                             w-[40px] 
                             h-[40px] 
-                            bg-[#faf2a1]
+                            bg-white
                             text-black
                             items-center 
                             justify-center
                             top-0 left-0 right-0
-                             rounded-md"
+                            rounded-[50%]"
             >         
-                <ul 
+                <motion.ul 
                     className=" space-x-32
-                                inline-flex"
+                                inline-flex
+"
+
+                    initial={{  scale: 0,
+                                x:"90vw",
+                                y:"10vh" 
+                            }}
+                    
+                    onMouseOver={()=>{ controls.start({scale:1})}}
                 >
                     {links.map((l) =>(
                     <motion.li                       
@@ -79,11 +110,11 @@ export default function NavBar(){
                     >
                         
                         <Link href = {l.href}>
-                            {l.text}
+                            <img src="../littleHTB.png" alt={l.text}></img>
                         </Link>
                     </motion.li>
                     ))}
-                </ul>
+                </motion.ul>
             </motion.div>
         </>
     )
