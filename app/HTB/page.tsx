@@ -4,7 +4,6 @@ import DiffPreview from "../../components/DiffPreview"
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { Anybody } from "next/font/google";
-import BorderSpawner from "@/components/BorderSpawner";
 import { fetchRepoFiles } from "@/components/fetchFunc";
 import {PageWrapper} from "@/components/PageWrapper";
 const gitToken : string = process.env.TOKEN as string;
