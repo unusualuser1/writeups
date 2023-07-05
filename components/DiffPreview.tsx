@@ -1,7 +1,7 @@
 import Link from "next/link";
+import { GitHubData } from "@/interfaces/GitHubData";
 
 export default function DiffPreview ( {difficulty} : any){
-    console.log('aad',difficulty);
     const { name } = difficulty;
      let x ='';
  
