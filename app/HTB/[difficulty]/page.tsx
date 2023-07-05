@@ -10,6 +10,7 @@ export default async function Difficulty({params} : any){
     let response = await fetchRepoFiles('Wanasgheo','Writeups', gitToken, `/HackTheBox/${difficulty}?ref=main`);
     return (
       <div className=" w-[full] h-[400px] min-w-[300px] bg-slate-500 translate-y-28 py-8 px-8 rounded-lg m-4">
+          
           {response?.map((resp : File) => {
             return(
               <Link href={`/HTB/${difficulty}/${resp.name}`}>
@@ -17,7 +18,7 @@ export default async function Difficulty({params} : any){
                 <div className="inline-flex w-[25vw] h-1/4 m-2
                 bg-white 
                 rounded-lg 
-                min-w-[300px]">
+                min-w-[200px]"> 
                     <div className=" object-contain aspect-[3/2] w-full">
                       <img className=" rounded-l-lg h-full" src="../../HTB_logo.png"  alt="" />
                     </div>
@@ -27,8 +28,9 @@ export default async function Difficulty({params} : any){
                     </div>
                 </div>
               </Link> 
-            );
+            )
           })}
+
       </div>
   );
     
