@@ -18,6 +18,7 @@ const links = [
 export default function NavBar(){
     const controls = useAnimation();
 
+
     const animationSequence = async () => {
         await controls.start({    
             scale: 1, 
@@ -32,8 +33,9 @@ export default function NavBar(){
     useEffect(() => {
         animationSequence();
       }, []);
-
+  
     return(
+        
         <>
             <motion.div
                 initial={{scale: 0, y: "30px", x: "50vw" }}
