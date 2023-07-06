@@ -1,12 +1,8 @@
 "use client"
-import { motion, useAnimation } from "framer-motion"
-import Link from "next/link"
+import { animate, motion, useAnimation } from "framer-motion"
 import { useEffect } from 'react';
-
-
-
-
-
+import Menu from "./Menu";
+import Link from "next/link";
 
 
 const links = [
@@ -18,26 +14,26 @@ const links = [
 export default function NavBar(){
     const controls = useAnimation();
     
-    
-        const MenuAnimation = async () => {
-            await controls.start({    
-                scale: 1,
-                transition: {type: "spring", }}); 
-    
-            await controls.start({
-                x:"7.5vw",
-                width:"85vw",
-                height:"70px"});
-    
-            await controls.start({
-                y:-10,
-                transition:{duration:0.2,}});
-    
-            
-        };
+
+    const NavBarAnimation = async () => {
+        await controls.start({    
+            scale: 1,
+            transition: {type: "spring", }}); 
+
+        await controls.start({
+            x:"7.5vw",
+            width:"85vw",
+            height:"70px"});
+
+        await controls.start({
+            y:-10,
+            transition:{duration:0.2,}});
+
+        
+    };
     
     useEffect(() => {
-        MenuAnimation();
+        NavBarAnimation();
       }, []);
   
     return(
@@ -46,8 +42,6 @@ export default function NavBar(){
             <motion.div
                 initial={{scale: 0, y: "-15vh", x: "80vw" }}
                 animate={controls}
-
-                
 
                 className=" 
                             fixed
@@ -61,45 +55,9 @@ export default function NavBar(){
                             justify-center
                             top-0 left-0 right-0
                             rounded-lg"
-            >         
-                <motion.ul 
-                    className=" space-x-32
-                                inline-flex
-"
-
-                    initial={{  scale: 0,
-                                x:"90vw",
-                                y:"10vh" 
-                            }}
-                    
-                    onMouseOver={()=>{ controls.start({scale:1})}}
-                >
-                    {links.map((l) =>(
-                    <motion.li                       
-                        initial={{scale: 0}}    
-
-                        whileHover={{
-                            fontWeight: "bold",
-                            scale: 1.3,
-                        }}
-
-                        animate={{
-                            type: "inertia",
-                                                      
-                        }}
-
-                        transition={{
-                            duration: 0.3 
-                        }}
-                    >
-                        
-                        <Link href = {l.href}>
-                            <img src="../littleHTB.png" alt={l.text}></img>
-                        </Link>
-                    </motion.li>
-                    ))}
-                </motion.ul>
-            </motion.div>
+            >
+            <Menu/>        
+            </motion.div> 
         </>
     )
 }
