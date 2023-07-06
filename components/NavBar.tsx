@@ -17,28 +17,24 @@ const links = [
 
 export default function NavBar(){
     const controls = useAnimation();
-
-
-    const MenuAnimation = async () => {
-        await controls.start({    
-            scale: 1,
-            transition: {type: "spring", }}); 
-
-        await controls.start({
-            scale: 0,
-            x: "120vw",
-            });
-
-        await controls.start({ 
-            scale: 1,
-            width: "50vw",
-            height:"65vh", y: "10vh"});
-
-        await controls.start({
-            x: "80vw"
-        });
-        
-    };
+    
+    
+        const MenuAnimation = async () => {
+            await controls.start({    
+                scale: 1,
+                transition: {type: "spring", }}); 
+    
+            await controls.start({
+                x:"7.5vw",
+                width:"85vw",
+                height:"70px"});
+    
+            await controls.start({
+                y:-10,
+                transition:{duration:0.2,}});
+    
+            
+        };
     
     useEffect(() => {
         MenuAnimation();
@@ -48,22 +44,10 @@ export default function NavBar(){
         
         <>
             <motion.div
-                initial={{scale: 0, y: "40vh", x: "80vw" }}
+                initial={{scale: 0, y: "-15vh", x: "80vw" }}
                 animate={controls}
 
-                onMouseOver={()=> controls.start({
-                    width: "70vw",
-                    height: "50vh",
-                    x: "70vw",
-                    y: "20vh",
-                    transition:{duration:0.5} })}
-
-                onMouseLeave={()=> controls.start({
-                    width: "50vw",
-                    height:"65vh",
-                    y: "10vh",
-                    x:"80vw",
-                    transition:{duration:0.5} })}
+                
 
                 className=" 
                             fixed
@@ -76,7 +60,7 @@ export default function NavBar(){
                             items-center 
                             justify-center
                             top-0 left-0 right-0
-                            rounded-[50%]"
+                            rounded-lg"
             >         
                 <motion.ul 
                     className=" space-x-32
