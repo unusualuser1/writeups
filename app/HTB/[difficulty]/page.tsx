@@ -9,18 +9,9 @@ import Link from "next/link";
 import { fetchBoxes } from "@/functions/fetchBoxes";
 import { GitHubData } from "@/interfaces/GitHubData";
 
-export default function Difficulty({params} : any){
+export default async function Difficulty({params} : any){
     const {difficulty} = params;
-    const [boxes, setBoxes] = useState<GitHubData[] | null>(null);
-
-  useEffect(() => {
-    async function fetchData() {
-      const response = await fetchBoxes(difficulty);
-      setBoxes(response);
-    }
-
-    fetchData();
-  }, []);
+  const boxes = await fetchBoxes(difficulty);
     return (
       <div className=" w-[full] h-[400px] min-w-[300px] bg-slate-500 translate-y-28 py-8 px-8 rounded-lg m-4">
           {boxes && boxes?.map((box) => (
