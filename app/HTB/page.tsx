@@ -1,4 +1,3 @@
-'use client';
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
@@ -10,18 +9,9 @@ import DiffPreview from '@/components/DiffPreview';
 
 const gitToken = process.env.TOKEN as string;
 
-export default function HTB_Home() {
-  const [difficulties, setDifficulties] = useState<GitHubData[] | null>(null);
+export default async function HTB_Home() {
 
-  useEffect(() => {
-    async function fetchData() {
-      const response = await fetchDifficulties();
-      setDifficulties(response);
-    }
-
-    fetchData();
-  }, []);
-  
+  const difficulties = await fetchDifficulties();
   return (
     <main>
       <PageWrapper>
