@@ -1,15 +1,7 @@
 "use client"
-import { animate, motion, useAnimation } from "framer-motion"
+import { motion, useAnimation } from "framer-motion"
 import { useEffect } from 'react';
 import Menu from "./Menu";
-import Link from "next/link";
-
-
-const links = [
-    {href: "/", text: "Home"},
-    {href: "/HTB", text: "HTB"},
-    {href: "/", text: "Learn"}
-]
 
 export default function NavBar(){
     const controls = useAnimation();
