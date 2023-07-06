@@ -1,5 +1,7 @@
 import Link from "next/link"
-import { motion } from "framer-motion"
+import { useRouter } from "next/router";
+import { useAnimation,motion, color } from "framer-motion"
+import path from "node:path/posix";
 
 
 const links = [
@@ -9,36 +11,33 @@ const links = [
 ]
 
 export default function Menu(){
+
     return(
         <motion.ul 
-                    className=" space-x-32
-                                inline-flex
-                                z-10
-                                text-black"
-                >
-                    {links.map((l) =>(
-                        <motion.li                       
-                            initial={{scale: 1}}    
+            className=" space-x-32
+                        inline-flex
+                        z-10
+                        text-black"
+        >   
+        {/* <li><img src="../logo.ico" alt="logo" ></img></li> */}
+            {links.map((l) =>(
+                <motion.li                       
+                    initial={{scale: 1}}    
 
-                            whileHover={{
-                                fontWeight: "bold",
-                                scale: 1.3,
-                            }}
+                    whileHover={{
+                        fontWeight: "bold",
+                        scale: 1.3,
+                    }}
 
-                            animate={{
-                                type: "inertia",
-                                                            
-                            }}
-
-                            transition={{
-                                duration: 0.3 
-                            }}
-                        >
-                            <Link href = {l.href}>
-                                {l.text}
-                            </Link>
-                        </motion.li>
-                    ))}
-                </motion.ul>
+                    transition={{
+                        duration: 0.1 
+                    }}
+                >   
+                    <Link href = {l.href}>
+                        {l.text}
+                    </Link>
+                </motion.li>
+            ))}
+        </motion.ul>
     )
 }
