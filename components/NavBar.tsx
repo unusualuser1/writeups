@@ -4,22 +4,17 @@ import { useEffect } from 'react';
 import Menu from "./Menu";
 
 export default function NavBar(){
+
     const controls = useAnimation();
     
 
     const NavBarAnimation = async () => {
         await controls.start({    
-            scale: 1,
-            transition: {type: "spring", }}); 
-
-        await controls.start({
-            x:"7.5vw",
-            width:"85vw",
-            height:"70px"});
+            scale: 1});
 
         await controls.start({
             y:-10,
-            transition:{duration:0.2,}});
+            transition:{duration:0.1,}});
 
         
     };
@@ -32,7 +27,7 @@ export default function NavBar(){
         
         <>
             <motion.div
-                initial={{scale: 0, y: "-15vh", x: "80vw" }}
+                initial={{scale: 0, height:"70px", y: "-15vh", x: "7.5vw", width:"85vw"}}
                 animate={controls}
 
                 className=" 
@@ -41,7 +36,7 @@ export default function NavBar(){
                             inline-flex
                             w-[40px] 
                             h-[40px] 
-                            bg-white
+                            bg-[#e0e0e0]
                             text-black
                             items-center 
                             justify-center
