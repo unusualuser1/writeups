@@ -1,3 +1,4 @@
+'use client'
 import { motion } from "framer-motion";
 import { fetchDifficulties } from "@/functions/fetchDifficulties"
 import { fetchBoxes } from "@/functions/fetchBoxes";
