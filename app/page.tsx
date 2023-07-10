@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { fetchDifficulties } from "@/functions/fetchDifficulties"
 import { fetchBoxes } from "@/functions/fetchBoxes";
 import BoxPreview from "@/components/BoxPreview";
@@ -11,8 +12,8 @@ const octokit = new Octokit({
 });
 
 export default async function Home(){
-    //get all commits
-    const commits = await octokit.rest.repos.listCommits({
+  
+  const commits = await octokit.rest.repos.listCommits({
       owner : 'Wanasgheo',
       repo: 'Writeups',
     })
@@ -28,36 +29,90 @@ export default async function Home(){
     //console.log(commitResponse)
     const commitData = commitResponse.data.files || [];
     const {status, filename } = commitData[0];
-    console.log(status, filename);
-    let g;
     const readme = await octokit.request(`GET /repos/Wanasgheo/Writeups/contents/${filename}`);
 
     const decodedContent = readme?.data.content ? atob(readme?.data.content.toString()) : "";
-    console.log(decodedContent)
-    
+
+    const handleMouseEnter = (event) =>{
+        const target = event.currentTarget;
+        target.style.width='100%';
+        target.style.color='white';
+        target.style.fontSize='25px';
+        target.style.background='#3a606e';
+        target.zIndex = '1';
+        target.style.transition = 'width 0.3s';
+    }
+
+    const handleMouseLeave = (event) =>{
+        const target = event.currentTarget;
+        target.style.width='33%';
+        target.style.color='white';
+        target.style.background='linear-gradient(rgba(255, 255, 255, 0.2),#061826)';
+        target.style.fontSize='16px';
+        target.zIndex = '0';
+        target.style.transition = 'width 0.3s';
+    }
+
     return(
         <main>
+            <div className="flex
+                            relative
+                            w-screen
+                            h-[550px] 
+                            py-[80px] 
+                            space-x-4
+                            px-36"
+            >
+                <motion.div className=" gradient
+                                        w-1/3
+                                        text-white
+                                        py-16
+                                        px-4
+                                        rounded-lg"
+                            initial={{x: 0}}
+                            onMouseEnter={(event) => handleMouseEnter(event)}
+                            onMouseLeave={(event) => handleMouseLeave(event)}
+                >
+                    <center>
+                        <p>ULTIMA MACCHINA CARICATA</p>
+                    </center>
+                </motion.div>
+
+                <motion.div className=" gradient
+                                        w-1/3
+                                        h-full
+                                        py-16
+                                        px-4
+                                        text-white
+                                        rounded-lg"
+                            initial={{x: 0}}
+                            onMouseEnter={(event) => handleMouseEnter(event)}
+                            
+                            onMouseLeave={(event) => handleMouseLeave(event)}
+
+                >
+                    <center>
+                        <p>ULTIMO LEARN CARICATO</p>
+                    </center>
+                </motion.div>
+
+                <motion.div className=" gradient
+                                        w-1/3
+                                        h-full
+                                        py-16
+                                        px-4
+                                        text-white
+                                        rounded-lg "
+                            initial={{ x: 0}}
+                            onMouseEnter={(event) => handleMouseEnter(event)}
+                            onMouseLeave={(event) => handleMouseLeave(event)}
+                            
+
+                >   
+                    <center><h1>I PIU' CERCATI</h1></center>
+                </motion.div>
+            </div>
             
         </main>
     )
 }
-
-/**
- * <Link href={`/HTB/${difficulty}/${response.data[0].name}`}>
-
-          <div className="inline-flex w-[25vw] h-1/4 m-2
-          bg-white 
-          rounded-lg 
-          min-w-[300px]">
-              <div className=" object-contain aspect-[3/2] w-full">
-                <img className=" rounded-l-lg h-full" src="../../HTB_logo.png"  alt="" />
-              </div>
-              
-              <div className="flex w-full justify-center items-center "> 
-                <center><h2 className="text-black align-middle">{box[0].name}</h2></center>
-              </div>
-          </div>
-        </Link> 
-
-        
- */

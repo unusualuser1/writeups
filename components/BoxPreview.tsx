@@ -5,10 +5,14 @@ export default function BoxPreview ( {box, difficulty} : any){
     return(
         <Link href={`/HTB/${difficulty}/${box.name}`}>
 
-          <div className="inline-flex w-[25vw] h-1/4 m-2
-          bg-white 
-          rounded-lg 
-          min-w-[300px]">
+          <div className="inline-flex 
+                          w-[25vw] 
+                          h-1/4 
+                          m-2
+                          bg-white 
+                          rounded-lg 
+                          min-w-[300px]"
+          >
               <div className=" object-contain aspect-[3/2] w-full">
                 <img className=" rounded-l-lg h-full" src="../../HTB_logo.png"  alt="" />
               </div>
