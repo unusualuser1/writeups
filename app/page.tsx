@@ -1,7 +1,37 @@
-"use client"
 import { motion } from "framer-motion";
+import { fetchDifficulties } from "@/functions/fetchDifficulties"
+import { fetchBoxes } from "@/functions/fetchBoxes";
+import BoxPreview from "@/components/BoxPreview";
+import Link from "next/link";
+import { Octokit } from "@octokit/rest";
+import { GitHubData } from "@/interfaces/GitHubData";
+import { fetchWriteup } from "@/functions/fetchWriteup";
 
-export default function Home(){
+const octokit = new Octokit({
+  auth: process.env.TOKEN
+});
+
+export default async function Home(){
+  
+  const commits = await octokit.rest.repos.listCommits({
+      owner : 'Wanasgheo',
+      repo: 'Writeups',
+    })
+    
+    //pick latest commit
+
+    const commitResponse = await octokit.rest.repos.getCommit({
+      owner : 'Wanasgheo',
+      repo: 'Writeups',
+      ref: commits.data[0].sha,
+    })
+    
+    //console.log(commitResponse)
+    const commitData = commitResponse.data.files || [];
+    const {status, filename } = commitData[0];
+    const readme = await octokit.request(`GET /repos/Wanasgheo/Writeups/contents/${filename}`);
+
+    const decodedContent = readme?.data.content ? atob(readme?.data.content.toString()) : "";
 
     const handleMouseEnter = (event) =>{
         const target = event.currentTarget;

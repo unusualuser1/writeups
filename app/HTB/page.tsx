@@ -11,12 +11,13 @@ const gitToken = process.env.TOKEN as string;
 
 export default async function HTB_Home() {
 
-  const difficulties = await fetchDifficulties();
+  const difficulties = (await fetchDifficulties()).data;
+  console.log(difficulties)
   return (
     <main>
       <PageWrapper>
         <div className="flex flex-wrap w-full h-screen items-center justify-center pt-28 pb-36 px-10">
-          {difficulties?.map((difficulty) => (
+        {difficulties?.map((difficulty : any) => (
             difficulties && <DiffPreview key={difficulty.path} difficulty={difficulty} />
           ))}
         </div>
