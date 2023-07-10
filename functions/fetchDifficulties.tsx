@@ -1,7 +1,18 @@
-import { GitHubData } from "@/interfaces/GitHubData"; 
-const gitToken = process.env.TOKEN;
+import { Octokit } from "octokit";
+import { GitHubData } from "@/interfaces/GitHubData";
 
-export function fetchDifficulties(): Promise<GitHubData[]> {
-  return fetch(`https://api.github.com/repos/Wanasgheo/Writeups/contents/HackTheBox?ref=main`, { headers : { Authorization : `Bearer ${gitToken}` }})
-    .then(response => response.json());
+const octokit = new Octokit({
+  auth: process.env.TOKEN
+});
+
+export async function fetchDifficulties() {
+  try {
+    return await octokit.request("GET /repos/Wanasgheo/Writeups/contents/HackTheBox", { 
+      sort: "updated",
+      direction: "desc"
+    });
+  } catch (error) {
+    console.error('Failed to fetch difficulties:', error);
+    throw new Error('Failed to fetch data');
+  }
 }
