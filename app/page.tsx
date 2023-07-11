@@ -1,9 +1,70 @@
-"use client"
+'use client'
 import { motion } from "framer-motion";
+import BoxPreview from "@/components/BoxPreview";
+import Link from "next/link";
+import { Octokit } from "@octokit/rest";
+import gfm from "remark-gfm";
+import Image from "next/image";
 
-export default function Home(){
+import { unified } from "unified";
+import remarkParse from "remark-parse"
 
-    const handleMouseEnter = (event) =>{
+
+const octokit = new Octokit({
+  auth: process.env.TOKEN
+});
+
+
+export default async function Home(){
+  
+    //get all commits
+  const commits = await octokit.rest.repos.listCommits({
+      owner : 'Wanasgheo',
+      repo: 'Writeups',
+    })
+    
+    //pick latest commit
+
+    const commitResponse = await octokit.rest.repos.getCommit({
+      owner : 'Wanasgheo',
+      repo: 'Writeups',
+      ref: commits.data[0].sha,
+    })
+    
+    const commitData = commitResponse.data.files || [];
+    const {status, filename } = commitData[0];
+
+    const dif_box = filename.split('/')
+    console.log(dif_box)
+    const readme = await octokit.request(`GET /repos/Wanasgheo/Writeups/contents/${filename}`);
+    //console.log(readme)
+    const decodedContent = readme?.data.content ? atob(readme?.data.content.toString()) : "";
+    //console.log(decodedContent);
+    const processor = unified().use(remarkParse);
+    const ast = processor.parse(decodedContent);
+
+    const elements:any = [];
+    traverse(ast);
+
+    function traverse(node : any) {
+      elements.push(node);
+      if (node.children) {
+        node.children.forEach((child:any) => {
+          traverse(child);
+        });
+      }
+    }
+    let img:any;
+    elements.forEach((element:any) => {
+      if(element.type === 'image'){
+        img = element;
+        return;
+      }
+      
+    });
+
+   
+    const handleMouseEnter = (event:any) =>{
         const target = event.currentTarget;
         target.style.width='100%';
         target.style.color='white';
@@ -13,7 +74,7 @@ export default function Home(){
         target.style.transition = 'width 0.3s';
     }
 
-    const handleMouseLeave = (event) =>{
+    const handleMouseLeave = (event:any) =>{
         const target = event.currentTarget;
         target.style.width='33%';
         target.style.color='white';
@@ -44,7 +105,10 @@ export default function Home(){
                             onMouseLeave={(event) => handleMouseLeave(event)}
                 >
                     <center>
-                        <p>ULTIMA MACCHINA CARICATA</p>
+                      <Link href={`/HTB/${dif_box[1]}/${dif_box[2]}`}>
+                      <Image src={img.url} alt={img.alt} width={500} height={300} />
+                      </Link>
+                     
                     </center>
                 </motion.div>
 
