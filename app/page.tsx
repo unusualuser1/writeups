@@ -147,6 +147,7 @@ export default async function Home(){
                 </motion.div>
             </div>
             
+            
         </main>
     )
 }

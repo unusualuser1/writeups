@@ -1,6 +1,3 @@
-
-import { useEffect, useState } from 'react';
-import Link from 'next/link';
 import { PageWrapper } from "@/components/PageWrapper";
 import { fetchGitRepo } from "@/functions/fetchUserRepo";
 import { GitHubData } from '@/interfaces/GitHubData';
