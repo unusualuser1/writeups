@@ -1,11 +1,9 @@
 'use client';
 
-import { useState, useEffect} from "react";
 const gitToken : string = process.env.TOKEN as string;
 import { fetchRepoFiles } from "@/components/fetchFunc";
 import { json } from "stream/consumers";
 import BoxPreview from "@/components/BoxPreview";
-import Link from "next/link";
 import { fetchBoxes } from "@/functions/fetchBoxes";
 import { GitHubData } from "@/interfaces/GitHubData";
 
