@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import { motion } from "framer-motion";
 
 import Image from "next/image";
@@ -15,7 +15,8 @@ const octokit = new Octokit({
 });
 
 export default async function HomePage3Boxes(){
-    
+    let count=0;  
+
     const commits = await octokit.rest.repos.listCommits({
       owner : 'Wanasgheo',
       repo: 'Writeups',
@@ -23,13 +24,29 @@ export default async function HomePage3Boxes(){
     
     //pick latest commit
 
-    const commitResponse = await octokit.rest.repos.getCommit({
+    let commitResponse = await octokit.rest.repos.getCommit({
       owner : 'Wanasgheo',
       repo: 'Writeups',
       ref: commits.data[0].sha,
     })
+
+    let commitData = commitResponse.data.files || [];
+
+    while(commitData[0].status !== 'modified' && !commitData[0].filename.includes('README.md') && !commitData[0].filename.includes('HackTheBox')){
+      
+      commitResponse = await octokit.rest.repos.getCommit({
+        owner : 'Wanasgheo',
+        repo: 'Writeups',
+        ref: commits.data[count].sha,
+      })
+  
+      commitData = commitResponse.data.files || [];
+      count++;
+    }
+
     
-    const commitData = commitResponse.data.files || [];
+    console.log('count:',count);
+    
     const {status, filename } = commitData[0];
 
     const dif_box = filename.split('/')
