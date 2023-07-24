@@ -7,7 +7,7 @@ import { motion, useAnimation } from "framer-motion";
 const links = [
     {href: "/", text: "Home"},
     {href: "/HTB", text: "HTB"},
-    {href: "/", text: "Learn"}
+    {href: "/Learn", text: "Learn"}
 ]
 
 

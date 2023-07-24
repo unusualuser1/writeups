@@ -35,6 +35,7 @@ export default function NavBar(){
                             z-10
                             inline-flex
                             w-[40px] 
+                            min-w-[500px]
                             h-[40px] 
                             bg-[#e0e0e0]
                             text-black
