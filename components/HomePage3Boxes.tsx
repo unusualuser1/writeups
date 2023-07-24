@@ -83,7 +83,7 @@ export default async function HomePage3Boxes(){
         target.style.width='100%';
         target.style.color='white';
         target.style.fontSize='25px';
-        target.style.background='#3a606e';
+        target.style.background='#495464';
         target.zIndex = '1';
         target.style.transition = 'width 0.3s';
     }
