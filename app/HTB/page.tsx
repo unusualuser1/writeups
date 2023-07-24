@@ -1,3 +1,6 @@
+
+import { useEffect, useState } from 'react';
+import Link from 'next/link';
 import { PageWrapper } from "@/components/PageWrapper";
 import { fetchGitRepo } from "@/functions/fetchUserRepo";
 import { GitHubData } from '@/interfaces/GitHubData';
@@ -6,10 +9,16 @@ import DiffPreview from '@/components/DiffPreview';
 
 const gitToken = process.env.TOKEN as string;
 
+function compareDiff(a:any,b:any):number{
+  const difficulties = ["Easy","Medium","Hard","Insane"];
+  return difficulties.indexOf(a.name) - difficulties.indexOf(b.name);
+}
+
 export default async function HTB_Home() {
 
   const difficulties = (await fetchDifficulties()).data;
-  console.log(difficulties)
+  difficulties.sort(compareDiff);
+  console.log('diff',difficulties)
   return (
     <main>
       <PageWrapper>
