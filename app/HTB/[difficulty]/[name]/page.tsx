@@ -10,7 +10,7 @@ import { GitHubData } from "@/interfaces/GitHubData";
 const gitToken: string = process.env.TOKEN as string;
 
 export default function Boxes({ params }: any) {
-  console.log(params);
+  //console.log(params);
   const { difficulty, name } = params || {};
   const [decodedContent, setDecodedContent] = useState<string>("");
 

@@ -45,12 +45,12 @@ export default async function HomePage3Boxes(){
     }
 
     
-    console.log('count:',count);
+    //console.log('count:',count);
     
     const {status, filename } = commitData[0];
 
     const dif_box = filename.split('/')
-    console.log(dif_box)
+    //console.log(dif_box)
     const readme = await octokit.request(`GET /repos/Wanasgheo/Writeups/contents/${filename}`);
     //console.log(readme)
     const decodedContent = readme?.data.content ? atob(readme?.data.content.toString()) : "";

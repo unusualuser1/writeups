@@ -1,4 +1,4 @@
-'use client';
+
 
 const gitToken : string = process.env.TOKEN as string;
 import { fetchRepoFiles } from "@/components/fetchFunc";
