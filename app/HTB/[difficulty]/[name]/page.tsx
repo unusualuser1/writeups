@@ -1,18 +1,52 @@
-'use client';
-
-import React, { useEffect, useState } from "react";
-import { fetchRepoFiles } from "@/components/fetchFunc";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
+import { getWriteup } from "@/functions/getWriteup";
+import SyntaxHighlighter from "react-syntax-highlighter/dist/esm/default-highlight";
 import gfm from "remark-gfm";
-import Component from "@/components/Box";
-import { fetchWriteup } from "@/functions/fetchWriteup";
-import { GitHubData } from "@/interfaces/GitHubData";
-const gitToken: string = process.env.TOKEN as string;
+import { atomOneDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
 
-export default function Boxes({ params }: any) {
-  //console.log(params);
+
+
+export default async function Boxes({ params }: any) {
   const { difficulty, name } = params || {};
-  const [decodedContent, setDecodedContent] = useState<string>("");
+  const response = await getWriteup( difficulty, name);
+  const decodedContent = response.data.content
+        ? atob(response.data.content.toString())
+        : "";
+  return (
+    <>
+      <div className="px-[250px] justify-center">
+      <ReactMarkdown
+        remarkPlugins={[gfm]}
+          children={decodedContent}
+          components={{
+            code({node, inline, className, children, ...props}) {
+              const match = /language-(\w+)/.exec(className || '')
+              return !inline && match ? (
+                <SyntaxHighlighter
+                  {...props}
+                  codeTagProps={{ style: { fontSize: "inherit" } }}
+                  customStyle={{ fontSize: 18 }}
+                  children={String(children).replace(/\n$/, '')}
+                  style={atomOneDark}
+                  language={match[1]}
+                  PreTag="div"
+                />
+              ) : (
+                <code {...props} className={className}>
+                  {children}
+                </code>
+              )
+            }
+          }}
+        />
+      </div>
+    </>
+  );
+}
+
+
+/**
+ * const [decodedContent, setDecodedContent] = useState<string>("");
 
   useEffect(() => {
     async function fetchData() {
@@ -27,17 +61,12 @@ export default function Boxes({ params }: any) {
     fetchData();
   }, [difficulty, name]);
 
-  const codeString = "export default function Home(){<div></div>}";
+ */
 
-  return (
-    <>
-      <div className="px-[250px] justify-center">
-        <ReactMarkdown
+  /**
+   * <ReactMarkdown
           remarkPlugins={[gfm]}
           children={decodedContent ?? ""}
           components={{ code: Component }}
         />
-      </div>
-    </>
-  );
-}
+   */

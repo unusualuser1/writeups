@@ -1,7 +1,12 @@
-export interface GitHubData{
-    name: string;
-    path: string;
-    type: string;
-    url: string;
-    download_url: string;
-  }
+export interface ReposContent{
+  name: string,
+  path: string,
+  sha: string,
+  size: number,
+  url: string,
+  html_url: string,
+  git_url: string,
+  download_url: string,
+  type: string,
+  _links: [Object]
+}
