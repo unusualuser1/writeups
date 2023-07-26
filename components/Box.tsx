@@ -5,7 +5,6 @@ import { Cinzel_Decorative } from 'next/font/google';
 
  const Component = ({children, className} : any) => {
   const lang: string = className && className.substring(9);
-
   return ( 
     <div>
       <SyntaxHighlighter language={lang} style={ oneDark } showLineNumbers={true}

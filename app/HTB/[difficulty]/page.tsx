@@ -1,21 +1,19 @@
-
-
-const gitToken : string = process.env.TOKEN as string;
-import { fetchRepoFiles } from "@/components/fetchFunc";
-import { json } from "stream/consumers";
 import BoxPreview from "@/components/BoxPreview";
-import { fetchBoxes } from "@/functions/fetchBoxes";
-import { GitHubData } from "@/interfaces/GitHubData";
+import { getBoxes } from "@/functions/getBoxes";
 
 export default async function Difficulty({params} : any){
-    const {difficulty} = params;
-  const boxes = await fetchBoxes(difficulty);
+  const {difficulty} = params;
+  const boxes = await getBoxes(difficulty);
+  if(Array.isArray(boxes.data)){
     return (
       <div className=" w-[full] h-[400px] min-w-[300px] bg-slate-500 translate-y-28 py-8 px-8 rounded-lg m-4">
-          {boxes && boxes?.map((box) => (
-            boxes && <BoxPreview key={box.path} box={box} difficulty={difficulty}/>
+          {boxes && boxes?.data.map((box:any) => (
+            <BoxPreview key={box.sha} box={box} difficulty={difficulty}/>
           ))}
       </div>
   );
-    
+  }  
 }
+/**
+ * 
+ */
