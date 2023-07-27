@@ -7,6 +7,7 @@ export default async function Home(){
     return(
         <main>
             <HomePage3Boxes/>
+            <HomePageLearn/>
         </main>
     )
 }
