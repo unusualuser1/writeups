@@ -1,16 +1,16 @@
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
-import { getWriteup } from "@/functions/getWriteup";
 import SyntaxHighlighter from "react-syntax-highlighter/dist/esm/default-highlight";
 import gfm from "remark-gfm";
 import { atomOneDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
+import { getReadmeData } from "@/lib/apiUtils";
 
 
 
 export default async function Boxes({ params }: any) {
   const { difficulty, name } = params || {};
-  const response = await getWriteup( difficulty, name);
-  const decodedContent = response.data.content
-        ? atob(response.data.content.toString())
+  const response = await getReadmeData( difficulty, name);
+  const decodedContent = response.content
+        ? atob(response.content.toString())
         : "";
   return (
     <>
