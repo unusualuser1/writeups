@@ -8,6 +8,7 @@ import gfm from "remark-gfm";
 
 import { unified } from "unified";
 import remarkParse from "remark-parse"
+import { PageWrapper } from "./PageWrapper";
 
 
 const octokit = new Octokit({
@@ -101,18 +102,19 @@ export default async function HomePage3Boxes(){
     
     
     return(
+      <PageWrapper>
         <div className="flex
                         relative
                         w-screen
                         h-[550px] 
-                        py-[80px] 
+                        py-[100px] 
                         space-x-4
                         px-36"
         >
             <motion.div className=" gradient
                                     w-1/3
-                                    text-white
-                                    py-16
+                                    text-white 
+                                    py-10
                                     px-4
                                     rounded-lg"
                         initial={{x: 0}}
@@ -120,9 +122,9 @@ export default async function HomePage3Boxes(){
                         onMouseLeave={(event) => handleMouseLeave(event)}
             >
                 <center>
-                    LAST UPLOAD
-                    <Link href={`/HTB/${dif_box[1]}/${dif_box[2]}`} className="w-2/3 h-300">
-                        <Image src={img.url} alt={img.alt} width="300" height={"300"} className=" rounded-lg"/>
+                    LAST UPLOAD<br/><br/>
+                    <Link href={`/HTB/${dif_box[1]}/${dif_box[2]}`} className="">
+                        <Image src={img.url} alt={img.alt} width="200" height="100" className=" "/>
                     </Link>
                     
                 </center>
@@ -131,7 +133,7 @@ export default async function HomePage3Boxes(){
             <motion.div className=" gradient
                                     w-1/3
                                     h-full
-                                    py-16
+                                    py-10
                                     px-4
                                     text-white
                                     rounded-lg"
@@ -142,14 +144,14 @@ export default async function HomePage3Boxes(){
 
             >
                 <center>
-                    <p>ULTIMO LEARN CARICATO</p>
+                    <p>ULTIMO LEARN CARICATO<br/><br/></p>
                 </center>
             </motion.div>
 
             <motion.div className=" gradient
                                     w-1/3
                                     h-full
-                                    py-16
+                                    py-10
                                     px-4
                                     text-white
                                     rounded-lg "
@@ -159,9 +161,10 @@ export default async function HomePage3Boxes(){
                         
 
             >   
-                <center><h1>I PIU' CERCATI</h1></center>
+                <center><h1>I PIU' CERCATI</h1><br/><br/></center>
             </motion.div>
         </div>
+      </PageWrapper>
     )
 }
 
