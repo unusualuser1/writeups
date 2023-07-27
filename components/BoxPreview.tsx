@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { GitHubData } from "@/interfaces/GitHubData";
 
 export default function BoxPreview ( {box, difficulty} : any){
     return(
