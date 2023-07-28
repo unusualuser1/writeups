@@ -1,7 +1,5 @@
 
-"use client"
 
-import { useEffect, useState } from "react";
 
 
 export async function getFileContent(filePath:string): Promise<string>{
@@ -24,32 +22,5 @@ export default function getIdsFromHtml(html: string): string[]{
 
     return idList;
     
-}
-
-export function loadIds(filePath:string): string[]{
-    const [fileContent, setFileContent] = useState<string>('');
-    const [ids, setIds] = useState<string[]>([]);
-    
-
-    useEffect(() => {
-        const filePath = 'http://localhost:3000/Learn/WikiLearn'
-        getFileContent(filePath)
-            .then((content) =>{
-                setFileContent(content);
-                const ids = getIdsFromHtml(content);
-                console.log(ids);
-                setIds(ids);
-                
-                console.log(content)
-            })
-            .catch((error)=>{
-                console.error('Errore durante il recupero del contenuto del file', error);
-            });
-
-
-        
-    }, []);
-
-    return ids;
 }
 
