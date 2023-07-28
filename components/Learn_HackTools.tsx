@@ -35,7 +35,7 @@ export default function Learn_HackTools(){
                                     w-[50%]
                                     flex"
                     >
-                        <Link href="/Learn/WikiLearn#nmap     ">
+                        <Link href="/Learn/WikiLearn#5     ">
                             {/* questo link serve per raggiungere una sezione specifica di una pagina, 
                             per farlo bisogna assegnare a quell asezione un id che è uguale alla parte 
                             dopo l'"#" nel link */}
