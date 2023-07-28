@@ -124,7 +124,7 @@ export default async function HomePage3Boxes(){
                 <center>
                     LAST UPLOAD<br/><br/>
                     <Link href={`/HTB/${dif_box[1]}/${dif_box[2]}`} className="">
-                        <Image src={img.url} alt={img.alt} width="200" height="100" className=" "/>
+                        <Image src={img.url} alt={img.alt} width="200" height="100" className=" rounded-xl"/>
                     </Link>
                     
                 </center>

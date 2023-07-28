@@ -1,43 +1,48 @@
 "use client"
+
+import { useEffect, useState } from "react";
+import { getFileContent } from "@/components/HTMLIdGetter";
+import getIdsFromHtml from "@/components/HTMLIdGetter";
 import Learn_HackTools from "@/components/Learn_HackTools";
 import { PageWrapper } from "@/components/PageWrapper";
-import { motion, useAnimation } from "framer-motion";
-import { useEffect } from "react";
+
 
 export default function Learn_Home(){
-    const controls = useAnimation();
-    const Learn_Icon =async () => {
-        
 
-        await controls.start({
-            opacity:1
-        })             
-    }
+    const [fileContent, setFileContent] = useState<string>('');
+    const [ids, setIds] = useState<string[]>([]);
+    
+    const filePath = 'http://localhost:3000/Learn/WikiLearn/'
 
     useEffect(() => {
-        Learn_Icon();
-      }, []);
-  
-
-
+        
+        getFileContent(filePath)
+            .then((content) =>{
+                setFileContent(content);
+                const ids = getIdsFromHtml(content);
+                console.log(ids);
+                setIds(ids);
+                
+                console.log(content)
+            })
+            .catch((error)=>{
+                console.error('Errore durante il recupero del contenuto del file', error);
+            });
+    }, []);
+    
     return(
         <main>
             <PageWrapper>
                 {/* icon */}
-                <div className="flex justify-center">
-                    <motion.div className="
+                <div id="ciao" className="flex justify-center">
+                    <div className="
                                         bg-white
                                         rounded-[50%]
                                         h-[200px] w-[200px]"
-                                    initial={{  opacity:0, 
-                                                height:"200px", 
-                                                width:"200px",
-                                                y:"100px"}}
-                                    animate={controls}
                                     
                 >
                         <img src="../Learn_icon.png" alt="Learn icon" className="w-full h-4/3" ></img> 
-                    </motion.div>
+                    </div>
                 </div>
 
                 {/* content start */}
@@ -66,9 +71,19 @@ export default function Learn_Home(){
                                     h-full 
                                     border-2 
                                     border-rose-600
-                                    rounded-xl"
+                                    bg-white
+                                    px-4
+                                    py-6
+                                    text-black
+                                    rounded-xl
+                                    overflow-hidden 
+                                    overflow-y-scroll"
                     >
-
+                    <ul>
+                        {ids.map((id)=>(
+                            <li key={id}>{id}</li>
+                        ))}
+                    </ul>
                     </div>
                 </div>
             </PageWrapper>
