@@ -8,10 +8,10 @@ export default function HomePageLearn(){
         <>
             <PageWrapper>
                 <div className="inline-flex 
-                                translate-x-[20vw]
+                                translate-x-[30vw]
                                 bg-[#495464]
-                                h-[400px] 
-                                w-[60vw] items-center 
+                                h-[200px] 
+                                w-[40vw] items-center 
                                 rounded-[200px]"
                 >
                     <Link href="/Learn">
@@ -19,7 +19,7 @@ export default function HomePageLearn(){
                                             z-50 
                                             bg-white
                                             rounded-[50%]
-                                            h-[400px] w-[400px]"
+                                            h-[200px] w-[200px]"
                                     
                                     whileHover={{scale:0.8}}
                         >
