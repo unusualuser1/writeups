@@ -1,61 +1,73 @@
 "use client"
-
-import { useEffect, useState } from "react";
-import { getFileContent } from "@/components/HTMLIdGetter";
+import ReactDOMServer from 'react-dom/server';
 import getIdsFromHtml from "@/components/HTMLIdGetter";
-import Learn_HackTools from "@/components/Learn_HackTools";
 import { PageWrapper } from "@/components/PageWrapper";
+import WikiLearn_Page from "./WikiLearn/page";
+import { motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
+import { InView } from 'react-intersection-observer';
+import Link from 'next/link';
+
+
 
 
 export default function Learn_Home(){
 
-    const [fileContent, setFileContent] = useState<string>('');
-    const [ids, setIds] = useState<string[]>([]);
-    
-    const filePath = 'http://localhost:3000/Learn/WikiLearn/'
-
-    useEffect(() => {
+    {/* animation code for scroll */}
+    const AnimatedElement = (id:string) => {
         
-        getFileContent(filePath)
-            .then((content) =>{
-                setFileContent(content);
-                const ids = getIdsFromHtml(content);
-                console.log(ids);
-                setIds(ids);
+
+        return(
+            <InView trackVisibility>
+                {({inView , ref}) => (
+                    <motion.div key={id} 
+                                className="bg-white text-black w-[45%] h-[200px] m-2 rounded-xl text-center animated-element"
+                                ref={ref}
+                                initial={{scale: 0}} 
+                                animate={{scale: inView ? 1 : 0 }} 
+                                transition={{duration: 0.4}} 
+                    >
+                        <div className="flex w-full h-[80%] ">
+                            <Link href={"../Learn/WikiLearn#" + id} className=" h-full ">
+                                <img src="../../HTB_logo.png" alt="section_img" className=" l w-full h-4/3 rounded-b-xl rounded-r-xl" loading='lazy'></img>
+                            </Link>
+                            <div className='w-full '>asdsad</div>
+                        </div>
+                        
+                        {id}
+                        
+                    </motion.div>
+                )}
                 
-                console.log(content)
-            })
-            .catch((error)=>{
-                console.error('Errore durante il recupero del contenuto del file', error);
-            });
-    }, []);
+            </InView>
+        )
+    }
+
+    
+
+    {/* code to list the "id" of the main sections*/}
+    const fileContent = ReactDOMServer.renderToString(<WikiLearn_Page/>);
+
+    const ids = getIdsFromHtml(fileContent);
+    console.log(ids);
+    
+    console.log(fileContent);
     
     return(
-        <main>
-            <PageWrapper>
-                {/* icon */}
-                <div id="ciao" className="flex justify-center">
-                    <div className="
-                                        bg-white
-                                        rounded-[50%]
-                                        h-[200px] w-[200px]"
-                                    
-                >
-                        <img src="../Learn_icon.png" alt="Learn icon" className="w-full h-4/3" ></img> 
-                    </div>
-                </div>
+        <main className="pt-[100px]">
+            
 
                 {/* content start */}
-                <div id="Learn_Content" className=" flex 
+                {/* <div id="Learn_Content" className=" flex 
                                                     translate-y-[250px]
                                                     translate-x-[17.5vw]
                                                     max-w-[1350px]  
                                                     w-[65vw] 
                                                     h-[400px]
                                                     px-1 py-1"
-                >
+                > */}
                     {/* Hack Tools */}
-                    <div className="
+                    {/* <div className="
                                     w-[65%] 
                                     h-[300px] 
                                     border-2 
@@ -64,10 +76,10 @@ export default function Learn_Home(){
                                     px-2 py-2"
                     >
                         <Learn_HackTools/>
-                    </div>
+                    </div> */}
                     
                     {/* something else */}
-                    <div className="w-[35%]
+                    {/* <div className="w-[35%]
                                     h-full 
                                     border-2 
                                     border-rose-600
@@ -85,7 +97,33 @@ export default function Learn_Home(){
                         ))}
                     </ul>
                     </div>
+                </div> */}
+
+            <PageWrapper>
+
+                {/* icon */}
+                <div className="flex justify-center">
+                    <div className="    bg-white
+                                        rounded-[50%]
+                                        h-[200px] w-[200px]"
+                                    
+                >
+                        <img src="../Learn_icon.png" alt="Learn icon" className="w-full h-4/3" ></img> 
+                    </div>
                 </div>
+
+
+                {/* Content Start */}
+                <div className=" bg-slate-500 rounded-xl flex justify-center flex-wrap w-[50vw] translate-x-[25vw] translate-y-[50px] py-5">
+                    {ids.map((id) =>(
+                        AnimatedElement(id)
+                    ))}
+                    
+                </div>
+
+                
+
+
             </PageWrapper>
         </main>
     )

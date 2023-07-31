@@ -5,7 +5,7 @@ export default function WikiLearn_Page(){
     return(
         <main>
 
-            <div id="1">asdsad</div>
+            <div id="NMAP">asdsad</div>
             <div id="2">sadsad</div>
             <div id="3">asdsad</div>
             <div id="4">asdsad</div>
