@@ -1,14 +1,4 @@
 
-
-
-
-export async function getFileContent(filePath:string): Promise<string>{
-    const response = await fetch(filePath);
-    return await response.text();
-}
-
-
-
 export default function getIdsFromHtml(html: string): string[]{
     const parser = new DOMParser();
     const doc = parser.parseFromString(html, 'text/html');
