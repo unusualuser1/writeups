@@ -15,7 +15,7 @@ const octokit = new Octokit({
   auth: process.env.TOKEN
 });
 
-export default async function HomePage3Boxes(){
+export default async function HomePageBoxes(){
     let count=0;  
 
     const commits = await octokit.rest.repos.listCommits({
@@ -91,7 +91,7 @@ export default async function HomePage3Boxes(){
 
     const handleMouseLeave = (event:any) =>{
         const target = event.currentTarget;
-        target.style.width='33%';
+        target.style.width='50%';
         target.style.color='white';
         target.style.background='linear-gradient(rgba(255, 255, 255, 0.2),#061826)';
         target.style.fontSize='16px';
@@ -105,14 +105,14 @@ export default async function HomePage3Boxes(){
       <PageWrapper>
         <div className="flex
                         relative
-                        w-screen
+                        w-[60vw]
                         h-[550px] 
                         py-[100px] 
                         space-x-4
-                        px-36"
+                        translate-x-[20vw]"
         >
             <motion.div className=" gradient
-                                    w-1/3
+                                    w-1/2
                                     text-white 
                                     py-10
                                     px-4
@@ -121,8 +121,7 @@ export default async function HomePage3Boxes(){
                         onMouseEnter={(event) => handleMouseEnter(event)}
                         onMouseLeave={(event) => handleMouseLeave(event)}
             >
-                <center>
-                    LAST UPLOAD<br/><br/>
+                <center>ULTIMA MACCHINA CARICATA<br/><br/>
                     <Link href={`/HTB/${dif_box[1]}/${dif_box[2]}`} className="">
                         <Image src={img.url} alt={img.alt} width="200" height="100" className=" rounded-xl"/>
                     </Link>
@@ -131,7 +130,7 @@ export default async function HomePage3Boxes(){
             </motion.div>
 
             <motion.div className=" gradient
-                                    w-1/3
+                                    w-1/2
                                     h-full
                                     py-10
                                     px-4
@@ -146,22 +145,6 @@ export default async function HomePage3Boxes(){
                 <center>
                     <p>ULTIMO LEARN CARICATO<br/><br/></p>
                 </center>
-            </motion.div>
-
-            <motion.div className=" gradient
-                                    w-1/3
-                                    h-full
-                                    py-10
-                                    px-4
-                                    text-white
-                                    rounded-lg "
-                        initial={{ x: 0}}
-                        onMouseEnter={(event) => handleMouseEnter(event)}
-                        onMouseLeave={(event) => handleMouseLeave(event)}
-                        
-
-            >   
-                <center><h1>I PIU' CERCATI</h1><br/><br/></center>
             </motion.div>
         </div>
       </PageWrapper>

@@ -21,16 +21,20 @@ export default function NavBar(){
     
     useEffect(() => {
         NavBarAnimation();
-      }, []);
+    }, []);
+
+
+
   
     return(
         
         <>
+
             <motion.div
                 initial={{scale: 0, height:"70px", y: "-15vh", x: "7.5vw", width:"85vw"}}
                 animate={controls}
 
-                className=" 
+                className="
                             fixed
                             z-10
                             inline-flex
