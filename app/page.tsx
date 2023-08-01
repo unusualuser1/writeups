@@ -1,4 +1,4 @@
-import HomePage3Boxes from "@/components/HomePage3Boxes"
+import HomePageBoxes from "@/components/HomePageBoxes"
 import HomePageLearn from "@/components/HomePageLearn"
 
 
@@ -6,7 +6,7 @@ export default async function Home(){
 
     return(
         <main>
-            <HomePage3Boxes/>
+            <HomePageBoxes/>
             <HomePageLearn/>
         </main>
     )
