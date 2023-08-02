@@ -1,9 +1,14 @@
 import './globals.css'
 import { Comfortaa, Inter } from 'next/font/google'
-import NavBar from '@/components/NavBar'
 import Footer from '@/components/Footer'
+import DynamicNavBar from '@/components/NavBarLoader'
 
 const inter = Comfortaa({ subsets: ['latin'] })
+
+
+
+
+
 
 export const metadata = {
   title: 'Create Next App',
@@ -11,15 +16,17 @@ export const metadata = {
 }
 
 export default function RootLayout({
+
   children,
 }: {
   children: React.ReactNode
-}) {
+}){
   return (
     <html lang="en" className='h-full'>      
       <body className="h-full">
+         
         <div className='min-h-full'>
-          <NavBar/>
+          <DynamicNavBar/> 
           {children}
           
         </div>

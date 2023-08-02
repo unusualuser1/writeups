@@ -3,7 +3,9 @@ import { motion, useAnimation } from "framer-motion"
 import { useEffect } from 'react';
 import Menu from "./Menu";
 
-export default function NavBar(){
+
+
+export default function NavBarDesktop(){
 
     const controls = useAnimation();
     
@@ -15,8 +17,6 @@ export default function NavBar(){
         await controls.start({
             y:-10,
             transition:{duration:0.1,}});
-
-        
     };
     
     useEffect(() => {
