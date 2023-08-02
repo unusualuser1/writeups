@@ -54,7 +54,7 @@ export default function Learn_Home(){
     console.log(fileContent);
     
     return(
-        <main className="pt-[100px]">
+        <main className="translate-y-[100px]">
             
 
                 {/* content start */}
@@ -102,7 +102,7 @@ export default function Learn_Home(){
             <PageWrapper>
 
                 {/* icon */}
-                <div className="flex justify-center">
+                <div className="flex justify-center ">
                     <div className="    bg-white
                                         rounded-[50%]
                                         h-[200px] w-[200px]"
