@@ -1,10 +1,10 @@
 export default function Footer(){
     return (
         <>
-            <div className=" bg-Footer relative h-[100px] clear-both mt-20 mb-4 mr-4 ml-4 rounded-xl px-16 py-5"> {/*se non funge rimettere  mt-[-100px]*/}
+            <div className=" bg-Footer relative h-[100px] z-10 bottom-0 clear-both px-16 py-5 mt-[100px]"> {/*se non funge rimettere  mt-[-100px]*/}
 
                 <div className="flex justify-center">
-                    <p>Follow us :]</p>
+                    <p>Follow us :!</p>
                 </div>
 
                 <div className="flex justify-center w-full h-full">
