@@ -24,9 +24,9 @@ export default function RootLayout({
   return (
     <html lang="en" className='h-full'>      
       <body className="h-full">
-         
-        <div className='min-h-full'>
-          <DynamicNavBar/> 
+        <DynamicNavBar/>
+        <div className='pt-[100px] min-h-full'>
+           
           {children}
           
         </div>

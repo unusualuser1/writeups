@@ -21,20 +21,18 @@ export default function Learn_Home(){
             <InView trackVisibility>
                 {({inView , ref}) => (
                     <motion.div key={id} 
-                                className="bg-white text-black w-[45%] h-[200px] m-2 rounded-xl text-center animated-element"
+                                className="flex bg-white text-black w-[300px] h-[150px]  m-2 rounded-xl text-center animated-element"
                                 ref={ref}
                                 initial={{scale: 0}} 
                                 animate={{scale: inView ? 1 : 0 }} 
                                 transition={{duration: 0.4}} 
                     >
-                        <div className="flex w-full h-[80%] ">
-                            <Link href={"../Learn/WikiLearn#" + id} className=" h-full ">
-                                <img src="../../HTB_logo.png" alt="section_img" className=" l w-full h-4/3 rounded-b-xl rounded-r-xl" loading='lazy'></img>
+                        <div className=" w-[50%] ">
+                            <Link href={"../Learn/WikiLearn#" + id} className="  ">
+                                <img src="../../HTB_logo.png" alt="section_img" className=" w-full h-4/3 rounded-b-xl rounded-r-xl" loading='lazy'></img>
                             </Link>
-                            <div className='w-full '>asdsad</div>
                         </div>
-                        
-                        {id}
+                        <div className='flex w-1/2 items-center justify-center'><p className=' text'>{id}</p></div>
                         
                     </motion.div>
                 )}
@@ -54,50 +52,7 @@ export default function Learn_Home(){
     console.log(fileContent);
     
     return(
-        <main className="translate-y-[100px]">
-            
-
-                {/* content start */}
-                {/* <div id="Learn_Content" className=" flex 
-                                                    translate-y-[250px]
-                                                    translate-x-[17.5vw]
-                                                    max-w-[1350px]  
-                                                    w-[65vw] 
-                                                    h-[400px]
-                                                    px-1 py-1"
-                > */}
-                    {/* Hack Tools */}
-                    {/* <div className="
-                                    w-[65%] 
-                                    h-[300px] 
-                                    border-2 
-                                    border-rose-600
-                                    rounded-xl
-                                    px-2 py-2"
-                    >
-                        <Learn_HackTools/>
-                    </div> */}
-                    
-                    {/* something else */}
-                    {/* <div className="w-[35%]
-                                    h-full 
-                                    border-2 
-                                    border-rose-600
-                                    bg-white
-                                    px-4
-                                    py-6
-                                    text-black
-                                    rounded-xl
-                                    overflow-hidden 
-                                    overflow-y-scroll"
-                    >
-                    <ul>
-                        {ids.map((id)=>(
-                            <li key={id}>{id}</li>
-                        ))}
-                    </ul>
-                    </div>
-                </div> */}
+        <main className="">
 
             <PageWrapper>
 
