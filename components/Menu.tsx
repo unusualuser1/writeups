@@ -13,42 +13,6 @@ const links = [
 
 
 export default function Menu(){
-
-    // const router = useRouter();
-    // const AnimatedText = (text, isActive) =>{
-    
-    //     const isActivePage = router.pathname === isActive;
-    
-    //     return (
-    //         <motion.span
-    //           initial={{ opacity: 0, width: "0%" }}
-    //           animate={{ opacity: 1, width: "100%" }}
-    //           transition={{ duration: 0.5 }}
-    //           style={{
-    //             textDecoration: isActivePage ? 'underline' : 'none',
-    //           }}
-    //         >
-    //           {text}
-    //         </motion.span>
-    //       );
-    // }
-    
-
-    // const controls = useAnimation();
-
-    // const Animation = async () => {
-    //     await controls.start({  width:0,
-    //                             textDecorationColor: "black", 
-    //                             textDecorationLine: "underline", 
-    //                             textDecorationStyle:"solid",
-    //                             textDecorationThickness:1});
-
-    //     await controls.start({  width: "100%"});
-    // }
-
-    // useEffect(() => {
-    //     Animation();
-    //   }, []);
     return(
         <>
             <motion.ul 
