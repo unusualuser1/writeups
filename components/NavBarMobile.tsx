@@ -1,4 +1,4 @@
-
+"use client"
 import Link from "next/link";
 import { useState } from "react"
 
@@ -48,7 +48,7 @@ export default function NavBarMobile() {
         
             
                 // black background div
-                <div className={isMenuOpen ? 'md:hidden  w-[50vw] h-screen bg-black fixed z-10 rounded-r-xl' : ' w-0 h-0 '}> 
+                <div className={isMenuOpen ? 'md:hidden  w-[50vw] h-screen transp bg-opacity-80 bg-black fixed z-10 rounded-r-xl' : ' w-0 h-0 '}> 
 
                     {/* menu div */}
                     <div    className="translate-y-[50px] translate-x-[20px] w-[15px] space-y-2">
@@ -56,10 +56,10 @@ export default function NavBarMobile() {
                         <HamburgerMenu onClick={toggleMenu}/>
 
                         {/* menu list */}
-                        <ul className={isMenuOpen ? 'md:hidden flex flex-col gap-4 translate-x-6' : 'hidden md:flex justify-end gap-4' }>
-                            <li><Link href="../">HOME</Link></li>
-                            <li><Link href="../HTB">HTB</Link></li>
-                            <li><Link href="../Learn">LEARN</Link></li>
+                        <ul className={isMenuOpen ? 'md:hidden flex translate-y-[50px] flex-col gap-4 translate-x-6' : 'hidden md:flex justify-end gap-4' }>
+                            <li><Link onClick={toggleMenu} href="../">HOME</Link></li>
+                            <li><Link onClick={toggleMenu} href="../HTB">HTB</Link></li>
+                            <li><Link onClick={toggleMenu} href="../Learn">LEARN</Link></li>
                         </ul>
                     </div>
 
