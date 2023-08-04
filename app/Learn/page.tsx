@@ -21,18 +21,33 @@ export default function Learn_Home(){
             <InView trackVisibility>
                 {({inView , ref}) => (
                     <motion.div key={id} 
-                                className="flex bg-white text-black w-[300px] h-[150px]  m-2 rounded-xl text-center animated-element"
+                                className=" bg-white text-black m-2 rounded-xl text-center animated-element
+                                            xsm:w-[50px] xsm:h-[50px]
+                                            sm:w-[70px] sm:h-[110px]
+                                            m:w-[100px] m:h-[130px]
+                                            md:w-[150px] md:h-[180px]
+                                            ld:w-[200px] ld:h-[230px]"
                                 ref={ref}
                                 initial={{scale: 0}} 
                                 animate={{scale: inView ? 1 : 0 }} 
                                 transition={{duration: 0.4}} 
                     >
-                        <div className=" w-[50%] ">
+                        <div className="xsm:w-full
+                                        sm:w-full 
+                                        md:w-full"
+                        >
                             <Link href={"../Learn/WikiLearn#" + id} className="  ">
                                 <img src="../../HTB_logo.png" alt="section_img" className=" w-full h-4/3 rounded-b-xl rounded-r-xl" loading='lazy'></img>
                             </Link>
+
                         </div>
-                        <div className='flex w-1/2 items-center justify-center'><p className=' text'>{id}</p></div>
+                        <div className='flex items-center justify-center
+                                        
+                                        sm:w-full
+                                        md:w-full'
+                        >
+                            <p className='xsm:invisible sm:visible '>{id}</p>  {/*TODO: manage ha to show id name for screens < 230px*/}
+                        </div>
                         
                     </motion.div>
                 )}
@@ -60,7 +75,9 @@ export default function Learn_Home(){
                 <div className="flex justify-center ">
                     <div className="    bg-white
                                         rounded-[50%]
-                                        h-[200px] w-[200px]"
+                                        xsm:h-[70px] xsm:w-[70px]
+                                        sm:h-[150px] sm:w-[150px]
+                                        md:h-[200px] md:w-[200px]"
                                     
                 >
                         <img src="../Learn_icon.png" alt="Learn icon" className="w-full h-4/3" ></img> 
@@ -69,7 +86,10 @@ export default function Learn_Home(){
 
 
                 {/* Content Start */}
-                <div className=" bg-slate-500 rounded-xl flex justify-center flex-wrap w-[50vw] translate-x-[25vw] translate-y-[50px] py-5">
+                <div className="bg-slate-500 rounded-xl flex justify-center flex-wrap translate-y-[50px] py-5
+                                xsm:w-[70vw] xsm:translate-x-[15vw]
+                                sm:w-[70vw] sm:translate-x-[15vw]
+                                md:w-[50vw] md:translate-x-[25vw]">
                     {ids.map((id) =>(
                         AnimatedElement(id)
                     ))}

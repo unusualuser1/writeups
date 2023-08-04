@@ -4,7 +4,7 @@ export default function WikiLearn_Page(){
     
     return(
         <main>
-
+            {/* ids have to be short for mobile screen reasons */}
             <div id="NMAP">asdsad</div>
             <div id="2">sadsad</div>
             <div id="3">asdsad</div>
