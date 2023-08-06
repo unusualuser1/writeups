@@ -1,83 +1,66 @@
 "use client"
-import { motion } from "framer-motion";
+import { motion, useScroll } from "framer-motion";
 
 import Image from "next/image";
 import Link from "next/link";
-import { Octokit } from "@octokit/rest";
+import { octokit } from "@/lib/octo";
 import gfm from "remark-gfm";
 
 import { unified } from "unified";
 import remarkParse from "remark-parse"
 import { PageWrapper } from "./PageWrapper";
+import { useEffect, useState } from "react";
 
 
-const octokit = new Octokit({
-  auth: process.env.TOKEN
-});
-
-export default async function HomePageBoxes(){
-    let count=0;  
-
-    const commits = await octokit.rest.repos.listCommits({
-      owner : 'Wanasgheo',
-      repo: 'Writeups',
-    })
-    
-    //pick latest commit
-
-    let commitResponse = await octokit.rest.repos.getCommit({
-      owner : 'Wanasgheo',
-      repo: 'Writeups',
-      ref: commits.data[0].sha,
-    })
-
-    let commitData = commitResponse.data.files || [];
-
-    while(commitData[0].status !== 'modified' && !commitData[0].filename.includes('README.md') && !commitData[0].filename.includes('HackTheBox')){
-      
-      commitResponse = await octokit.rest.repos.getCommit({
-        owner : 'Wanasgheo',
-        repo: 'Writeups',
-        ref: commits.data[count].sha,
-      })
+export default function HomePageBoxes(){
+    const [decodedContent,setDecodedContent] = useState("");
+    const [r,setR] = useState([""]);
+    useEffect(()=>{
+      async function fetchData(){
+        let count = 0;
+        let x = true;
+        const commits = await octokit.rest.repos.listCommits({
+          owner : 'Wanasgheo',
+          repo: 'Writeups',
+          path: 'HackTheBox'
+        })
+        
+        let commitResponse = null;
+        let commitData = null;
+        let img = '';
+        
+        //setImg(commits.data[0].sha)
+        do{
+          commitResponse = await octokit.rest.repos.getCommit({
+            owner:'Wanasgheo',
+            repo:'Writeups',
+            ref: commits.data[count].sha});
   
-      commitData = commitResponse.data.files || [];
-      count++;
-    }
-
-    
-    //console.log('count:',count);
-    
-    const {status, filename } = commitData[0];
-
-    const dif_box = filename.split('/')
-    //console.log(dif_box)
-    const readme = await octokit.request(`GET /repos/Wanasgheo/Writeups/contents/${filename}`);
-    //console.log(readme)
-    const decodedContent = readme?.data.content ? atob(readme?.data.content.toString()) : "";
-    //console.log(decodedContent);
-    const processor = unified().use(remarkParse);
-    const ast = processor.parse(decodedContent);
-
-    const elements:any = [];
-    traverse(ast);
-
-    function traverse(node : any) {
-      elements.push(node);
-      if (node.children) {
-        node.children.forEach((child:any) => {
-          traverse(child);
-        });
+            commitData = commitResponse.data.files || [];
+            commitData.forEach(e => {
+              if(e.status === 'added' && e.filename.includes("README.md") && e.filename.includes("HackTheBox")){
+                img = e.filename.replace("README.md","");
+                x = false;
+              }
+            })
+            count++;
+        }while(x)
+        const f = img.split("/");
+        const { data } =  await  octokit.rest.repos.getContent({
+          owner: 'Wanasgheo',
+          repo: 'Writeups',
+          path: img+`${f[2]}.txt`,
+        }) 
+        if(Array.isArray(data)) throw new Error('Failed to fetch data');
+        if(data.type !== 'file') throw new Error('Failed to fetch data');
+        setDecodedContent(atob(data.content))       
+        
+        setR(f)
       }
-    }
-    let img:any;
-    elements.forEach((element:any) => {
-      if(element.type === 'image'){
-        img = element;
-        return;
-      }
-      
-    });
+
+      fetchData();
+    },[]);
+    
 
     const handleMouseEnter = (event:any) =>{
         const target = event.currentTarget;
@@ -102,6 +85,7 @@ export default async function HomePageBoxes(){
     
     
     return(
+      
       <PageWrapper>
         <div className="flex
                         relative
@@ -122,9 +106,10 @@ export default async function HomePageBoxes(){
                         onMouseLeave={(event) => handleMouseLeave(event)}
             >
                 <center>ULTIMA MACCHINA CARICATA<br/><br/>
-                    <Link href={`/HTB/${dif_box[1]}/${dif_box[2]}`} className="">
-                        <Image src={img.url} alt={img.alt} width="200" height="100" className=" rounded-xl"/>
-                    </Link>
+                
+                <Link href={`/HTB/${r[1]}/${r[2]}`} className="">
+                <img className=" rounded-l-[150px] h-full" src={'https://www.hackthebox.com/storage/avatars/0fb6455a29eb4f2682f04a780ce26cb1.png'}  alt=""  />
+                </Link>
                     
                 </center>
             </motion.div>
@@ -148,6 +133,64 @@ export default async function HomePageBoxes(){
             </motion.div>
         </div>
       </PageWrapper>
+      
     )
 }
 
+/**
+ * //pick latest commit
+
+        let commitResponse = await octokit.rest.repos.getCommit({
+          owner : 'Wanasgheo',
+          repo: 'Writeups',
+          ref: commits.data[0].sha,
+        })
+
+        let commitData = commitResponse.data.files || [];
+
+        while(commitData[0].status !== 'modified' && !commitData[0].filename.includes('README.md') && !commitData[0].filename.includes('HackTheBox')){
+          
+          commitResponse = await octokit.rest.repos.getCommit({
+            owner : 'Wanasgheo',
+            repo: 'Writeups',
+            ref: commits.data[count].sha,
+          })
+      
+          commitData = commitResponse.data.files || [];
+          count++;
+        }
+
+        
+        //console.log('count:',count);
+        
+        const {status, filename } = commitData[0];
+
+        const dif_box = filename.split('/')
+        //console.log(dif_box)
+        const readme = await octokit.request(`GET /repos/Wanasgheo/Writeups/contents/${filename}`);
+        //console.log(readme)
+        const decodedContent = readme?.data.content ? atob(readme?.data.content.toString()) : "";
+        //console.log(decodedContent);
+        const processor = unified().use(remarkParse);
+        const ast = processor.parse(decodedContent);
+
+        const elements:any = [];
+        traverse(ast);
+
+        function traverse(node : any) {
+          elements.push(node);
+          if (node.children) {
+            node.children.forEach((child:any) => {
+              traverse(child);
+            });
+          }
+        }
+        let img:any;
+        elements.forEach((element:any) => {
+          if(element.type === 'image'){
+            img = element;
+            return;
+          }
+          
+        });
+ */
