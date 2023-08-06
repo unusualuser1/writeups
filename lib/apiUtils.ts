@@ -22,6 +22,23 @@ async function getDirectoryData(x:string){
   }
 }
 
+//TODO 
+async function getFileData(x:string){
+  try {
+    const { data } =  await  octokit.rest.repos.getContent({
+      owner: 'Wanasgheo',
+      repo: 'Writeups',
+      path: x,
+    }) 
+    if(Array.isArray(data)) return;
+    if(data.type !== 'file') return;
+    
+    return data.content;
+  } catch (error) {
+    throw new Error('Failed to fetch data');
+  }
+}
+
 async function getReadmeData(difficulty : string, name : string) {
   try {
     const { data } =  await octokit.rest.repos.getReadmeInDirectory({
@@ -36,4 +53,4 @@ async function getReadmeData(difficulty : string, name : string) {
   }
 }
 
-export{getDirectoryData, getReadmeData};
+export{getDirectoryData, getReadmeData, getFileData};
