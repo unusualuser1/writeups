@@ -1,14 +1,14 @@
-"use client"
+'use client'
 import { motion } from "framer-motion";
 
 import Image from "next/image";
 import Link from "next/link";
-import { Octokit } from "@octokit/rest";
 import gfm from "remark-gfm";
 
-import { unified } from "unified";
-import remarkParse from "remark-parse"
 import { PageWrapper } from "./PageWrapper";
+import { Octokit } from "octokit";
+import { unified } from "unified";
+import remarkParse from "remark-gfm";
 
 
 const octokit = new Octokit({
@@ -100,7 +100,6 @@ export default async function HomePageBoxes(){
     }
     
     
-    
     return(
       <PageWrapper>
         <div className="flex
@@ -122,9 +121,9 @@ export default async function HomePageBoxes(){
                         onMouseLeave={(event) => handleMouseLeave(event)}
             >
                 <center>ULTIMA MACCHINA CARICATA<br/><br/>
-                    <Link href={`/HTB/${dif_box[1]}/${dif_box[2]}`} className="">
+                     <Link href={`/HTB/${dif_box[1]}/${dif_box[2]}`} className="">
                         <Image src={img.url} alt={img.alt} width="200" height="100" className=" rounded-xl"/>
-                    </Link>
+                      </Link> 
                     
                 </center>
             </motion.div>
