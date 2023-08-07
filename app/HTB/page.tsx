@@ -15,12 +15,13 @@ function compareDiff(a:any,b:any):number{
 export default async function HTB_Home({params}:any) {
   
   const difficulties = await getDirectoryData('HackTheBox');
+  //console.log(difficulties);
   difficulties.sort(compareDiff)
 
   return (
     <main>
       <PageWrapper>
-        <div className="flex flex-wrap w-full h-screen items-center justify-center pt-28 pb-36 px-10">
+        <div className="flex flex-wrap w-full items-center justify-center pt-28 px-10">
         {difficulties?.map((difficulty) => (
             difficulties && <DiffPreview key={difficulty.sha} difficulty={difficulty.name} />
           ))}
