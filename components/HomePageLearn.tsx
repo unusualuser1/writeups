@@ -1,4 +1,4 @@
-"use client"
+'use client'
 import Link from "next/link"
 import { motion } from "framer-motion"
 import { PageWrapper } from "./PageWrapper"
@@ -7,32 +7,50 @@ export default function HomePageLearn(){
     return(
         <>
             <PageWrapper>
-                <div className="inline-flex 
-                                translate-x-[30vw]
-                                bg-[#495464]
-                                h-[200px] 
-                                w-[40vw] items-center 
-                                rounded-[200px]"
+                <div className="md:inline-flex
+                                m:flex 
+                                items-center
+                                space-x-2 w-full h-[300px]
+                                justify-center
+                                "
                 >
-                    <Link href="/Learn">
-                        <motion.div className="
-                                            z-50 
-                                            bg-white
-                                            rounded-[50%]
-                                            h-[200px] w-[200px]"
-                                    
-                                    whileHover={{scale:0.8}}
-                        >
-                            <img src="../Learn_icon.png" alt="Learn icon" className="w-full h-4/3" ></img> 
-                        </motion.div>
-                    </Link>
 
-                    <p className=" text-center translate-x-[20px] font-semibold"
-                    > 
-                        Here u will find a lot of content to learn the basis to hack the boxes 
-                        <br /> Let's start ! 
-                    </p> 
-                    
+                
+                    <div className="md:flex
+                                    bg-[#495464]
+                                    ld:h-[200px] ld:w-[45vw] ld:rounded-[200px] 
+                                    md:h-[150px] md:w-[55vw] md:rounded-[150px] 
+                                    m:h-[300px] m:w-[200px]  m:rounded-[300px] 
+                                    
+                                    "
+                    >
+                        <Link href="/Learn">
+                            <motion.div className="
+                                                z-50 
+                                                bg-white
+                                                rounded-[50%]
+                                                ld:h-[200px] ld:w-[200px]
+                                                md:h-[150px] md:w-[150px]
+                                                m:w-full"
+                                        
+                                        whileHover={{scale:0.8}}
+                            >
+                                <img src="../Learn_icon.png" alt="Learn icon" className="w-full h-4/3" ></img> 
+                            </motion.div>
+                        </Link>
+
+                        <div className="w-[80%] h-full flex items-center text-center align-middle font-semibold
+                                        ld:text-[16px]
+                                        md:text-[13px] md:visible md:px-4
+                                        xsm:w-full 
+                                        "
+                        >
+                            <p className="xsm:invisible xsm:-translate-y-[70px] md:translate-y-0 md:visible"><p className="xsm:visible"> Start Learning!</p>
+                            <br />Here u will find a lot of content to learn the basis to hack the boxes 
+                            </p>
+                        </div> 
+                        
+                    </div>
                 </div>
             </PageWrapper>
         </>

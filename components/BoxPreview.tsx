@@ -15,27 +15,28 @@ export default async function BoxPreview ( {box, difficulty} : any){
   console.log(decodedContent)
 
   
-    return(
-        <Link href={`/HTB/${difficulty}/${box.name}`}>
+  return(
+    
 
-          <div className="inline-flex 
-                          w-[25vw] 
-                          h-1/4 
-                          m-2
-                          bg-white 
-                          rounded-lg 
-                          min-w-[300px]"
-          >
-              <div className=" object-contain aspect-[3/2] w-full">
-                <img className=" rounded-l-[150px] h-full" src={decodedContent}  alt="" />
-              </div>
-              
-              <div className="flex w-full justify-center items-center "> 
-                <center><h2 className="text-black align-middle">{box.name}</h2></center>
-              </div>
-          </div>
-        </Link> 
-      );
+    <div className="flex 
+                    w-[500px] 
+                    h-[100px]
+                    m-2
+                    bg-white 
+                    justify-center rounded-[50px]"
+    >
+      <Link href={`/HTB/${difficulty}/${box.name}`}>
+        <div className=" object-contain w-[100px]  ">
+          <img className=" w-full h-[4/3]" src={decodedContent}  alt="writeupImage"></img>
+        </div>
+      </Link> 
+
+      
+      <div className="flex w-full justify-center items-center "> 
+        <center><h2 className="text-black ">{box.name}</h2></center>
+      </div>
+    </div>
+  );
 }
 
 /**
