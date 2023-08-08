@@ -15,9 +15,9 @@ export default function NavBarDesktop(){
             scale: 1});
 
         await controls.start({
-            y:-10,
-            transition:{duration:0.1,}});
-    };
+            y:-10
+        })
+    }
     
     useEffect(() => {
         NavBarAnimation();

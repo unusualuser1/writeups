@@ -8,7 +8,7 @@ export default function HomePageLearn(){
         <>
             <PageWrapper>
                 <div className="md:inline-flex
-                                m:flex 
+                                xsm:flex 
                                 items-center
                                 space-x-2 w-full h-[300px]
                                 justify-center
@@ -20,18 +20,19 @@ export default function HomePageLearn(){
                                     bg-[#495464]
                                     ld:h-[200px] ld:w-[45vw] ld:rounded-[200px] 
                                     md:h-[150px] md:w-[55vw] md:rounded-[150px] 
-                                    m:h-[300px] m:w-[200px]  m:rounded-[300px] 
+                                    m:h-[300px] m:w-[30vw]
+                                    xsm:h-[200px] xsm:w-[100px] xsm:rounded-[100px] 
                                     
                                     "
                     >
-                        <Link href="/Learn">
+                        <Link href={"/Learn"}>
                             <motion.div className="
                                                 z-50 
                                                 bg-white
                                                 rounded-[50%]
                                                 ld:h-[200px] ld:w-[200px]
                                                 md:h-[150px] md:w-[150px]
-                                                m:w-full"
+                                                xsm:w-full"
                                         
                                         whileHover={{scale:0.8}}
                             >
@@ -45,7 +46,7 @@ export default function HomePageLearn(){
                                         xsm:w-full 
                                         "
                         >
-                            <div className="xsm:invisible xsm:-translate-y-[70px] md:translate-y-0 md:visible"><p className="xsm:visible"> Start Learning!</p>
+                            <div className="xsm:invisible xsm:translate-y-[20px] m:-translate-y-[10vw]  md:translate-y-0 md:visible"><p className="xsm:visible"> Start Learning!</p>
                             <br />Here u will find a lot of content to learn the basis to hack the boxes 
                             </div>
                         </div> 

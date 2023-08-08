@@ -16,7 +16,8 @@ export default async function Boxes({ params }: any) {
   return (
     <>
       <PageWrapper>
-        <div className="px-[250px] py-[100px] justify-center">
+        <div className="md:px-[250px] md:py-[100px] 
+                        xsm:text-[12px] xsm:px-3 xsm:pt-10">
         <ReactMarkdown
         rehypePlugins={[rehypeRaw]}
           remarkPlugins={[gfm]}
