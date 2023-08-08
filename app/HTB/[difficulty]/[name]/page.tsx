@@ -4,7 +4,7 @@ import gfm from "remark-gfm";
 import { atomOneDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import { getReadmeData } from "@/lib/apiUtils";
 import { PageWrapper } from "@/components/PageWrapper";
-
+import rehypeRaw from "rehype-raw";
 
 
 export default async function Boxes({ params }: any) {
@@ -18,6 +18,7 @@ export default async function Boxes({ params }: any) {
       <PageWrapper>
         <div className="px-[250px] py-[100px] justify-center">
         <ReactMarkdown
+        rehypePlugins={[rehypeRaw]}
           remarkPlugins={[gfm]}
             children={decodedContent}
             components={{
