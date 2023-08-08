@@ -45,9 +45,9 @@ export default function HomePageLearn(){
                                         xsm:w-full 
                                         "
                         >
-                            <p className="xsm:invisible xsm:-translate-y-[70px] md:translate-y-0 md:visible"><p className="xsm:visible"> Start Learning!</p>
+                            <div className="xsm:invisible xsm:-translate-y-[70px] md:translate-y-0 md:visible"><p className="xsm:visible"> Start Learning!</p>
                             <br />Here u will find a lot of content to learn the basis to hack the boxes 
-                            </p>
+                            </div>
                         </div> 
                         
                     </div>

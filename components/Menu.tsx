@@ -34,6 +34,8 @@ export default function Menu(){
                         transition={{
                             duration: 0.1 
                         }}
+
+                        key={l.text}
                     >   
                         <Link href = {l.href}>
                             {l.text}
