@@ -4,7 +4,7 @@ import { octokit } from "@/lib/octo";
 
 export default async function BoxPreview ( {box, difficulty} : any){
   //box.path+`/${box.name}.txt`
-  const { data } =  await  octokit.rest.repos.getContent({
+  const { data } = await octokit.rest.repos.getContent({
     owner: 'Wanasgheo',
     repo: 'Writeups',
     path: box.path+`/${box.name}.txt`,
