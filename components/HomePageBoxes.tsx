@@ -110,7 +110,7 @@ export default function HomePageBoxes(){
                         onMouseLeave={(event) => handleMouseLeave(event)}
             >
                 <div className="w-full h-[50px] text-center">ULTIMA MACCHINA CARICATA</div>
-                <div className="flex justify-center w-full h-[300px]">
+                <div className="flex justify-center w-full ">
                     <div className="translate-y-[30px] object-contain w-[200px]">
                         <Link href={`/HTB/${img[1]}/${img[2]}`} className="" >
                             <img className=" rounded-l-[150px] " src={decodedContent} alt="lastWriteupUploaded"></img>
