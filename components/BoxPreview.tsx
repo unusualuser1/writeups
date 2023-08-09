@@ -23,6 +23,7 @@ export default async function BoxPreview ( {box, difficulty} : any){
   }
   
 
+  
   return(
     
 
