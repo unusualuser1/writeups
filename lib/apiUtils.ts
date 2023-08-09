@@ -38,18 +38,33 @@ async function getCommits(){
   }
 }
 
-async function getReadmeData(difficulty : string, name : string) {
+async function getReadmeContent(path : string) {
   try {
     const { data } =  await octokit.rest.repos.getReadmeInDirectory({
       owner:'Wanasgheo',
       repo:'Writeups',
-      dir:`HackTheBox/${difficulty}/${name}`,
+      dir:path,
     }) 
 
-    return data;
+    return atob(data.content)
   } catch (error) {
     throw new Error('Failed to fetch data');
   }
 }
 
-export{getDirectoryData, getReadmeData, getCommits};
+async function getDirFile(path : string) {
+  try {
+    const { data } = await octokit.rest.repos.getContent({
+      owner: 'Wanasgheo',
+      repo: 'Writeups',
+      path: `${path}`,
+    }) 
+    if(Array.isArray(data)) throw new Error('Failed to fetch data');
+    if(data.type !== 'file') throw new Error('Failed to fetch data');
+    return atob(data.content)
+  } catch (error) {
+    throw new Error('Failed to fetch data');
+  }
+}
+
+export{getDirectoryData, getReadmeContent, getCommits, getDirFile};

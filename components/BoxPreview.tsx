@@ -1,9 +1,10 @@
 import Link from "next/link";
-import { getDirectoryData } from "@/lib/apiUtils";
+import { getDirFile, getDirectoryData } from "@/lib/apiUtils";
 import { octokit } from "@/lib/octo";
 
 export default async function BoxPreview ( {box, difficulty} : any){
   //box.path+`/${box.name}.txt`
+  /*
   const { data } = await octokit.rest.repos.getContent({
     owner: 'Wanasgheo',
     repo: 'Writeups',
@@ -12,9 +13,10 @@ export default async function BoxPreview ( {box, difficulty} : any){
   if(Array.isArray(data)) throw new Error('Failed to fetch data');
   if(data.type !== 'file') throw new Error('Failed to fetch data');
   const decodedContent = atob(data.content)
-  console.log(decodedContent)
-
   
+  */
+  
+  const decodedContent = await getDirFile(box.path+`/${box.name}.txt`)
   return(
     
 

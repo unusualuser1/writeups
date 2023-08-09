@@ -2,49 +2,18 @@ import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 import SyntaxHighlighter from "react-syntax-highlighter/dist/esm/default-highlight";
 import gfm from "remark-gfm";
 import { atomOneDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
-import { getReadmeData } from "@/lib/apiUtils";
+import { getDirFile, getReadmeContent } from "@/lib/apiUtils";
 import { PageWrapper } from "@/components/PageWrapper";
 import rehypeRaw from "rehype-raw";
-
+import MDRenderer from "@/components/MDRenderer";
 
 export default async function Boxes({ params }: any) {
   const { difficulty, name } = params || {};
-  const response = await getReadmeData( difficulty, name);
-  const decodedContent = response.content
-        ? atob(response.content.toString())
-        : "";
+  const response = await getReadmeContent(`HackTheBox/${difficulty}/${name}`);
+  //console.log(response)
   return (
     <>
-      <PageWrapper>
-        <div className="md:px-[250px] md:py-[100px] 
-                        xsm:text-[12px] xsm:px-3 xsm:pt-10">
-        <ReactMarkdown
-        rehypePlugins={[rehypeRaw]}
-          remarkPlugins={[gfm]}
-            children={decodedContent}
-            components={{
-              code({node, inline, className, children, ...props}) {
-                const match = /language-(\w+)/.exec(className || '')
-                return !inline && match ? (
-                  <SyntaxHighlighter
-                    {...props}
-                    codeTagProps={{ style: { fontSize: "inherit" } }}
-                    customStyle={{ fontSize: 18 }}
-                    children={String(children).replace(/\n$/, '')}
-                    style={atomOneDark}
-                    language={match[1]}
-                    PreTag="div"
-                  />
-                ) : (
-                  <code {...props} className={className}>
-                    {children}
-                  </code>
-                )
-              }
-            }}
-          />
-        </div>
-      </PageWrapper>
+      <MDRenderer decodedContent={response}/>
     </>
   );
 }

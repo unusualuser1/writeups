@@ -17,7 +17,6 @@ export default async function Difficulty({params} : any){
                         bg-slate-500 
                         translate-y-28 
                         py-8 
-                        
                         rounded-lg ">
             {boxes && boxes?.map((box:any) => (
               <BoxPreview key={box.sha} box={box} difficulty={difficulty}/>
