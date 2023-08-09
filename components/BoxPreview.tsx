@@ -15,8 +15,14 @@ export default async function BoxPreview ( {box, difficulty} : any){
   const decodedContent = atob(data.content)
   
   */
+ let decodedContent = "";
+  try{
+    decodedContent = await getDirFile(box.path+`/${box.name}.txt`)
+  }catch{
+    decodedContent = "https://yt3.googleusercontent.com/ytc/AOPolaR5R7bueWAUHc7ctRNCy5r63xddkeL17RDHOwxAlw=s900-c-k-c0x00ffffff-no-rj";
+  }
   
-  const decodedContent = await getDirFile(box.path+`/${box.name}.txt`)
+
   return(
     
 
