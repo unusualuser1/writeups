@@ -33,7 +33,7 @@ export default async function BoxPreview ( {box, difficulty} : any){
     >
       <Link href={`/HTB/${difficulty}/${box.name}`}>
         <div className=" object-contain w-[100px]  ">
-          <img className=" w-full h-[4/3]" src={decodedContent}  alt="writeupImage"></img>
+          <img className=" rounded-[50px] w-full h-[4/3]" src={decodedContent}  alt="writeupImage"></img>
         </div>
       </Link> 
 
