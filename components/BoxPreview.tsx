@@ -25,7 +25,7 @@ export default async function BoxPreview ( {box, difficulty} : any){
     
 
     <div className="flex 
-                    m:w-[350px] m:h-[100px]
+                    m:w-[400px] m:h-[100px]
                     xsm:w-[100px] xsm:h-[100px]
                     m-2
                     bg-white 

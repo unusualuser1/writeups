@@ -15,7 +15,7 @@ export default async function Difficulty({params} : any){
                         h-[full] 
                         translate-x-[10vw] 
                         bg-slate-500 
-                        translate-y-28 
+                        translate-y-[300px] 
                         py-8 
                         rounded-lg ">
             {boxes && boxes?.map((box:any) => (
