@@ -15,7 +15,6 @@ function compareDiff(a:any,b:any):number{
 export default async function HTB_Home({params}:any) {
   
   const difficulties = await getDirectoryData('HackTheBox');
-  //console.log(difficulties);
   difficulties.sort(compareDiff)
 
   return (
