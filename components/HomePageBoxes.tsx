@@ -59,7 +59,7 @@ const HomePageBoxes : React.FC<HomePageProps> = ({decodeContent,boxPath}) => {
                 >
                     <div className="xsm:translate-y-[40px] m:translate-[30px] object-contain sm:w-[100px] m:w-[200px]">
                         <Link href={`/HTB/${boxPath[1]}/${boxPath[2]}`} >
-                            <img className=" rounded-l-[150px] " src={decodeContent} alt="lastWriteupUploaded"></img>
+                            <img className=" rounded-l-[150px] " src={decodeContent} alt="lastWriteup"></img>
                         </Link>
                     </div>
                 </div>
@@ -79,7 +79,7 @@ const HomePageBoxes : React.FC<HomePageProps> = ({decodeContent,boxPath}) => {
                 >
                     <div className="xsm:translate-y-[40px] m:translate-[30px] object-contain sm:w-[100px] m:w-[200px]">
                         <Link href={``} >
-                            <img className=" rounded-l-[150px] " src={decodeContent} alt="lastWriteupUploaded"></img>
+                            <img className=" rounded-l-[150px] "  alt="lastLearn"></img>
                         </Link>
                     </div>
                 </div>
