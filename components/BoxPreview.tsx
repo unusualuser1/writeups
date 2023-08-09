@@ -17,19 +17,16 @@ export default async function BoxPreview ( {box, difficulty} : any){
   */
  let decodedContent = "";
   try{
-    decodedContent = await getDirFile(box.path+`/${box.name}.txt`)
-  }catch{
+	  decodedContent = await getDirFile(box.path+`/${box.name}.txt`)
+	}catch{
     decodedContent = "https://yt3.googleusercontent.com/ytc/AOPolaR5R7bueWAUHc7ctRNCy5r63xddkeL17RDHOwxAlw=s900-c-k-c0x00ffffff-no-rj";
   }
-  
-
-  
   return(
     
 
     <div className="flex 
-                    w-[500px] 
-                    h-[100px]
+                    m:w-[350px] m:h-[100px]
+                    xsm:w-[100px] xsm:h-[100px]
                     m-2
                     bg-white 
                     justify-center rounded-[50px]"
@@ -41,8 +38,8 @@ export default async function BoxPreview ( {box, difficulty} : any){
       </Link> 
 
       
-      <div className="flex w-full justify-center items-center "> 
-        <center><h2 className="text-black ">{box.name}</h2></center>
+      <div className="flex m:w-full xsm:w-0 justify-center items-center "> 
+        <center><h2 className="text-black xsm:invisible m:visible ">{box.name}</h2></center>
       </div>
     </div>
   );
