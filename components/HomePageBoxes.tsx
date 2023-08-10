@@ -10,11 +10,13 @@ import remarkParse from "remark-parse"
 import { PageWrapper } from "./PageWrapper";
 
 interface HomePageProps{
-  decodeContent : string,
-  boxPath : string[]
+  htbDecoded : string,
+  learnDecoded : string,
+  learnPath : string[],
+  htbPath : string[]
 }
 
-const HomePageBoxes : React.FC<HomePageProps> = ({decodeContent,boxPath}) => {
+const HomePageBoxes : React.FC<HomePageProps> = ({htbDecoded,htbPath,learnDecoded,learnPath}) => {
 
     const handleMouseEnter = (event:any) =>{
         if(window.innerWidth>768){
@@ -58,8 +60,8 @@ const HomePageBoxes : React.FC<HomePageProps> = ({decodeContent,boxPath}) => {
 "
                 >
                     <div className="xsm:translate-y-[40px] m:translate-[30px] object-contain sm:w-[100px] m:w-[200px]">
-                        <Link href={`/HTB/${boxPath[1]}/${boxPath[2]}`} >
-                            <img className=" rounded-l-[150px] " src={decodeContent} alt="lastWriteup"></img>
+                        <Link href={`/HTB/${htbPath[1]}/${htbPath[2]}`} >
+                            <img className=" rounded-l-[150px] " src={htbDecoded} alt="lastWriteup"></img>
                         </Link>
                     </div>
                 </div>
@@ -78,8 +80,8 @@ const HomePageBoxes : React.FC<HomePageProps> = ({decodeContent,boxPath}) => {
 "
                 >
                     <div className="xsm:translate-y-[40px] m:translate-[30px] object-contain sm:w-[100px] m:w-[200px]">
-                        <Link href={``} >
-                            <img className=" rounded-l-[150px] "  alt="lastLearn"></img>
+                        <Link href={`Learn/${learnPath[1]}`} >
+                            <img className=" rounded-l-[150px] "  alt="lastLearn" src={learnDecoded}></img>
                         </Link>
                     </div>
                 </div>
