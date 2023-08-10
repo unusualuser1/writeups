@@ -42,8 +42,8 @@ const HomePageBoxes : React.FC<HomePageProps> = ({decodeContent,boxPath}) => {
     
     return(
       <PageWrapper>
-        <div className="m:flex m:relative pt-[100px]  m:translate-x-[20vw]
-                        m:w-[60vw] m:h-[550px] m:flex-nowrap 
+        <div className="md:flex m:relative pt-[100px]  md:translate-x-[20vw]
+                        md:w-[60vw] md:h-[550px] md:flex-nowrap 
                         xsm:flex xsm:flex-wrap xsm:w-full xsm:items-center  xsm:justify-center"
         >
             <motion.div className=" gradient text-white rounded-lg 
