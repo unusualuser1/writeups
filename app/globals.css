@@ -34,3 +34,21 @@ body {
 .bigText{
   font-size: 90px;
 }
+
+.writeup {
+
+  font-size:20px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.writeup img{
+  width: 800px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}

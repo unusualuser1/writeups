@@ -11,8 +11,9 @@ export default async function MDRenderer({decodedContent}: any){
   return (
     <>
       <PageWrapper>
-        <div className="md:px-[250px] md:py-[100px] 
-                        xsm:text-[12px] xsm:px-3 xsm:pt-10">
+        <div className="md:px-[150px] md:py-[100px] md:text-[20px]
+                        xsm:text-[14px] 
+                        md: writeup">
         <ReactMarkdown
         rehypePlugins={[rehypeRaw]}
           remarkPlugins={[gfm]}
