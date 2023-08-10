@@ -1,15 +1,18 @@
 import HomePageBoxes from "@/components/HomePageBoxes"
 import HomePageLearn from "@/components/HomePageLearn"
+import { getDirFile } from "@/lib/apiUtils";
 import { octokit } from "@/lib/octo";
 
 export default async function Home(){
-    let boxPath;
-    let decodeContent = '';
-    let x :string[] = [''];
+    
+    let htbCommit;
+    let htbPath;
+    let learnCommit;
+    let learnPath;
+
     const commits = await octokit.rest.repos.listCommits({
       owner : 'Wanasgheo',
       repo: 'Writeups',
-      path: 'HackTheBox'
     })
     
     for(const commit of commits.data){
@@ -18,30 +21,37 @@ export default async function Home(){
         repo: 'Writeups',
         ref : commit.sha
       })
-
       const commitData = commitResponse.data.files || [];
-      const addedFile = commitData.find(e => e.status === 'added' && e.filename.includes("README.md") && e.filename.includes("HackTheBox") );
+      
+      if(!learnCommit){
+        learnCommit = commitData.find(e => e.status === 'modified' && e.filename.includes("README.md") && e.filename.includes("Learn") );
+        if(learnCommit){
+          learnPath = learnCommit.filename.replace("README.md","");
+        }
+      }
 
-      if(addedFile){
-        boxPath = addedFile.filename.replace("README.md","");
+
+      if(!htbCommit){
+        htbCommit = commitData.find(e => e.status === 'added' && e.filename.includes("README.md") && e.filename.includes("HackTheBox") );
+        if(htbCommit){
+          htbPath = htbCommit.filename.replace("README.md","");
+        }
+        
+      }
+      
+      if(htbCommit && learnCommit){
         break;
       }
+      
     }
     
-    if(boxPath){
-        x = boxPath.split("/")
-      const { data } =  await  octokit.rest.repos.getContent({
-        owner: 'Wanasgheo',
-        repo: 'Writeups',
-        path: boxPath+`${x[2]}.txt`,
-      }) 
-      if(Array.isArray(data)) throw new Error('Failed to fetch data');
-      if(data.type !== 'file') throw new Error('Failed to fetch data');
-      decodeContent = atob(data.content);       
-    }
+      const [htbDecoded,learnDecoded] = await Promise.all([await getDirFile(htbPath+`${(htbPath as string).split("/")[2]}.txt`),
+      await getDirFile(learnPath+`${(learnPath as string).split("/")[1]}.txt`)])
+
     return(
         <main>
-            <HomePageBoxes decodeContent={decodeContent} boxPath={x}/>
+            <HomePageBoxes htbDecoded={htbDecoded} htbPath={(htbPath as string).split("/")} 
+            learnDecoded={learnDecoded} learnPath={(learnPath as string).split("/")}/>
             <HomePageLearn/>
         </main>
     )
