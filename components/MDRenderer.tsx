@@ -5,13 +5,46 @@ import gfm from "remark-gfm";
 import { atomOneDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import { PageWrapper } from "@/components/PageWrapper";
 import rehypeRaw from "rehype-raw";
-
+import {unified} from 'unified'
+import remarkParse from 'remark-parse'
+import remarkRehype from 'remark-rehype'
+import rehypeSanitize from 'rehype-sanitize'
+import rehypeStringify from 'rehype-stringify'
+import parse from 'remark-parse'
+import html from 'remark-html'
+import {remark} from 'remark'
+import rehypeHighlight from 'rehype-highlight'
+import remarkGfm from "remark-gfm";
+import rehypePrettyCode from 'rehype-pretty-code';
 
 export default async function MDRenderer({decodedContent}: any){
+  
+  const processedContent = await unified()
+  .use(remarkParse)
+  .use(remarkGfm)
+  
+  .use(remarkRehype, { allowDangerousHtml: true })
+  .use(rehypePrettyCode, {
+    theme:'one-dark-pro',
+  })
+  .use(rehypeStringify)
+  .use(rehypeRaw)
+  .process(decodedContent);
   return (
     <>
       <PageWrapper>
-      <div className="md:px-[150px] md:py-[100px] md:text-[20px]
+      <div dangerouslySetInnerHTML={{__html:processedContent.toString()}} className="md:px-[450px] md:py-[100px] md:text-[20px]
+                        xsm:text-[14px] xsm:px-[35px]
+                        md: writeup"/>
+      </PageWrapper>
+      
+    </>
+  );
+}
+
+
+/**
+ *  <div className="md:px-[150px] md:py-[100px] md:text-[20px]
                         xsm:text-[14px] xsm:px-[35px]
                         md: writeup">
         <ReactMarkdown
@@ -39,24 +72,4 @@ export default async function MDRenderer({decodedContent}: any){
               }
             }}
           />
-        </div>
-      </PageWrapper>
-    </>
-  );
-}
-
-
-/**
- *  <main>
-            { ids have to be short for mobile screen reasons }
-            <div id="NMAP">asdsad</div>
-            <div id="2">sadsad</div>
-            <div id="3">asdsad</div>
-            <div id="4">asdsad</div>
-            <div id="5">asdasda</div>
-            <div id="6">asdasd</div>
-            <div id="7">asdasd</div>
-            <div id="8">asdsad</div>
-            <div id="9">asdasd</div>
-            <div id="10">asdsad</div>
-        </main>*/
+        </div>*/
