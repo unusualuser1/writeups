@@ -6,6 +6,7 @@ import { getDirFile, getReadmeContent } from "@/lib/apiUtils";
 import { PageWrapper } from "@/components/PageWrapper";
 import rehypeRaw from "rehype-raw";
 import MDRenderer from "@/components/MDRenderer";
+import TopOfPageButton from "@/components/backTopOfPage";
 
 export default async function Boxes({ params }: any) {
   const { difficulty, name } = params || {};
@@ -13,6 +14,12 @@ export default async function Boxes({ params }: any) {
   //console.log(response)
   return (
     <>
+      
+      <div className="fixed w-screen h-[40px] flex justify-end 
+                      xsm:bottom-10 md:right-[40px]
+                      xsm:right-[10px]">
+        <TopOfPageButton/>
+      </div> 
       <MDRenderer decodedContent={response}/>
     </>
   );
