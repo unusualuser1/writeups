@@ -56,3 +56,12 @@ body {
 code{
   font-size:medium;
 }
+
+.writeup pre{
+  border-radius: 10px;
+  border-color:rgb(63, 66, 70);
+  border-width: 1px;
+  background-color: #111111;
+  padding: 20px;
+  overflow-x: scroll;
+}
