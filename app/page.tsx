@@ -13,6 +13,7 @@ export default async function Home(){
     const commits = await octokit.rest.repos.listCommits({
       owner : 'Wanasgheo',
       repo: 'Writeups',
+      per_page:100
     })
     
     for(const commit of commits.data){
@@ -44,10 +45,9 @@ export default async function Home(){
       }
       
     }
-    
       const [htbDecoded,learnDecoded] = await Promise.all([await getDirFile(htbPath+`${(htbPath as string).split("/")[2]}.txt`),
       await getDirFile(learnPath+`${(learnPath as string).split("/")[1]}.txt`)])
-
+      
     return(
         <main>
             <HomePageBoxes htbDecoded={htbDecoded} htbPath={(htbPath as string).split("/")} 
