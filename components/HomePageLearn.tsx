@@ -2,6 +2,7 @@
 import Link from "next/link"
 import { motion } from "framer-motion"
 import { PageWrapper } from "./PageWrapper"
+import Image from "next/image"
 
 export default function HomePageLearn(){
     return(
@@ -16,7 +17,7 @@ export default function HomePageLearn(){
                 >
 
                 
-                    <div className="md:flex
+                    <div className="md:flex 
                                     bg-[#495464]
                                     ld:h-[200px] ld:w-[45vw] ld:rounded-[200px] 
                                     md:h-[150px] md:w-[55vw] md:rounded-[150px] 
@@ -25,20 +26,19 @@ export default function HomePageLearn(){
                                     
                                     "
                     >
-                        <Link href={"/Learn"}>
-                            <motion.div className="
-                                                z-50 
+                        
+                            <motion.div className=" relative
+                                                z-50 w-[100px] h-[100px]
                                                 bg-white
                                                 rounded-[50%]
-                                                ld:h-[200px] ld:w-[200px]
-                                                md:h-[150px] md:w-[150px]
-                                                xsm:w-full"
+                                                "
                                         
                                         whileHover={{scale:0.8}}
-                            >
-                                <img src="../Learn_icon.png" alt="Learn icon" className="w-full h-4/3" ></img> 
+                            >   
+                                <Link href={"/Learn"}>
+                                    <Image src="/Learn_icon.png" layout='fill' objectFit='contain' objectPosition="center" alt="Learn icon"  />
+                                </Link>
                             </motion.div>
-                        </Link>
 
                         <div className="w-[80%] h-full flex items-center text-center align-middle font-semibold
                                         ld:text-[16px]

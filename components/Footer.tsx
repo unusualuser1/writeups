@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "next/legacy/image";
 
 export default function Footer(){
     return (
@@ -11,13 +11,13 @@ export default function Footer(){
 
                 <div className="flex justify-center w-full h-full">
                     <div className="w-[40px] h-[40px] relative">
-                        <Image layout='fill' objectFit='contain' objectPosition="center" src="/Insta.png" alt="Instagram" />
+                        <Image layout='fill' objectFit='contain' objectPosition="center" src="/Insta.png" alt="Instagram" loading="lazy"/>
                     </div>
                     <div className="w-[40px] h-[40px] relative">
-                        <Image layout='fill' objectFit='contain' objectPosition="center" src="/Facebook.png" alt="FaceBook" />
+                        <Image layout='fill' objectFit='contain' objectPosition="center" src="/Facebook.png" alt="FaceBook" loading="lazy"/>
                         </div>
                     <div className="w-[40px] h-[40px] relative">
-                        <Image layout='fill' objectFit='contain' objectPosition="center" src="/Linkedin.png" alt="Linkedin" />
+                        <Image layout='fill' objectFit='contain' objectPosition="center" src="/Linkedin.png" alt="Linkedin" loading="lazy"/>
                     </div>
                 </div>
 

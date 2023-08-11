@@ -9,7 +9,7 @@ import Link from 'next/link';
 import { octokit } from '@/lib/octo';
 import { Endpoints } from "@octokit/types"
 import { getDirFile, getDirectoryData } from '@/lib/apiUtils';
-import Image from 'next/image';
+import Image from "next/legacy/image";
 
 export default function AnimatedElement({id,link}:any){
     console.log(link)
@@ -35,7 +35,7 @@ export default function AnimatedElement({id,link}:any){
                     >
                         
                         <Link href={`../Learn/${id}`} >
-                            <Image src={link} alt="section_img" layout='fill' objectFit='contain' objectPosition="center" />
+                            <Image src={link} alt="section_img" layout='fill' objectFit='contain' objectPosition="center" loading='lazy' />
                         </Link>
 
                     </div>
