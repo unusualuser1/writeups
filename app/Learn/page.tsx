@@ -58,7 +58,7 @@ export default async function Learn_Home(){
                                 sm:w-[70vw] sm:translate-x-[15vw]
                                 md:w-[50vw] md:translate-x-[25vw]">
                     {data?.map( (id) =>
-                       <LearnPreview id={id}/>
+                       <LearnPreview id={id} key={id.path}/>
                     )}
                     
                 </div>

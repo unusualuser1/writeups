@@ -13,7 +13,7 @@ import { getDirFile, getDirectoryData } from '@/lib/apiUtils';
 export default function AnimatedElement({id,link}:any){
 
     return(
-        <InView trackVisibility key={id}>
+        <InView trackVisibility key={`${id}-inView`}>
             {({inView , ref}) => (
                 <motion.div
                             className=" bg-white text-black m-2 rounded-xl text-center animated-element
