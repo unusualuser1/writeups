@@ -43,55 +43,54 @@ const HomePageBoxes : React.FC<HomePageProps> = ({htbDecoded,htbPath,learnDecode
     
     
     return(
-      <PageWrapper/>
-        <div className="md:flex md:relative pt-[100px]  md:translate-x-[20vw]
-
-                        md:w-[60vw] md:h-[550px] md:flex-nowrap 
-                        xsm:flex xsm:flex-wrap xsm:w-full xsm:items-center  xsm:justify-center"
-        >
-            <motion.div className=" gradient text-white rounded-lg 
-                                    m:w-1/2 m:h-[350px] m:m-2 
-                                    xsm:w-full xsm:h-[300px] xsm:py-10 xsm:px-4 xsm:m-2"
-                        initial={{x: 0}}
-                        onMouseEnter={(event) => handleMouseEnter(event)}
-                        onMouseLeave={(event) => handleMouseLeave(event)}
-            >
-                <div className="  w-full h-[50px] text-center"><p className="xsm:text-[12px] sm:text-base">ULTIMA MACCHINA CARICATA</p></div>
-                <div className="xsm:flex sm:flex-none m:flex xsm:justify-center xsm:w-full 
-"
-                >
-                    <div className="xsm:translate-y-[40px] m:translate-[30px] object-contain sm:w-[100px] m:w-[200px]">
-                        <Link href={`/HTB/${htbPath[1]}/${htbPath[2]}`} >
-                            <img className=" rounded-l-[150px] " src={htbDecoded} alt="lastWriteup"></img>
-                        </Link>
-                    </div>
-                </div>
-                    
-            </motion.div>
-
-            <motion.div className=" gradient text-white rounded-lg 
-                                    m:w-1/2 m:h-[350px] m:m-2 
-                                    xsm:w-full xsm:h-[300px] xsm:py-10 xsm:px-4 xsm:m-2"
-                        initial={{x: 0}}
-                        onMouseEnter={(event) => handleMouseEnter(event)}
-                        onMouseLeave={(event) => handleMouseLeave(event)}
-            >
-                <div className="  w-full h-[50px] text-center"><p className="xsm:text-[12px] sm:text-base">ULTIMO LEARN CARICATO</p></div>
-                <div className="xsm:flex sm:flex-none m:flex xsm:justify-center xsm:w-full 
-"
-                >
-                    <div className="xsm:translate-y-[40px] m:translate-[30px] object-contain sm:w-[100px] m:w-[200px]">
-                        <Link href={`Learn/${learnPath[1]}`} >
-                            <img className=" rounded-l-[150px] "  alt="lastLearn" src={learnDecoded}></img>
-                        </Link>
-                    </div>
-                </div>
-                    
-            </motion.div>
-        </div>
-      </PageWrapper>
-      
-    )
+        <PageWrapper>
+          <div className="m:flex m:relative pt-[100px]  m:translate-x-[20vw]
+                          m:w-[60vw] m:h-[550px] m:flex-nowrap 
+                          xsm:flex xsm:flex-wrap xsm:w-full xsm:items-center  xsm:justify-center"
+          >
+              <motion.div className=" gradient text-white rounded-lg 
+                                      m:w-1/2 m:h-[350px] m:m-2 
+                                      xsm:w-full xsm:h-[300px] xsm:py-10 xsm:px-4 xsm:m-2"
+                          initial={{x: 0}}
+                          onMouseEnter={(event) => handleMouseEnter(event)}
+                          onMouseLeave={(event) => handleMouseLeave(event)}
+              >
+                  <div className="  w-full h-[50px] text-center"><p className="xsm:text-[12px] sm:text-base">ULTIMA MACCHINA CARICATA</p></div>
+                  <div className="xsm:flex sm:flex-none m:flex xsm:justify-center xsm:w-full 
+  "
+                  >
+                      <div className="xsm:translate-y-[40px] m:translate-[30px] object-contain sm:w-[100px] m:w-[200px]">
+                          <Link href={`/HTB/${htbPath[1]}/${htbPath[2]}`} >
+                              <img className=" rounded-l-[150px] " src={htbDecoded} alt="lastWriteup"></img>
+                          </Link>
+                      </div>
+                  </div>
+                      
+              </motion.div>
+  
+              <motion.div className=" gradient text-white rounded-lg 
+                                      m:w-1/2 m:h-[350px] m:m-2 
+                                      xsm:w-full xsm:h-[300px] xsm:py-10 xsm:px-4 xsm:m-2"
+                          initial={{x: 0}}
+                          onMouseEnter={(event) => handleMouseEnter(event)}
+                          onMouseLeave={(event) => handleMouseLeave(event)}
+              >
+                  <div className="  w-full h-[50px] text-center"><p className="xsm:text-[12px] sm:text-base">ULTIMO LEARN CARICATO</p></div>
+                  <div className="xsm:flex sm:flex-none m:flex xsm:justify-center xsm:w-full 
+  "
+                  >
+                      <div className="xsm:translate-y-[40px] m:translate-[30px] object-contain sm:w-[100px] m:w-[200px]">
+                          <Link href={`Learn/${learnPath[1]}`} >
+                              <img className=" rounded-l-[150px] "  alt="lastLearn" src={learnDecoded}></img>
+                          </Link>
+                      </div>
+                  </div>
+                      
+              </motion.div>
+          </div>
+        </PageWrapper>
+        
+      )
 }
 
 export default HomePageBoxes;
