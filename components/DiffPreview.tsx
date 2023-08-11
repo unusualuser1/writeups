@@ -1,7 +1,9 @@
 import Link from "next/link";
 import { components } from "@octokit/openapi-types"
+import Image from "next/image";
 
 export default function DiffPreview ( {difficulty} : any){
+    {/*w-full h-3/4  rounded-lg border-[5px] bg-[/../HTB_logo.png*/}
      let x ='';
  
      if (difficulty ==='Easy')
@@ -13,12 +15,16 @@ export default function DiffPreview ( {difficulty} : any){
      else
          x = '#8a8880';
      return(
-         <Link href={`/${'HTB'}/${difficulty}`} className="m-1">
-            <div className=" justify-center items-center rounded-xl bg-slate-300 m-2">
-                <img className="w-full h-3/4 rounded-lg border-[5px] bg-[../HTB_logo.png]" style={{borderColor:x}} src="../HTB_logo.png"></img>
-                <h1 className=" pt-6 pb-6 text-black text-center align-text-bottom">{difficulty}</h1>
+         
+            <div className="relative flex flex-wrap w-[250px] h-[300px] rounded-xl bg-slate-300 m-2">
+                <div className="">
+                    <Link href={`/${'HTB'}/${difficulty}`}>
+                        <Image className=" rounded-lg border-[5px] bg-[/HTB_logo.png]" 
+                            width={250} height={250} style={{borderColor:x}} src="/HTB_logo.png" alt="Image"/>
+                    </Link>
+                </div>
+                <div className="w-full flex justify-center"><h1 className=" text-black text-center align-text-bottom">{difficulty}</h1></div>
             </div>
-         </Link>
          
          
          

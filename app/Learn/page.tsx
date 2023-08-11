@@ -10,6 +10,7 @@ import { octokit } from '@/lib/octo';
 import { Endpoints } from "@octokit/types"
 import { getDirFile, getDirectoryData } from '@/lib/apiUtils';
 import AnimatedElement from '@/components/AnimatedElement';
+import Image from 'next/image';
 
 //type Data = Endpoints["GET /repos/{owner}/{repo}/contents/{path}"]["response"]["data"];
 
@@ -44,10 +45,11 @@ export default async function Learn_Home(){
                                         rounded-[50%]
                                         xsm:h-[70px] xsm:w-[70px]
                                         sm:h-[150px] sm:w-[150px]
-                                        md:h-[200px] md:w-[200px]"
+                                        md:h-[200px] md:w-[200px]
+                                        relative"
                                     
                 >
-                        <img src="../Learn_icon.png" alt="Learn icon" className="w-full h-4/3" ></img> 
+                        <Image src="/Learn_icon.png" alt="Learn icon" layout='fill' objectFit='cover' objectPosition="center" /> 
                     </div>
                 </div>
 

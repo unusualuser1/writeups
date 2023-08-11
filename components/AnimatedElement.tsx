@@ -9,9 +9,10 @@ import Link from 'next/link';
 import { octokit } from '@/lib/octo';
 import { Endpoints } from "@octokit/types"
 import { getDirFile, getDirectoryData } from '@/lib/apiUtils';
+import Image from 'next/image';
 
 export default function AnimatedElement({id,link}:any){
-
+    console.log(link)
     return(
         <InView trackVisibility key={id}>
             {({inView , ref}) => (
@@ -27,12 +28,14 @@ export default function AnimatedElement({id,link}:any){
                             animate={{scale: inView ? 1 : 0 }} 
                             transition={{duration: 0.4}} 
                 >
-                    <div className="xsm:w-full
+                    <div className="xsm:w-full h-[80%]
                                     sm:w-full 
-                                    md:w-full"
+                                    md:w-full
+                                    relative"
                     >
-                        <Link href={`../Learn/${id}`} className="  ">
-                            <img src={link} alt="section_img" className=" w-full h-4/3 rounded-b-xl rounded-r-xl" loading='lazy'></img>
+                        
+                        <Link href={`../Learn/${id}`} >
+                            <Image src={link} alt="section_img" layout='fill' objectFit='contain' objectPosition="center" />
                         </Link>
 
                     </div>
