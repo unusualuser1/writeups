@@ -17,10 +17,10 @@ export default function DiffPreview ( {difficulty} : any){
      return(
          
             <div className="relative flex flex-wrap w-[250px] h-[300px] rounded-xl bg-slate-300 m-2">
-                <div className="">
+                <div className=" w-full relative h-[80%]  rounded-lg border-[5px] bg-[/HTB_logo.png]" style={{borderColor:x}}>
                     <Link href={`/${'HTB'}/${difficulty}`}>
-                        <Image className=" rounded-lg border-[5px] bg-[/HTB_logo.png]" 
-                            width={250} height={250} style={{borderColor:x}} src="/HTB_logo.png" alt="Image" loading="lazy"/>
+                        <Image layout='fill' objectFit='cover' objectPosition="center" loading='lazy' 
+                              src="/HTB_logo.png" alt="Image"/>
                     </Link>
                 </div>
                 <div className="w-full flex justify-center"><h1 className=" text-black text-center align-text-bottom">{difficulty}</h1></div>
