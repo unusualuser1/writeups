@@ -20,7 +20,7 @@ export default async function HTB_Home({params}:any) {
   return (
     <main>
       <PageWrapper>
-        <div className="flex flex-wrap w-full items-center justify-center pt-28 px-10">
+        <div className="flex flex-wrap w-[80vw] translate-x-[10vw] justify-center pt-[100px]">
         {difficulties?.map((difficulty) => (
             difficulties && <DiffPreview key={difficulty.sha} difficulty={difficulty.name} />
           ))}

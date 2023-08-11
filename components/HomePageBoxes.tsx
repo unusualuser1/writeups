@@ -8,6 +8,7 @@ import gfm from "remark-gfm";
 import { unified } from "unified";
 import remarkParse from "remark-parse"
 import { PageWrapper } from "./PageWrapper";
+import Image from "next/image";
 
 interface HomePageProps{
   htbDecoded : string,
@@ -17,6 +18,8 @@ interface HomePageProps{
 }
 
 const HomePageBoxes : React.FC<HomePageProps> = ({htbDecoded,htbPath,learnDecoded,learnPath}) => {
+
+    htbDecoded = htbDecoded
 
     const handleMouseEnter = (event:any) =>{
         if(window.innerWidth>768){
@@ -44,8 +47,8 @@ const HomePageBoxes : React.FC<HomePageProps> = ({htbDecoded,htbPath,learnDecode
     
     return(
         <PageWrapper>
-          <div className="m:flex m:relative pt-[100px]  m:translate-x-[20vw]
-                          m:w-[60vw] m:h-[550px] m:flex-nowrap 
+          <div className="md:flex md:relative md:pt-[100px]  md:translate-x-[20vw]
+                          md:w-[60vw] md:h-[550px] md:flex-nowrap 
                           xsm:flex xsm:flex-wrap xsm:w-full xsm:items-center  xsm:justify-center"
           >
               <motion.div className=" gradient text-white rounded-lg 
@@ -55,13 +58,11 @@ const HomePageBoxes : React.FC<HomePageProps> = ({htbDecoded,htbPath,learnDecode
                           onMouseEnter={(event) => handleMouseEnter(event)}
                           onMouseLeave={(event) => handleMouseLeave(event)}
               >
-                  <div className="  w-full h-[50px] text-center"><p className="xsm:text-[12px] sm:text-base">ULTIMA MACCHINA CARICATA</p></div>
-                  <div className="xsm:flex sm:flex-none m:flex xsm:justify-center xsm:w-full 
-  "
-                  >
-                      <div className="xsm:translate-y-[40px] m:translate-[30px] object-contain sm:w-[100px] m:w-[200px]">
+                  <div className="  w-full h-[50px] text-center"><p className="xsm:text-[12px] sm:text-base">LAST BOX UPLOADED</p></div>
+                  <div className="xsm:flex sm:flex-none m:flex xsm:justify-center xsm:w-full">
+                      <div className="relative xsm:translate-y-[40px] m:translate-[30px] sm:w-[100px] m:w-[200px]">
                           <Link href={`/HTB/${htbPath[1]}/${htbPath[2]}`} >
-                              <img className=" rounded-l-[150px] " src={htbDecoded} alt="lastWriteup"></img>
+                              <Image layout='fill' objectFit='contain' objectPosition="center" className=" rounded-l-[150px] " src={htbDecoded} alt="lastWriteup"/>
                           </Link>
                       </div>
                   </div>
@@ -75,13 +76,13 @@ const HomePageBoxes : React.FC<HomePageProps> = ({htbDecoded,htbPath,learnDecode
                           onMouseEnter={(event) => handleMouseEnter(event)}
                           onMouseLeave={(event) => handleMouseLeave(event)}
               >
-                  <div className="  w-full h-[50px] text-center"><p className="xsm:text-[12px] sm:text-base">ULTIMO LEARN CARICATO</p></div>
-                  <div className="xsm:flex sm:flex-none m:flex xsm:justify-center xsm:w-full 
+                  <div className="  w-full h-[50px] text-center"><p className="xsm:text-[12px] sm:text-base">LAST LEARN UPLOADED</p></div>
+                  <div className="relative xsm:flex sm:flex-none m:flex xsm:justify-center xsm:w-full 
   "
                   >
-                      <div className="xsm:translate-y-[40px] m:translate-[30px] object-contain sm:w-[100px] m:w-[200px]">
+                      <div className="relative xsm:translate-y-[40px] m:translate-[30px] object-contain sm:w-[100px] m:w-[200px]">
                           <Link href={`Learn/${learnPath[1]}`} >
-                              <img className=" rounded-l-[150px] "  alt="lastLearn" src={learnDecoded}></img>
+                              <Image layout='fill' objectFit='cover' objectPosition="center" className=" rounded-l-[150px] "  alt="lastLearn" src={learnDecoded}/>
                           </Link>
                       </div>
                   </div>
