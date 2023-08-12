@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { getDirFile, getDirectoryData } from "@/lib/apiUtils";
 import { octokit } from "@/lib/octo";
+import Image from "next/image";
 
 export default async function BoxPreview ( {box, difficulty} : any){
   //box.path+`/${box.name}.txt`
@@ -32,8 +33,8 @@ export default async function BoxPreview ( {box, difficulty} : any){
                     justify-center rounded-[50px]"
     >
       <Link href={`/HTB/${difficulty}/${box.name}`}>
-        <div className=" object-contain w-[100px]  ">
-          <img className=" rounded-[50px] w-full h-[4/3]" src={decodedContent}  alt="writeupImage"></img>
+        <div className=" relative w-[100px] h-full  ">
+          <Image className="rounded-[50px]" layout='fill' objectFit='contain' objectPosition="center" loading='lazy' src={decodedContent}  alt="writeupImage"/>
         </div>
       </Link> 
 

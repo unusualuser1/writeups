@@ -35,7 +35,7 @@ export default async function Learn_Home(){
     //console.log(fileContent);
 
     return(
-        <main className="">
+        <main>
 
             <PageWrapper>
 

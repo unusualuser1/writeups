@@ -2,6 +2,7 @@
 import Link from "next/link"
 import { motion } from "framer-motion"
 import { PageWrapper } from "./PageWrapper"
+import Image from "next/image"
 
 export default function HomePageLearn(){
     return(
@@ -20,23 +21,24 @@ export default function HomePageLearn(){
                                     bg-[#495464]
                                     ld:h-[200px] ld:w-[45vw] ld:rounded-[200px] 
                                     md:h-[150px] md:w-[55vw] md:rounded-[150px] 
-                                    m:h-[300px] m:w-[30vw]
+                                    m:h-[300px] m:w-[180px]
                                     xsm:h-[200px] xsm:w-[100px] xsm:rounded-[100px] 
                                     
                                     "
                     >
                         <Link href={"/Learn"}>
-                            <motion.div className="
+                            <motion.div className="relative
                                                 z-50 
                                                 bg-white
                                                 rounded-[50%]
                                                 ld:h-[200px] ld:w-[200px]
                                                 md:h-[150px] md:w-[150px]
-                                                xsm:w-full"
+                                                m:w-full m:h-[180px]
+                                                xsm:w-full xsm:h-[100px]"
                                         
                                         whileHover={{scale:0.8}}
                             >
-                                <img src="../Learn_icon.png" alt="Learn icon" className="w-full h-4/3" ></img> 
+                                <Image src="/Learn_icon.png" layout='fill' objectFit='contain' objectPosition="center" loading='lazy' alt="Learn icon"  /> 
                             </motion.div>
                         </Link>
 
