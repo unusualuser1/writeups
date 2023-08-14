@@ -2,7 +2,7 @@
 import Link from "next/link"
 import { motion } from "framer-motion"
 import { PageWrapper } from "./PageWrapper"
-import Image from "next/image"
+import Image from "next/legacy/image"
 
 export default function HomePageLearn(){
     return(

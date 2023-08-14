@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { getDirFile, getDirectoryData } from "@/lib/apiUtils";
 import { octokit } from "@/lib/octo";
-import Image from "next/image";
+import Image from "next/legacy/image";
 
 export default async function BoxPreview ( {box, difficulty} : any){
   //box.path+`/${box.name}.txt`
