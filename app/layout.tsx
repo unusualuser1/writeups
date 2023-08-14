@@ -24,13 +24,19 @@ export default function RootLayout({
   return (
     <html lang="en" className='h-full'>      
       <body className="h-full">
-        <DynamicNavBar/>
-        <div className='pt-[100px] min-h-full'>
-           
+        
+        <header>
+          <DynamicNavBar/>
+        </header>
+
+        <main className='pt-[100px] min-h-full'>
           {children}
-          
-        </div>
-        <Footer/>
+        </main>
+
+        <footer>
+          <Footer/>
+        </footer>
+
       </body>
     </html>
   )
