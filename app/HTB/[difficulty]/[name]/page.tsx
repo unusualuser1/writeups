@@ -15,7 +15,7 @@ export default async function Boxes({ params }: any) {
   return (
     <>
       
-      <div className="fixed w-screen h-[40px] flex justify-end 
+      <div className="fixed w-[40px] h-[40px] flex justify-end 
                       xsm:bottom-10 md:right-[40px]
                       xsm:right-[10px]">
         <TopOfPageButton/>
