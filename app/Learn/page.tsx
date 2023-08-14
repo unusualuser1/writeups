@@ -3,7 +3,6 @@ import getIdsFromHtml from "@/components/HTMLIdGetter";
 import { PageWrapper } from "@/components/PageWrapper";
 import WikiLearn_Page from "./[subject]/page";
 import { motion } from 'framer-motion';
-import { useEffect, useState } from 'react';
 import { InView } from 'react-intersection-observer';
 import Link from 'next/link';
 import { octokit } from '@/lib/octo';
@@ -46,10 +45,9 @@ export default async function Learn_Home(){
                                         xsm:h-[70px] xsm:w-[70px]
                                         sm:h-[150px] sm:w-[150px]
                                         md:h-[200px] md:w-[200px]
-                                        relative"
-                                    
+                                        relative"       
                 >
-                        <Image src="/Learn_icon.png" alt="Learn icon" layout='fill' objectFit='cover' objectPosition="center" loading='lazy'/> 
+                        <Image src="/Learn_icon.png" alt="Learn icon" layout='fill' objectFit='contain' objectPosition="center" loading='lazy'/> 
                     </div>
                 </div>
 

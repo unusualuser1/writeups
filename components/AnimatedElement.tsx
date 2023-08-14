@@ -13,6 +13,19 @@ import Image from "next/legacy/image";
 
 export default function AnimatedElement({id,link}:any){
     console.log(link)
+
+    const handleMouseEnter = (event:any) =>{
+        const target = event.currentTarget;
+        target.style.scale=0.8;
+        target.style.transition="scale 0.6s"
+    }
+
+    const handleMouseLeave = (event:any) =>{
+        const target = event.currentTarget;
+        target.style.scale=1;
+        target.style.transition="scale 0.6s"
+    }
+
     return(
         <InView trackVisibility key={`${id}-inView`}>
             {({inView , ref}) => (
@@ -32,6 +45,8 @@ export default function AnimatedElement({id,link}:any){
                                     sm:w-full 
                                     md:w-full
                                     relative"
+                            onMouseEnter={handleMouseEnter}
+                            onMouseLeave={handleMouseLeave}
                     >
                         
                         <Link href={`../Learn/${id}`} >
