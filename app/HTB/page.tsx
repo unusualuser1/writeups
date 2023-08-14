@@ -5,7 +5,7 @@ import DiffPreview from '@/components/DiffPreview';
 import { Endpoints, OctokitResponse } from "@octokit/types";
 import { components } from "@octokit/openapi-types"
 import BoxPreview from "@/components/BoxPreview";
-import Filter from "@/components/HomeFilter";
+import Filter from "@/components/Filter";
 /*
 function compareDiff(a:any,b:any):number{
   const difficulties = ["Easy","Medium","Hard","Insane"];
