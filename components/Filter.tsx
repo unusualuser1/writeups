@@ -11,9 +11,6 @@ import Image from "next/image";
 import { octokit } from "@/lib/octo";
 import { PageWrapper } from "./PageWrapper";
 
-const owner = 'Wanasgheo';
-const repo='Writeups';
-
 type BoxItemProps = {
   name : string,
   path : string,
@@ -52,16 +49,16 @@ type BoxItemProps = {
     return(
       <>
       <PageWrapper>
-       <div className="relative">
-        <select onChange={e => setDifficulty(e.target.value)}>
+       <div className=" bg-[#111111] rounded mx-36 text-right border-2 border-[#3F4246]">
+        <select onChange={e => setDifficulty(e.target.value)} className=" bg-[#3F4246] justify-end mx-9 my-9 rounded">
         <option value="all">All</option>
           <option value="Easy">Easy</option>
           <option value="Medium">Medium</option>
           <option value="Hard">Hard</option>
           <option value="Insane">Insane</option>
         </select>
-        </div>
-      <div className="flex flex-wrap w-[80vw] translate-x-[10vw] justify-center pt-[100px]">
+        
+      <div className="flex flex-wrap w-[80vw] translate-x-[10vw] pb-10">
         {boxes?.filter((box)=>{
           if(difficulty !== 'all'){
             return box.path.includes(difficulty)
@@ -69,6 +66,7 @@ type BoxItemProps = {
             return box.path.includes('HackTheBox')
           }
         }).map((box) =><Box name={box.name} difficulty={box.path.split("/")[1]} path={box.path} key={box.sha} decodedContent={box.decodedContent}/>)}
+        </div>
         </div>
         </PageWrapper>
       </>
