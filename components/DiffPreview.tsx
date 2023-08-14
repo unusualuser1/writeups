@@ -16,7 +16,7 @@ export default function DiffPreview ( {difficulty} : any){
          x = '#8a8880';
      return(
          
-            <div className="relative flex flex-wrap w-[250px] h-[300px] rounded-xl bg-slate-300 m-2">
+            <div className="relative flex flex-wrap m:w-[250px] m:h-[300px] xsm:w-[150px] xsm:h-[150px] rounded-xl bg-slate-300 m-2">
                 <div className=" w-full relative h-[80%]  rounded-lg border-[5px] bg-[/HTB_logo.png]" style={{borderColor:x}}>
                     <Link href={`/${'HTB'}/${difficulty}`}>
                         <Image layout='fill' objectFit='cover' objectPosition="center" loading='lazy' 
