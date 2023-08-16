@@ -10,6 +10,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { octokit } from "@/lib/octo";
 import { PageWrapper } from "./PageWrapper";
+import Box from "./Box";
 
 type BoxItemProps = {
   name : string,
@@ -49,8 +50,9 @@ type BoxItemProps = {
     return(
       <>
         <PageWrapper>
-          <div className=" translate-y-[50px] bg-[#111111] rounded xsm:w-[150px] xsm:m-auto xm:w-[40vw] xm:translate-x-[30vw] xm:m-0 flex flex-wrap py-[50px] justify-center text-right border-2 border-[#3F4246]">
-            <select onChange={e => setDifficulty(e.target.value)} className=" bg-[#3F4246] xm:fixed  right-[20px] -translate-y-[40px] rounded">
+
+          <div className=" bg-[#111111] rounded w-[60vw] translate-x-[20vw] flex flex-wrap py-[50px] justify-center text-right border-2 border-[#3F4246]">      
+            <select onChange={e => setDifficulty(e.target.value)} className=" bg-[#3F4246] fixed right-[20px] -translate-y-[40px] rounded">
             <option value="all">All</option>
               <option value="Easy">Easy</option>
               <option value="Medium">Medium</option>
@@ -58,14 +60,14 @@ type BoxItemProps = {
               <option value="Insane">Insane</option>
             </select>
             
-            <div className="flex flex-wrap w-full h-full justify-center px-[20px]">
+            <div className="flex flex-wrap w-full h-full justify-center m:px-[10px]">
               {boxes?.filter((box)=>{
                 if(difficulty !== 'all'){
                   return box.path.includes(difficulty)
                 }else{
                   return box.path.includes('HackTheBox')
                 }
-              }).map((box) =><Box name={box.name} difficulty={box.path.split("/")[1]} path={box.path} key={box.sha} decodedContent={box.decodedContent}/>)}
+              }).map((box) =><Box name={box.name} difficulty={box.path.split("/")[1]} key={box.sha} decodedContent={box.decodedContent}/>)}
             </div>
           </div>
         </PageWrapper>
@@ -74,38 +76,6 @@ type BoxItemProps = {
     );      
 }
 
-const Box = ({name, difficulty,path, decodedContent}:any) =>{
-  
-  
-  return(
-
-    <div className="flex xm:flex-wrap
-                    md:w-[300px] 
-                    xm:w-[250px] xm:h-[250px]
-                    xsm:w-[100px] xsm:h-[100px]
-                    m-2
-                    bg-white 
-                    justify-center rounded-[50px]
-                    transform hover:scale-[0.95]
-                    transition-all"
-    >
-      <Link href={`/HTB/${difficulty}/${name}`} className="w-[100px] h-[100px]">
-        <div className=" relative  w-[100px] h-[100px]  ">
-          <Image className="rounded-[50px]" layout='fill' objectFit='contain' objectPosition="center" loading='lazy' src={decodedContent}  alt=" "/>
-        </div>
-      </Link> 
-
-      
-      <div className="flex md:w-[200px] md:h-[30px] xmd:h-[100px] xm:w-[150px] xm:h-[30px] xsm:w-0 justify-center items-center "> 
-        <center><h2 className="text-black  ">{name}</h2></center>
-      </div>
-
-      <div className="xsm:invisible xm:visible xsm:w-0 md:px-[50px] md:py-[20px] xm:px-[20px] xm:py-[5px] xm:w-full md:h-[150px] xm:h-[120px] flex justify-center  text-black">
-        asdsads
-      </div>
-    </div>
-  )
-}
 
 /**
  * <button className="py-2 px-4 bg-blue-500 text-white rounded shadow-md" id="dropdown-button" onClick={toggleDropdown}>
