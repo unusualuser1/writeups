@@ -34,7 +34,7 @@ export default function Menu(){
                 className=" space-x-32
                             inline-flex
                             z-10
-                            text-black"
+                            text-white"
             >   
             {/* <li><img src="../logo.ico" alt="logo" ></img></li> */}
                 {links.map((l) =>(

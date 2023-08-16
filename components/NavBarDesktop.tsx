@@ -33,7 +33,7 @@ export default function NavBarDesktop(){
             <motion.div
                 initial={{scale: 0, height:"70px", y: "-15vh", x: "7.5vw", width:"85vw"}}
                 animate={controls}
-
+                /* previous bg-[#e0e0e0]*/
                 className="
                             fixed
                             z-10
@@ -41,7 +41,7 @@ export default function NavBarDesktop(){
                             w-[40px] 
                             min-w-[500px]
                             h-[40px] 
-                            bg-[#e0e0e0]
+                            bg-Header
                             text-black
                             items-center 
                             justify-center

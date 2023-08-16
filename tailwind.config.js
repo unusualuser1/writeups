@@ -12,13 +12,14 @@ module.exports = {
       'm': '368px',
       'xm': '600px',
       'md': '768px',
+      'xmd': '900px',      
       'ld': '1000px',
       'xld':'1500px'
     },
     extend: {
       colors: {
-        'Header': '#8da9c4',
-        'Footer': '#1d2d3a',
+        'Header': '#212529',
+        'Footer': '#212529',
         'Easy': '#4cde2f', 
         'Medium': '#c47621',
         'Hard': '#800909',

@@ -79,9 +79,9 @@ const Box = ({name, difficulty,path, decodedContent}:any) =>{
   
   return(
 
-    <div className="flex 
-                    md:w-[400px] md:h-[100px]
-                    xm:w-[250px] xm:h-[100px]
+    <div className="flex xm:flex-wrap
+                    md:w-[300px] 
+                    xm:w-[250px] xm:h-[250px]
                     xsm:w-[100px] xsm:h-[100px]
                     m-2
                     bg-white 
@@ -89,15 +89,19 @@ const Box = ({name, difficulty,path, decodedContent}:any) =>{
                     transform hover:scale-[0.95]
                     transition-all"
     >
-      <Link href={`/HTB/${difficulty}/${name}`}>
-        <div className=" relative  w-[100px] h-full  ">
+      <Link href={`/HTB/${difficulty}/${name}`} className="w-[100px] h-[100px]">
+        <div className=" relative  w-[100px] h-[100px]  ">
           <Image className="rounded-[50px]" layout='fill' objectFit='contain' objectPosition="center" loading='lazy' src={decodedContent}  alt=" "/>
         </div>
       </Link> 
 
       
-      <div className="flex xm:w-full xsm:w-0 justify-center items-center "> 
-        <center><h2 className="text-black xsm:invisible xm:visible ">{name}</h2></center>
+      <div className="flex md:w-[200px] md:h-[30px] xmd:h-[100px] xm:w-[150px] xm:h-[30px] xsm:w-0 justify-center items-center "> 
+        <center><h2 className="text-black  ">{name}</h2></center>
+      </div>
+
+      <div className="xsm:invisible xm:visible xsm:w-0 md:px-[50px] md:py-[20px] xm:px-[20px] xm:py-[5px] xm:w-full md:h-[150px] xm:h-[120px] flex justify-center  text-black">
+        asdsads
       </div>
     </div>
   )
