@@ -50,7 +50,9 @@ type BoxItemProps = {
     return(
       <>
         <PageWrapper>
-          <div className=" bg-[#111111] rounded w-[80vw] translate-x-[10vw] flex flex-wrap py-[50px] justify-center text-right border-2 border-[#3F4246] ">
+
+          <div className=" bg-[#111111] rounded w-[60vw] translate-x-[20vw] flex flex-wrap py-[50px] justify-center text-right border-2 border-[#3F4246]">
+
             <select onChange={e => setDifficulty(e.target.value)} className=" bg-[#3F4246] fixed right-[20px] -translate-y-[40px] rounded">
             <option value="all">All</option>
               <option value="Easy">Easy</option>
