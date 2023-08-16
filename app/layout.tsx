@@ -22,14 +22,14 @@ export default function RootLayout({
   children: React.ReactNode
 }){
   return (
-    <html lang="en" className='h-full'>      
-      <body className="h-full">
+    <html lang="en" className='h-screen'>     {/*previous h-full*/}  
+      <body className="h-screen"> {/*previous h-full*/}
         
         <header>
           <DynamicNavBar/>
         </header>
 
-        <main className='pt-[100px] min-h-full'>
+        <main className='pt-[100px] min-h-screen'> {/*previous min-h-full*/}
           {children}
         </main>
 
