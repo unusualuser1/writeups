@@ -1,19 +1,34 @@
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { oneDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
-import React from 'react';
-import { Cinzel_Decorative } from 'next/font/google';
+import Link from "next/link"
+import Image from "next/image"
 
- const Component = ({children, className} : any) => {
-  const lang: string = className && className.substring(9);
-  return ( 
-    <div>
-      <SyntaxHighlighter language={lang} style={ oneDark } showLineNumbers={true}
-      codeTagProps={{ style: { fontSize: "inherit" } }}
-      customStyle={{ fontSize: 18 }}>
-        {children}
-      </SyntaxHighlighter>
+type BoxItemProps = {
+  name : string,
+  difficulty : string,
+  decodedContent : string
+}
+
+export default function Box({name, difficulty, decodedContent}:BoxItemProps){
+  
+  
+  return(
+
+    <div className="flex 
+                    m:w-[400px] m:h-[100px]
+                    xsm:w-[100px] xsm:h-[100px]
+                    m-2
+                    bg-white 
+                    justify-center rounded-[50px]"
+    >
+      <Link href={`/HTB/${difficulty}/${name}`}>
+        <div className=" relative w-[100px] h-full  ">
+        <Image className="rounded-[50px]" layout='fill' objectFit='contain' objectPosition="center" loading='lazy' src={decodedContent}  alt=" "/>
+        </div>
+      </Link> 
+
+      
+      <div className="flex m:w-full xsm:w-0 justify-center items-center "> 
+        <center><h2 className="text-black xsm:invisible m:visible ">{name}</h2></center>
+      </div>
     </div>
-    
-  );
-};
-export default Component;
+  )
+}
