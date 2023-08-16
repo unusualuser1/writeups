@@ -48,26 +48,26 @@ type BoxItemProps = {
     
     return(
       <>
-      <PageWrapper>
-       <div className=" bg-[#111111] rounded mx-36 text-right border-2 border-[#3F4246]">
-        <select onChange={e => setDifficulty(e.target.value)} className=" bg-[#3F4246] justify-end mx-9 my-9 rounded">
-        <option value="all">All</option>
-          <option value="Easy">Easy</option>
-          <option value="Medium">Medium</option>
-          <option value="Hard">Hard</option>
-          <option value="Insane">Insane</option>
-        </select>
-        
-      <div className="flex flex-wrap w-[80vw] translate-x-[10vw] pb-10">
-        {boxes?.filter((box)=>{
-          if(difficulty !== 'all'){
-            return box.path.includes(difficulty)
-          }else{
-            return box.path.includes('HackTheBox')
-          }
-        }).map((box) =><Box name={box.name} difficulty={box.path.split("/")[1]} path={box.path} key={box.sha} decodedContent={box.decodedContent}/>)}
-        </div>
-        </div>
+        <PageWrapper>
+          <div className=" bg-[#111111] rounded w-[80vw] translate-x-[10vw] flex flex-wrap py-[50px] justify-center text-right border-2 border-[#3F4246]">
+            <select onChange={e => setDifficulty(e.target.value)} className=" bg-[#3F4246] fixed right-[20px] -translate-y-[40px] rounded">
+            <option value="all">All</option>
+              <option value="Easy">Easy</option>
+              <option value="Medium">Medium</option>
+              <option value="Hard">Hard</option>
+              <option value="Insane">Insane</option>
+            </select>
+            
+            <div className="flex flex-wrap w-full h-full justify-center m:px-[10px]">
+              {boxes?.filter((box)=>{
+                if(difficulty !== 'all'){
+                  return box.path.includes(difficulty)
+                }else{
+                  return box.path.includes('HackTheBox')
+                }
+              }).map((box) =><Box name={box.name} difficulty={box.path.split("/")[1]} path={box.path} key={box.sha} decodedContent={box.decodedContent}/>)}
+            </div>
+          </div>
         </PageWrapper>
       </>
 
