@@ -10,6 +10,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { octokit } from "@/lib/octo";
 import { PageWrapper } from "./PageWrapper";
+import Box from "./Box";
 
 type BoxItemProps = {
   name : string,
@@ -49,7 +50,9 @@ type BoxItemProps = {
     return(
       <>
         <PageWrapper>
+
           <div className=" bg-[#111111] rounded w-[60vw] translate-x-[20vw] flex flex-wrap py-[50px] justify-center text-right border-2 border-[#3F4246]">
+
             <select onChange={e => setDifficulty(e.target.value)} className=" bg-[#3F4246] fixed right-[20px] -translate-y-[40px] rounded">
             <option value="all">All</option>
               <option value="Easy">Easy</option>
@@ -58,14 +61,14 @@ type BoxItemProps = {
               <option value="Insane">Insane</option>
             </select>
             
-            <div className="flex flex-wrap w-full h-full justify-center m:px[10px]">
+            <div className="flex flex-wrap w-full h-full justify-center m:px-[10px]">
               {boxes?.filter((box)=>{
                 if(difficulty !== 'all'){
                   return box.path.includes(difficulty)
                 }else{
                   return box.path.includes('HackTheBox')
                 }
-              }).map((box) =><Box name={box.name} difficulty={box.path.split("/")[1]} path={box.path} key={box.sha} decodedContent={box.decodedContent}/>)}
+              }).map((box) =><Box name={box.name} difficulty={box.path.split("/")[1]} key={box.sha} decodedContent={box.decodedContent}/>)}
             </div>
           </div>
         </PageWrapper>
@@ -74,31 +77,6 @@ type BoxItemProps = {
     );      
 }
 
-const Box = ({name, difficulty,path, decodedContent}:any) =>{
-  
-  
-  return(
-
-    <div className="flex 
-                    m:w-[400px] m:h-[100px]
-                    xsm:w-[100px] xsm:h-[100px]
-                    m-2
-                    bg-white 
-                    justify-center rounded-[50px]"
-    >
-      <Link href={`/HTB/${difficulty}/${name}`}>
-        <div className=" relative w-[100px] h-full  ">
-        <Image className="rounded-[50px]" layout='fill' objectFit='contain' objectPosition="center" loading='lazy' src={decodedContent}  alt=" "/>
-        </div>
-      </Link> 
-
-      
-      <div className="flex m:w-full xsm:w-0 justify-center items-center "> 
-        <center><h2 className="text-black xsm:invisible m:visible ">{name}</h2></center>
-      </div>
-    </div>
-  )
-}
 
 /**
  * <button className="py-2 px-4 bg-blue-500 text-white rounded shadow-md" id="dropdown-button" onClick={toggleDropdown}>
