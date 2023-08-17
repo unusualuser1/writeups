@@ -50,7 +50,7 @@ type BoxItemProps = {
       <>
 
         {/* <PageWrapper> */}
-          <div className=" bg-[#111111] rounded xsm:w-[150px] xsm:m-auto xm:w-[40vw] xm:translate-x-[30vw] xm:m-0 flex flex-wrap py-[50px] justify-center text-right border-2 border-[#3F4246]">
+          <div className="text-white bg-[#111111] rounded xsm:w-[150px] xsm:m-auto xm:w-[40vw] xm:translate-x-[30vw] xm:m-0 flex flex-wrap py-[50px] justify-center text-right border-2 border-[#3F4246]">
             <select onChange={e => setDifficulty(e.target.value)} className=" bg-[#3F4246] xm:fixed  right-[20px] -translate-y-[40px] rounded">
 
             <option value="all">All</option>
@@ -100,7 +100,7 @@ const Box = ({name, difficulty,path, decodedContent}:any) =>{
 
       
       <div className="flex md:w-[200px] md:h-[30px] xmd:h-[100px] xm:w-[150px] xm:h-[30px] xsm:w-0 justify-center items-center "> 
-        <center><h2 className="text-black  ">{name}</h2></center>
+        <center><h2 className="text-black xsm:invisible md:visible  ">{name}</h2></center>
       </div>
 
       <div className="xsm:invisible xm:visible xsm:w-0 md:px-[50px] md:py-[20px] xm:px-[20px] xm:py-[5px] xm:w-full md:h-[150px] xm:h-[120px] flex items-center justify-center  text-black">
