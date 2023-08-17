@@ -21,11 +21,11 @@ import matter from "gray-matter";
 
 export default async function MDRenderer({decodedContent}: any){
   
-  const matterResult = matter(decodedContent);
+  //const matterResult = matter(decodedContent);
 
   const processedContent = await remark()
   .use(html)
-  .process(matterResult.content);
+  .process(decodedContent);
 
   return (
     <>
