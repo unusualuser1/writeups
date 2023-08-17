@@ -33,9 +33,9 @@ export default async function HTB_Home() {
   return (  
     
     <main>
-      <PageWrapper>
+      {/* <PageWrapper> */}
       <Filter boxes={boxProps}/>
-      </PageWrapper>
+      {/* </PageWrapper> */}
     </main>
     
   );
