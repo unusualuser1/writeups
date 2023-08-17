@@ -2,6 +2,8 @@ import './globals.css'
 import { Comfortaa, Inter } from 'next/font/google'
 import Footer from '@/components/Footer'
 import DynamicNavBar from '@/components/NavBarLoader'
+import GoogleAnalytics from '@/components/GoogleAnalytics'
+
 
 const inter = Comfortaa({ subsets: ['latin'] })
 
@@ -22,7 +24,10 @@ export default function RootLayout({
   children: React.ReactNode
 }){
   return (
-    <html lang="en" className='h-screen'>     {/*previous h-full*/}  
+    <html lang="en" className='h-screen'>     {/*previous h-full*/} 
+      <head>
+        <GoogleAnalytics GA_TRACKING_ID={process.env.GA_TRACKING_ID as string} />
+      </head>
       <body className="h-screen"> {/*previous h-full*/}
         
         <header>
