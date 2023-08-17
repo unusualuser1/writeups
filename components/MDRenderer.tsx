@@ -23,7 +23,7 @@ export default async function MDRenderer({decodedContent}: any){
   
   const matterResult = matter(decodedContent);
 
-  const processedContent = await remark()
+  const processedContent = await unified()
   .use(remarkParse)
     .use(remarkGfm)
     .use(remarkRehype)
