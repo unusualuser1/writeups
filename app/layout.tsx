@@ -29,7 +29,7 @@ export default function RootLayout({
           <DynamicNavBar/>
         </header>
 
-        <main className='pt-[100px] min-h-screen'> {/*previous min-h-full*/}
+        <main className='xsm:pt-[100px] md:pt-0 min-h-screen'> {/* pt-[100px] previous min-h-full*/}
           {children}
         </main>
 

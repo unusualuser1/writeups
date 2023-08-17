@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import NavBarMobile from "./NavBarMobile";
 import NavBarDesktop from "./NavBarDesktop";
+import NavBarDesktop_v2 from "./NavBarDesktop_v2";
 
 
 
@@ -22,7 +23,7 @@ export default function DynamicNavBar() {
 
     return(
         <>
-            {isMobile ? <NavBarMobile/> : <NavBarDesktop/>}
+            {isMobile ? <NavBarMobile/> : <NavBarDesktop_v2/>}
         </>
     )
 }

@@ -44,12 +44,13 @@ export default function AnimatedElement({id,link}:any){
                     <div className="xsm:w-full h-[80%]
                                     sm:w-full 
                                     md:w-full
-                                    relative"
+                                    relative 
+                                    "
                             onMouseEnter={handleMouseEnter}
                             onMouseLeave={handleMouseLeave}
                     >
                         
-                        <Link href={`../Learn/${id}`} >
+                        <Link href={`../Learn/${id}`} className='w-full h-full'>
                             <Image src={link} alt="section_img" layout='fill' objectFit='contain' objectPosition="center" loading='lazy' />
                         </Link>
 

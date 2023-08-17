@@ -48,7 +48,7 @@ const HomePageBoxes : React.FC<HomePageProps> = ({htbDecoded,htbPath,learnDecode
     // 
     return(
         <PageWrapper>
-          <div className="md:flex md:relative md:pt-[100px]  md:translate-x-[20vw]
+          <div className="md:flex md:relative   md:translate-x-[20vw]
                           md:w-[60vw] md:h-[550px] md:flex-nowrap 
                           xsm:flex xsm:flex-wrap xsm:w-full xsm:items-center  xsm:justify-center"
           >

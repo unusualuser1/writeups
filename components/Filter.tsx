@@ -48,8 +48,8 @@ type BoxItemProps = {
     
     return(
       <>
-        <PageWrapper>
-          <div className=" translate-y-[50px] bg-[#111111] rounded xsm:w-[150px] xsm:m-auto xm:w-[40vw] xm:translate-x-[30vw] xm:m-0 flex flex-wrap py-[50px] justify-center text-right border-2 border-[#3F4246]">
+        {/* <PageWrapper> */}
+          <div className=" bg-[#111111] rounded xsm:w-[150px] xsm:m-auto xm:w-[40vw] xm:translate-x-[30vw] xm:m-0 flex flex-wrap py-[50px] justify-center text-right border-2 border-[#3F4246]">
             <select onChange={e => setDifficulty(e.target.value)} className=" bg-[#3F4246] xm:fixed  right-[20px] -translate-y-[40px] rounded">
             <option value="all">All</option>
               <option value="Easy">Easy</option>
@@ -68,7 +68,7 @@ type BoxItemProps = {
               }).map((box) =><Box name={box.name} difficulty={box.path.split("/")[1]} path={box.path} key={box.sha} decodedContent={box.decodedContent}/>)}
             </div>
           </div>
-        </PageWrapper>
+        {/* </PageWrapper> */}
       </>
 
     );      
@@ -89,8 +89,8 @@ const Box = ({name, difficulty,path, decodedContent}:any) =>{
                     transform hover:scale-[0.95]
                     transition-all"
     >
-      <Link href={`/HTB/${difficulty}/${name}`} className="w-[100px] h-[100px]">
-        <div className=" relative  w-[100px] h-[100px]  ">
+      <Link href={`/HTB/${difficulty}/${name}`} className="w-[100px] h-[100px] relative">
+        <div className=" w-full h-full  ">
           <Image className="rounded-[50px]" layout='fill' objectFit='contain' objectPosition="center" loading='lazy' src={decodedContent}  alt=" "/>
         </div>
       </Link> 
@@ -100,7 +100,7 @@ const Box = ({name, difficulty,path, decodedContent}:any) =>{
         <center><h2 className="text-black  ">{name}</h2></center>
       </div>
 
-      <div className="xsm:invisible xm:visible xsm:w-0 md:px-[50px] md:py-[20px] xm:px-[20px] xm:py-[5px] xm:w-full md:h-[150px] xm:h-[120px] flex justify-center  text-black">
+      <div className="xsm:invisible xm:visible xsm:w-0 md:px-[50px] md:py-[20px] xm:px-[20px] xm:py-[5px] xm:w-full md:h-[150px] xm:h-[120px] flex items-center justify-center  text-black">
         asdsads
       </div>
     </div>
