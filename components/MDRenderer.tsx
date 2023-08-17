@@ -20,19 +20,12 @@ import matter from "gray-matter";
 import remarkStringify from "remark-stringify";
 import Head from "next/head";
 
-
 export default async function MDRenderer({decodedContent}: any){
   
   const matterResult = matter(decodedContent);
 
-  const processedContent = await unified()
-  .use(remarkParse)
-  .use(remarkGfm)
-  .use(remarkRehype)
-  .use(rehypePrettyCode, {
-    // See Options section below.
-  })
-  .use(rehypeStringify)
+  const processedContent = await remark()    
+  .use(html)
   .process(matterResult.content);
 
   return (
