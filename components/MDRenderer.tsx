@@ -33,8 +33,9 @@ export default async function MDRenderer({decodedContent}: any){
   .use(remarkParse)
   .use(remarkGfm)
   .use(remarkRehype,{allowDangerousHtml:true})
-  .use(rehypePrettyCode)
+  .use(rehypeHighlight)
   .use(rehypeStringify)
+  .use(rehypeRaw)
   .process(matterResult.content);
   return (
     <>
