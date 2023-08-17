@@ -33,7 +33,7 @@ export default async function MDRenderer({decodedContent}: any){
   .use(remarkParse)
   .use(remarkGfm)
   .use(remarkRehype,{allowDangerousHtml:true})
-  .use(rehypePrettyCode)
+  .use(rehypePrettyCode,{filterMetaString: (string) => string.replace(/filename="[^"]*"/, ''),})
   .use(rehypeRaw)
   .process(matterResult.content);
   return (
