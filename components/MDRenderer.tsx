@@ -19,11 +19,10 @@ import rehypePrettyCode from 'rehype-pretty-code';
 import matter from "gray-matter";
 import remarkStringify from "remark-stringify";
 import { rehype } from "rehype";
-
-import hljs from 'highlight.js/lib/core';
-import python from 'highlight.js/lib/languages/python';
-import bash from 'highlight.js/lib/languages/bash';
+import highlight from 'rehype-highlight'
 import 'highlight.js/styles/github-dark-dimmed.css';
+
+import bash from 'highlight.js'
 
 export default async function MDRenderer({decodedContent}: any){
   
@@ -33,7 +32,7 @@ export default async function MDRenderer({decodedContent}: any){
   .use(remarkParse)
   .use(remarkGfm)
   .use(remarkRehype,{allowDangerousHtml:true})
-  .use(rehypeHighlight)
+  .use(rehypePrettyCode)
   .use(rehypeStringify)
   .use(rehypeRaw)
   .process(matterResult.content);
