@@ -31,11 +31,12 @@ export default async function MDRenderer({decodedContent}: any){
   const processedContent = await unified()
   .use(remarkParse)
   .use(remarkGfm)
-  .use(remarkRehype,{allowDangerousHtml:true})
-  .use(rehypePrettyCode)
+  .use(remarkRehype)
+  .use(rehypePrettyCode, {
+    // See Options section below.
+  })
   .use(rehypeStringify)
-  .use(rehypeRaw)
-  .process(matterResult.content);
+  .process(decodedContent);
   return (
     <>
       <PageWrapper>
