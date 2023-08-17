@@ -20,6 +20,11 @@ import matter from "gray-matter";
 import remarkStringify from "remark-stringify";
 import { rehype } from "rehype";
 
+import hljs from 'highlight.js/lib/core';
+import python from 'highlight.js/lib/languages/python';
+import bash from 'highlight.js/lib/languages/bash';
+import 'highlight.js/styles/github-dark-dimmed.css';
+
 export default async function MDRenderer({decodedContent}: any){
   
   const matterResult = matter(decodedContent);
@@ -28,6 +33,7 @@ export default async function MDRenderer({decodedContent}: any){
   .use(remarkParse)
   .use(remarkGfm)
   .use(remarkRehype)
+  .use(rehypeHighlight)
   .use(rehypeStringify)
   .use(rehypeRaw)
   .process(matterResult.content);
