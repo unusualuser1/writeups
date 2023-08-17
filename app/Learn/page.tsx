@@ -53,7 +53,7 @@ export default async function Learn_Home(){
 
 
                 {/* Content Start */}
-                <div className="bg-slate-500 rounded-xl flex justify-center flex-wrap translate-y-[50px] py-5
+                <div className="bg-[#3c3c3c] rounded-xl flex justify-center flex-wrap translate-y-[50px] py-5
                                 xsm:w-[70vw] xsm:translate-x-[15vw]
                                 sm:w-[70vw] sm:translate-x-[15vw]
                                 md:w-[50vw] md:translate-x-[25vw]

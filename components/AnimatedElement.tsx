@@ -60,7 +60,7 @@ export default function AnimatedElement({id,link}:any){
                                     sm:w-full
                                     md:w-full'
                     >
-                        <p className='xsm:invisible sm:visible '>{id}</p>  {/*TODO: manage ha to show id name for screens < 230px*/}
+                        <p className='xsm:invisible sm:visible '>{id}</p>
                     </div>
                     
                 </motion.div>
