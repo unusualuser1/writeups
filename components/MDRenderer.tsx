@@ -24,12 +24,7 @@ export default async function MDRenderer({decodedContent}: any){
   const matterResult = matter(decodedContent);
 
   const processedContent = await remark()
-  .use(remarkRehype, { allowDangerousHtml: true })
-  .use(rehypePrettyCode, {
-    theme:"one-dark-pro"
-  })
-  .use(rehypeStringify)
-  .use(rehypeRaw)
+  .use(html)
   .process(matterResult.content);
 
   return (
