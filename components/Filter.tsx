@@ -10,7 +10,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { octokit } from "@/lib/octo";
 import { PageWrapper } from "./PageWrapper";
-import Box from "./Box";
 
 type BoxItemProps = {
   name : string,
