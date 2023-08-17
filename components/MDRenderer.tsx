@@ -28,9 +28,6 @@ export default async function MDRenderer({decodedContent}: any){
   .use(remarkParse)
   .use(remarkGfm)
   .use(remarkRehype)
-  .use(rehypePrettyCode, {
-    keepBackground: false
-  })
   .use(rehypeStringify)
   .use(rehypeRaw)
   .process(matterResult.content);
