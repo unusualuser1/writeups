@@ -42,9 +42,9 @@ export default function HomePageLearn(){
                             </motion.div>
                         </Link>
 
-                        <div className="w-[80%] h-full flex items-center text-center align-middle font-semibold
+                        <div className="w-[80%] h-full flex justify-center items-center text-center align-middle font-semibold
                                         ld:text-[16px]
-                                        md:text-[13px] md:visible md:px-4
+                                        md:text-[13px] md:visible 
                                         xsm:w-full 
                                         "
                         >
