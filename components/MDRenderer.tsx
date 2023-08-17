@@ -16,20 +16,23 @@ import {remark} from 'remark'
 import rehypeHighlight from 'rehype-highlight'
 import remarkGfm from "remark-gfm";
 import rehypePrettyCode from 'rehype-pretty-code';
+import matter from "gray-matter";
+
 
 export default async function MDRenderer({decodedContent}: any){
   
+  const matterResult = matter(decodedContent);
+
   const processedContent = await unified()
   .use(remarkParse)
-  .use(remarkGfm)
-  .use(remarkRehype, { allowDangerousHtml: true })
-  .use(rehypePrettyCode, {
-    theme:'one-dark-pro',
-    keepBackground: false
-  })
-  .use(rehypeStringify)
-  .use(rehypeRaw)
-  .process(decodedContent);
+    .use(remarkGfm)
+    .use(remarkRehype)
+    .use(rehypePrettyCode, {
+      // See Options section below.
+    })
+    .use(rehypeStringify)
+  .process(matterResult.content);
+
   return (
     <>
       <PageWrapper>
@@ -45,6 +48,19 @@ export default async function MDRenderer({decodedContent}: any){
   );
 }
 
+/**
+ * const processedContent = await unified()
+  .use(remarkParse)
+  .use(remarkGfm)
+  .use(remarkRehype, { allowDangerousHtml: true })
+  .use(rehypePrettyCode, {
+    theme:'one-dark-pro',
+    keepBackground: false
+  })
+  .use(rehypeStringify)
+  .use(rehypeRaw)
+  .process(decodedContent);
+ */
 
 /**
  *  <div className="md:px-[150px] md:py-[100px] md:text-[20px]

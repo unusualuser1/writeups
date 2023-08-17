@@ -21,7 +21,7 @@ export default function Box({name, difficulty, decodedContent}:BoxItemProps){
     >
       <Link href={`/HTB/${difficulty}/${name}`}>
         <div className=" relative w-[100px] h-full  ">
-        <Image className="rounded-[50px]" layout='fill' objectFit='contain' objectPosition="center" loading='lazy' src={decodedContent}  alt=" "/>
+        <img className="rounded-[50px]" loading='lazy' src={decodedContent}  alt=" "/>
         </div>
       </Link> 
 

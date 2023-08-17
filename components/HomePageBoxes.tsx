@@ -63,7 +63,7 @@ const HomePageBoxes : React.FC<HomePageProps> = ({htbDecoded,htbPath,learnDecode
                 <div className="relative py-4  w-full h-[80%] xsm:flex sm:flex-none m:flex xsm:justify-center xsm:w-full">
                     
                     <Link href={`/HTB/${htbPath[1]}/${htbPath[2]}`} >
-                        <Image layout='fill' objectFit='contain' objectPosition="center" className=" rounded-l-[150px]" loading="lazy"  alt="lastLearn" src={htbDecoded}/>
+                        <Image layout='fill' objectFit='contain' className=" rounded-l-[150px]" loading="lazy"  alt="lastLearn" src={htbDecoded}/>
                     </Link>
                     
                 </div>
@@ -81,7 +81,7 @@ const HomePageBoxes : React.FC<HomePageProps> = ({htbDecoded,htbPath,learnDecode
                 <div className="relative w-full h-[80%] xsm:flex sm:flex-none m:flex xsm:justify-center xsm:w-full">
                     
                     <Link href={`Learn/${learnPath[1]}`}>
-                        <Image layout='fill' objectFit='contain' objectPosition="center" className="rounded-l-[150px]" loading="lazy"  alt="lastLearn" src={learnDecoded}/>
+                        <Image layout='fill' objectFit='contain' className="rounded-l-[150px]" loading="lazy"  alt="lastLearn" src={learnDecoded}/>
                     </Link>
                     
                 </div>
