@@ -26,8 +26,8 @@ export default function Box({name, difficulty, decodedContent}:BoxItemProps){
       </Link> 
 
       
-      <div className="flex m:w-full xsm:w-0 justify-center items-center "> 
-        <center><h2 className="text-black xsm:invisible m:visible ">{name}</h2></center>
+      <div className="flex md:w-full xsm:w-0 justify-center items-center"> 
+        <p className="text-black xsm:invisible md:visible">{name}</p>
       </div>
     </div>
   )

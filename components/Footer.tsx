@@ -3,7 +3,7 @@ import Image from "next/legacy/image";
 export default function Footer(){
     return (
         <>
-            <div className=" bg-Footer relative h-[100px] z-10 bottom-0 clear-both px-16 py-5 mt-[100px]"> {/*se non funge rimettere  mt-[-100px]*/}
+            <div className="text-white bg-Footer relative h-[100px] z-10 bottom-0 clear-both px-16 py-5 mt-[100px]"> {/*se non funge rimettere  mt-[-100px]*/}
 
                 <div className="flex justify-center">
                     <p>Follow us :!</p>

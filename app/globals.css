@@ -5,7 +5,7 @@
 :root {
   --foreground-rgb: 0,123, 0;
   --background-start-rgb: 0, 0, 0;/*previous 6, 24, 38*/
-  --background-end-rgb: 56, 62, 66;/*previous 6, 24, 38*/
+  --background-end-rgb: 0, 0, 0;/*previous 6, 24, 38*/
 }
 
 

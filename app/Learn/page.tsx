@@ -56,7 +56,8 @@ export default async function Learn_Home(){
                 <div className="bg-slate-500 rounded-xl flex justify-center flex-wrap translate-y-[50px] py-5
                                 xsm:w-[70vw] xsm:translate-x-[15vw]
                                 sm:w-[70vw] sm:translate-x-[15vw]
-                                md:w-[50vw] md:translate-x-[25vw]">
+                                md:w-[50vw] md:translate-x-[25vw]
+                                text-white">
                     {data?.map( (id) =>
                        <LearnPreview id={id} key={id.path}/>
                     )}

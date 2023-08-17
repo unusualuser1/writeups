@@ -59,7 +59,7 @@ export default function NavBarMobile() {
                 <div className={isMenuOpen ? 'md:hidden  w-[50vw] h-screen transp bg-opacity-85 bg-black fixed z-10 rounded-r-xl' : ' w-0 h-0 '}> 
 
                     {/* menu div */}
-                    <div    className="translate-y-[50px] translate-x-[20px] w-[15px] space-y-2">
+                    <div    className="text-white translate-y-[50px] translate-x-[20px] w-[15px] space-y-2">
 
                         <HamburgerMenu onClick={toggleMenu}/>
 
