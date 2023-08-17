@@ -17,6 +17,8 @@ import rehypeHighlight from 'rehype-highlight'
 import remarkGfm from "remark-gfm";
 import rehypePrettyCode from 'rehype-pretty-code';
 import matter from "gray-matter";
+import remarkStringify from "remark-stringify";
+import Head from "next/head";
 
 
 export default async function MDRenderer({decodedContent}: any){
@@ -25,17 +27,20 @@ export default async function MDRenderer({decodedContent}: any){
 
   const processedContent = await unified()
   .use(remarkParse)
-    .use(remarkGfm)
-    .use(remarkRehype)
-    .use(rehypePrettyCode, {
-      // See Options section below.
-    })
-    .use(rehypeStringify)
+  .use(remarkGfm)
+  .use(remarkRehype)
+  .use(rehypePrettyCode, {
+    // See Options section below.
+  })
+  .use(rehypeStringify)
   .process(matterResult.content);
 
   return (
     <>
       <PageWrapper>
+        <Head>
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.28.0/themes/prism.css" />
+        </Head>
       <div dangerouslySetInnerHTML={{__html:processedContent.toString()}} className="md:px-[100px] md:pt-[100px] md:text-[20px]
                         sm:px-[50px]
                         xld:px-[450px]
