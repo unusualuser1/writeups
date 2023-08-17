@@ -20,7 +20,7 @@ export default async function Boxes({ params }: any) {
                       xsm:right-[10px]">
         <TopOfPageButton/>
       </div> 
-      <MDRenderer decodedContent={response}/>
+      <h1>ciao</h1>
     </>
   );
 }
