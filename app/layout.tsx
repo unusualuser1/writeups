@@ -24,7 +24,7 @@ export default function RootLayout({
 }){
   return (
     <html lang="en" className='h-screen'>     {/*previous h-full*/} 
-      <GoogleAnalytics GA_TRACKING_ID={process.env.GA_TRACKING_ID as string}/>
+      <GoogleAnalytics GA_TRACKING_ID={process.env.GA_TRACKING_ID}/>
 
       <body className="h-screen"> {/*previous h-full*/}
         
