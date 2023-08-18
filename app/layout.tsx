@@ -32,7 +32,7 @@ export default function RootLayout({
           src={`https://www.googletagmanager.com/gtag/js?id=G-J8K4J5078W`}
           strategy="afterInteractive"
         />
-        <Script id="google-analytics" strategy="beforeInteractive">
+        <Script id="google-analytics" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
