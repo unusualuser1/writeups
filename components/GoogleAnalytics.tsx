@@ -1,9 +1,8 @@
 
 "use client";
 import Script from "next/script";
-import { useEffect } from "react";
 
-const GoogleAnalyticsScript = ({ GA_TRACKING_ID }: { GA_TRACKING_ID: string }) => {
+const GoogleAnalytics = ({ GA_TRACKING_ID }: { GA_TRACKING_ID: string }) => {
   return (
     <>
       <Script
@@ -21,16 +20,4 @@ const GoogleAnalyticsScript = ({ GA_TRACKING_ID }: { GA_TRACKING_ID: string }) =
   );
 };
 
-
-export default function GoogleAnalytics(){
-  useEffect(() => {
-    <GoogleAnalyticsScript GA_TRACKING_ID={process.env.GA_TRACKING_ID as string} />
-
-  }, []);
-
-  return(
-    <>
-    </>
-  )
-
-}
+export default GoogleAnalytics;
