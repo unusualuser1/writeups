@@ -2,7 +2,6 @@ import HomePageBoxes from "@/components/HomePageBoxes"
 import HomePageLearn from "@/components/HomePageLearn"
 import { getDirFile } from "@/lib/apiUtils";
 import { octokit } from "@/lib/octo";
-import GoogleAnalytics from "@/components/GoogleAnalytics";
 
 export default async function Home(){
     
@@ -51,9 +50,6 @@ export default async function Home(){
       
     return(  
       <main>
-          <head>
-            <GoogleAnalytics/>
-          </head>
           <HomePageBoxes htbDecoded={htbDecoded} htbPath={(htbPath as string).split("/")} 
           learnDecoded={learnDecoded} learnPath={(learnPath as string).split("/")}/>
           <HomePageLearn/>

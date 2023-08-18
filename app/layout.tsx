@@ -25,10 +25,7 @@ export default function RootLayout({
   return (
     <html lang="en" className='h-screen'>     {/*previous h-full*/} 
       
-      <head>
-          <GoogleAnalytics/>
-      </head> 
-
+      <GoogleAnalytics/>
       <body className="h-screen"> {/*previous h-full*/}
         
         <header>
