@@ -19,23 +19,31 @@ import rehypePrettyCode from 'rehype-pretty-code';
 import matter from "gray-matter";
 import remarkStringify from "remark-stringify";
 import { rehype } from "rehype";
-import highlight from 'rehype-highlight'
 import 'highlight.js/styles/github-dark-dimmed.css';
 
 export default async function MDRenderer({decodedContent}: any){
+  
+  const matterResult = matter(decodedContent);
 
   const processedContent = await unified()
   .use(remarkParse)
   .use(remarkGfm)
-  .use(remarkRehype)
-  .use(rehypePrettyCode, {
-    // See Options section below.
-  })
+  .use(remarkRehype,{allowDangerousHtml:true})
+  .use(rehypeHighlight,)
   .use(rehypeStringify)
-  .process(decodedContent);
+  .use(rehypeRaw)
+  .process(matterResult.content);
   return (
     <>
-      
+      <PageWrapper>
+      <div dangerouslySetInnerHTML={{__html:processedContent.toString()}} className="md:px-[100px] md:pt-[100px] md:text-[20px]
+                        sm:px-[50px]
+                        xld:px-[450px]
+                        ld:px-[250px]
+                        xsm:text-[14px] xsm:px-[35px]
+                        md: writeup
+                        text-white"/>
+      </PageWrapper>
       
     </>
   );
