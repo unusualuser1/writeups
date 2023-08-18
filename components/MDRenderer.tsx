@@ -2,7 +2,7 @@
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 import SyntaxHighlighter from "react-syntax-highlighter/dist/esm/default-highlight";
 import gfm from "remark-gfm";
-import { atomOneDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
+import { atomOneDark, darcula, github, gruvboxDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import { PageWrapper } from "@/components/PageWrapper";
 import rehypeRaw from "rehype-raw";
 import {unified} from 'unified'
@@ -20,6 +20,9 @@ import matter from "gray-matter";
 import remarkStringify from "remark-stringify";
 import { rehype } from "rehype";
 import 'highlight.js/styles/github-dark-dimmed.css';
+import React from "react";
+import { atomDark, oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { darkula } from "react-syntax-highlighter/dist/cjs/styles/hljs";
 
 export default async function MDRenderer({decodedContent}: any){
   
@@ -35,7 +38,43 @@ export default async function MDRenderer({decodedContent}: any){
   .process(matterResult.content);
   return (
     <>
-      <PageWrapper>
+      <div className="md:px-[100px] md:pt-[100px] md:text-[20px]
+                        sm:px-[50px]
+                        xld:px-[450px]
+                        ld:px-[250px]
+                        xsm:text-[14px] xsm:px-[35px]
+                        md: writeup
+                        text-white">
+          <ReactMarkdown rehypePlugins={[rehypeRaw]}
+          remarkPlugins={[gfm]}  components={{
+            code({node, inline, className, children, lang, ...props}) {
+              const match = /language-(\w+)/.exec(className || '')
+              return !inline && match ? (
+                <SyntaxHighlighter
+                  {...props}
+                  codeTagProps={{ style: { fontSize: "inherit" } }}
+                  customStyle={{ fontSize: 18 }}
+                  children={String(children).replace(/\n$/, '')}
+                  style={oneDark}
+                  language={lang}
+                  PreTag="div"
+                />
+              ) : (
+                <code {...props} className={className}>
+                  {children}
+                </code>
+              )
+            }
+          }}>{decodedContent}</ReactMarkdown>
+          
+        </div>
+      
+    </>
+  );
+}
+
+/**
+ * <PageWrapper>
       <div dangerouslySetInnerHTML={{__html:processedContent.toString()}} className="md:px-[100px] md:pt-[100px] md:text-[20px]
                         sm:px-[50px]
                         xld:px-[450px]
@@ -44,10 +83,7 @@ export default async function MDRenderer({decodedContent}: any){
                         md: writeup
                         text-white"/>
       </PageWrapper>
-      
-    </>
-  );
-}
+ */
 
 /**
  * const processedContent = await unified()
