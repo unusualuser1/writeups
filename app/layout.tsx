@@ -29,15 +29,15 @@ export default function RootLayout({
       <head>
 
         <Script
-          src={`https://www.googletagmanager.com/gtag/js?id=G-J8K4J5078W`}
+          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GA_TRACKING_ID}`}
           strategy="afterInteractive"
         />
-        <Script id="google-analytics" strategy="afterInteractive">
+        <Script id="google-analytics" strategy="beforeInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'G-J8K4J5078W');
+            gtag('config', '${process.env.GA_TRACKING_ID}');
           `}
         </Script>
       </head>
