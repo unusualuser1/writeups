@@ -22,11 +22,7 @@ import { rehype } from "rehype";
 import highlight from 'rehype-highlight'
 import 'highlight.js/styles/github-dark-dimmed.css';
 
-import bash from 'highlight.js'
-
 export default async function MDRenderer({decodedContent}: any){
-  
-  const matterResult = matter(decodedContent);
 
   const processedContent = await unified()
   .use(remarkParse)
@@ -39,15 +35,13 @@ export default async function MDRenderer({decodedContent}: any){
   .process(decodedContent);
   return (
     <>
-      <PageWrapper>
-      <div dangerouslySetInnerHTML={{__html:processedContent.toString()}} className="md:px-[100px] md:pt-[100px] md:text-[20px]
+      <div dangerouslySetInnerHTML={{__html:String(processedContent)}} className="md:px-[100px] md:pt-[100px] md:text-[20px]
                         sm:px-[50px]
                         xld:px-[450px]
                         ld:px-[250px]
                         xsm:text-[14px] xsm:px-[35px]
                         md: writeup
-                        text-white"/>
-      </PageWrapper>
+                        text-white" />
       
     </>
   );
