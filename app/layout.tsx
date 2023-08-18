@@ -26,13 +26,13 @@ export default function RootLayout({
 }){
   return (
     <html lang="en" className='h-screen'>     {/*previous h-full*/} 
-      <head>
+      
 
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=G-J8K4J5078W`}
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
-        <Script id="google-analytics" strategy="afterInteractive">
+        <Script id="google-analytics" strategy="lazyOnload">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
@@ -40,7 +40,6 @@ export default function RootLayout({
             gtag('config', 'G-J8K4J5078W');
           `}
         </Script>
-      </head>
 
       <body className="h-screen"> {/*previous h-full*/}
         
