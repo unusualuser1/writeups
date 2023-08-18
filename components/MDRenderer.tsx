@@ -35,13 +35,7 @@ export default async function MDRenderer({decodedContent}: any){
   .process(decodedContent);
   return (
     <>
-      <div dangerouslySetInnerHTML={{__html:String(processedContent)}} className="md:px-[100px] md:pt-[100px] md:text-[20px]
-                        sm:px-[50px]
-                        xld:px-[450px]
-                        ld:px-[250px]
-                        xsm:text-[14px] xsm:px-[35px]
-                        md: writeup
-                        text-white" />
+      
       
     </>
   );
