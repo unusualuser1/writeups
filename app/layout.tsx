@@ -3,6 +3,8 @@ import { Comfortaa, Inter } from 'next/font/google'
 import Footer from '@/components/Footer'
 import DynamicNavBar from '@/components/NavBarLoader'
 import GoogleAnalytics from '@/components/GoogleAnalytics'
+import Head from 'next/head'
+import Script from 'next/script'
 
 const inter = Comfortaa({ subsets: ['latin'] })
 
@@ -24,7 +26,23 @@ export default function RootLayout({
 }){
   return (
     <html lang="en" className='h-screen'>     {/*previous h-full*/} 
-      <GoogleAnalytics GA_TRACKING_ID={process.env.GA_TRACKING_ID}/>
+      <Head>
+
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GA_TRACKING_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${process.env.GA_TRACKING_ID}',{
+              page_path: window.location.pathname,
+            });
+          `}
+        </Script>
+      </Head>
 
       <body className="h-screen"> {/*previous h-full*/}
         
