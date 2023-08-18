@@ -26,7 +26,7 @@ export default function RootLayout({
 }){
   return (
     <html lang="en" className='h-screen'>     {/*previous h-full*/} 
-      <Head>
+      <head>
 
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GA_TRACKING_ID}`}
@@ -42,7 +42,7 @@ export default function RootLayout({
             });
           `}
         </Script>
-      </Head>
+      </head>
 
       <body className="h-screen"> {/*previous h-full*/}
         
