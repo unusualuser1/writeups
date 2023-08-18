@@ -34,9 +34,6 @@ export default async function HTB_Home() {
   return (  
     
     <main>
-      <head>
-          <GoogleAnalytics/>
-      </head>
       {/* <PageWrapper> */}
       <Filter boxes={boxProps}/>
       {/* </PageWrapper> */}
