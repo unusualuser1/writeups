@@ -6,6 +6,7 @@ import { Endpoints, OctokitResponse } from "@octokit/types";
 import { components } from "@octokit/openapi-types"
 import BoxPreview from "@/components/BoxPreview";
 import Filter from "@/components/Filter";
+import GoogleAnalytics from "@/components/GoogleAnalytics";
 /*
 function compareDiff(a:any,b:any):number{
   const difficulties = ["Easy","Medium","Hard","Insane"];
@@ -33,6 +34,9 @@ export default async function HTB_Home() {
   return (  
     
     <main>
+      <head>
+          <GoogleAnalytics/>
+      </head>
       {/* <PageWrapper> */}
       <Filter boxes={boxProps}/>
       {/* </PageWrapper> */}

@@ -2,6 +2,7 @@ import HomePageBoxes from "@/components/HomePageBoxes"
 import HomePageLearn from "@/components/HomePageLearn"
 import { getDirFile } from "@/lib/apiUtils";
 import { octokit } from "@/lib/octo";
+import GoogleAnalytics from "@/components/GoogleAnalytics";
 
 export default async function Home(){
     
@@ -48,11 +49,14 @@ export default async function Home(){
       const [htbDecoded,learnDecoded] = await Promise.all([await getDirFile(htbPath+`${(htbPath as string).split("/")[2]}.txt`),
       await getDirFile(learnPath+`${(learnPath as string).split("/")[1]}.txt`)])
       
-    return(
-        <main>
-            <HomePageBoxes htbDecoded={htbDecoded} htbPath={(htbPath as string).split("/")} 
-            learnDecoded={learnDecoded} learnPath={(learnPath as string).split("/")}/>
-            <HomePageLearn/>
-        </main>
+    return(  
+      <main>
+          <head>
+            <GoogleAnalytics/>
+          </head>
+          <HomePageBoxes htbDecoded={htbDecoded} htbPath={(htbPath as string).split("/")} 
+          learnDecoded={learnDecoded} learnPath={(learnPath as string).split("/")}/>
+          <HomePageLearn/>
+      </main>
     )
 }

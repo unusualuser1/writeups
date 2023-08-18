@@ -4,7 +4,6 @@ import Footer from '@/components/Footer'
 import DynamicNavBar from '@/components/NavBarLoader'
 import GoogleAnalytics from '@/components/GoogleAnalytics'
 
-
 const inter = Comfortaa({ subsets: ['latin'] })
 
 
@@ -25,9 +24,11 @@ export default function RootLayout({
 }){
   return (
     <html lang="en" className='h-screen'>     {/*previous h-full*/} 
+      
       <head>
-        <GoogleAnalytics GA_TRACKING_ID={process.env.GA_TRACKING_ID as string} />
-      </head>
+          <GoogleAnalytics/>
+      </head> 
+
       <body className="h-screen"> {/*previous h-full*/}
         
         <header>
