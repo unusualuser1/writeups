@@ -21,7 +21,6 @@ export default async function HTB_Home() {
 
   const boxProps = await Promise.all(boxes.map(async (box)=> {
     const decodedContent = await getDirFile(box.path+`/${box.name}.txt`)
-    console.log(decodedContent)
     return {
       name : box.name,
       path : box.path,

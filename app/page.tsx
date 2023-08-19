@@ -3,6 +3,7 @@ import HomePageLearn from "@/components/HomePageLearn"
 import { getDirFile } from "@/lib/apiUtils";
 import { octokit } from "@/lib/octo";
 
+
 export default async function Home(){
     
     let htbCommit;
@@ -25,7 +26,7 @@ export default async function Home(){
       const commitData = commitResponse.data.files || [];
       
       if(!learnCommit){
-        learnCommit = commitData.find(e => e.status === 'modified' && e.filename.includes("README.md") && e.filename.includes("Learn") );
+        learnCommit = commitData.find(e => e.status === 'added' && e.filename.includes("README.md") && e.filename.includes("ctf-writeups") );
         if(learnCommit){
           learnPath = learnCommit.filename.replace("README.md","");
         }
@@ -45,14 +46,20 @@ export default async function Home(){
       }
       
     }
+
       const [htbDecoded,learnDecoded] = await Promise.all([await getDirFile(htbPath+`${(htbPath as string).split("/")[2]}.txt`),
-      await getDirFile(learnPath+`${(learnPath as string).split("/")[1]}.txt`)])
-      
+      await getDirFile(learnPath+`${(learnPath as string).split("/")[2]}.txt`)])
+      const parsedData = JSON.parse(learnDecoded)
+      const htbParsed = JSON.parse(htbDecoded)
     return(  
       <main>
-          <HomePageBoxes htbDecoded={htbDecoded} htbPath={(htbPath as string).split("/")} 
-          learnDecoded={learnDecoded} learnPath={(learnPath as string).split("/")}/>
-          <HomePageLearn/>
+          <HomePageBoxes htbDecoded={htbParsed.link} htbPath={(htbPath as string).split("/")} 
+          learnDecoded={parsedData.link} learnPath={(learnPath as string).split("/")}/>
       </main>
     )
 }
+/**
+ * <HomePageBoxes htbDecoded={htbDecoded} htbPath={(htbPath as string).split("/")} 
+          learnDecoded={learnDecoded} learnPath={(learnPath as string).split("/")}/>
+          <HomePageLearn/>
+ */

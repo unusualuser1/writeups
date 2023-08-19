@@ -9,12 +9,11 @@ import MDRenderer from "@/components/MDRenderer";
 import TopOfPageButton from "@/components/backTopOfPage";
 
 export default async function Boxes({ params }: any) {
-  const { difficulty, name } = params || {};
-  const response = await getReadmeContent(`HackTheBox/${difficulty}/${name}`);
+  const { slug} = params || {};
+  const response = await getReadmeContent(`HackTheBox/${slug[0]}/${slug[1]}`);
   //console.log(response)
   return (
     <>
-      
       <div className="fixed w-[40px] h-[40px] flex justify-end 
                       xsm:bottom-10 md:right-[40px]
                       xsm:right-[10px]">
@@ -24,30 +23,3 @@ export default async function Boxes({ params }: any) {
     </>
   );
 }
-
-
-/**
- * const [decodedContent, setDecodedContent] = useState<string>("");
-
-  useEffect(() => {
-    async function fetchData() {
-      const response: any = await fetchWriteup( difficulty, name);
-
-      const decodedContent = response.content
-        ? atob(response.content.toString())
-        : "";
-      setDecodedContent(decodedContent);
-    }
-
-    fetchData();
-  }, [difficulty, name]);
-
- */
-
-  /**
-   * <ReactMarkdown
-          remarkPlugins={[gfm]}
-          children={decodedContent ?? ""}
-          components={{ code: Component }}
-        />
-   */

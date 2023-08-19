@@ -59,7 +59,7 @@ const HomePageBoxes : React.FC<HomePageProps> = ({htbDecoded,htbPath,learnDecode
                         onMouseEnter={(event) => handleMouseEnter(event)}
                         onMouseLeave={(event) => handleMouseLeave(event)}
             >
-                <div className="w-full h-[50px] text-center"><p className="xsm:text-[12px] sm:text-base">LAST LEARN UPLOADED</p></div>
+                <div className="w-full h-[50px] text-center"><p className="xsm:text-[12px] sm:text-base">LAST BOX UPLOADED</p></div>
                 <div className="relative py-4  w-full h-[80%] xsm:flex sm:flex-none m:flex xsm:justify-center xsm:w-full">
                     
                     <Link href={`/HTB/${htbPath[1]}/${htbPath[2]}`} >
@@ -77,10 +77,10 @@ const HomePageBoxes : React.FC<HomePageProps> = ({htbDecoded,htbPath,learnDecode
                         onMouseEnter={(event) => handleMouseEnter(event)}
                         onMouseLeave={(event) => handleMouseLeave(event)}
             >
-                <div className="w-full h-[50px] text-center"><p className="xsm:text-[12px] sm:text-base">LAST LEARN UPLOADED</p></div>
+                <div className="w-full h-[50px] text-center"><p className="xsm:text-[12px] sm:text-base">LAST CTF UPLOADED</p></div>
                 <div className="relative w-full h-[80%] xsm:flex sm:flex-none m:flex xsm:justify-center xsm:w-full">
                     
-                    <Link href={`Learn/${learnPath[1]}`}>
+                    <Link href={`ctf/${learnPath[1]}/${learnPath[2]}`}>
                         <Image layout='fill' objectFit='contain' className="rounded-l-[150px]" loading="lazy"  alt="lastLearn" src={learnDecoded}/>
                     </Link>
                     
