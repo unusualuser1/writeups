@@ -45,27 +45,33 @@ export default async function MDRenderer({decodedContent}: any){
                         xsm:text-[14px] xsm:px-[35px]
                         md: writeup
                         text-white">
-          <ReactMarkdown rehypePlugins={[rehypeRaw]}
-          remarkPlugins={[gfm]}  components={{
-            code({node, inline, className, children, lang, ...props}) {
-              const match = /language-(\w+)/.exec(className || '')
-              return !inline && match ? (
-                <SyntaxHighlighter
-                  {...props}
-                  codeTagProps={{ style: { fontSize: "inherit" } }}
-                  customStyle={{ fontSize: 18 }}
-                  children={String(children).replace(/\n$/, '')}
-                  style={oneDark}
-                  language={lang}
-                  PreTag="div"
-                />
-              ) : (
-                <code {...props} className={className}>
-                  {children}
-                </code>
-              )
-            }
-          }}>{decodedContent}</ReactMarkdown>
+          <ReactMarkdown
+  rehypePlugins={[rehypeRaw]}
+  remarkPlugins={[gfm]}
+  components={{
+    code({ node, inline, className, children, lang, ...props }) {
+      const match = /language-(\w+)/.exec(className || '');
+      return !inline && match ? (
+        <SyntaxHighlighter
+          {...props}
+          codeTagProps={{ style: { fontSize: "inherit" } }}
+          customStyle={{ fontSize: 18 }}
+          style={oneDark}
+          language={lang}
+          PreTag="div"
+        >
+          {String(children).replace(/\n$/, '')}
+        </SyntaxHighlighter>
+      ) : (
+        <code className={className} {...props}>
+          {children}
+        </code>
+      );
+    },
+  }}
+>
+  {decodedContent}
+</ReactMarkdown>
           
         </div>
       
