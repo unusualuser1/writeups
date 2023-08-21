@@ -9,12 +9,11 @@ type BoxItemProps = {
 
 export const Box = ({name, difficulty, decodedContent}:BoxItemProps) =>{
   const parsedData = JSON.parse(decodedContent);
-  
   return(
 
     <div className="flex xm:flex-wrap
-                    md:w-[300px] 
-                    xm:w-[250px] xm:h-[250px]
+                    md:w-[650px] 
+                    xm:w-[250px] xm:h-[150px]
                     xsm:w-[100px] xsm:h-[100px]
                     m-2
                     bg-[#3c3c3c] 
@@ -33,8 +32,13 @@ export const Box = ({name, difficulty, decodedContent}:BoxItemProps) =>{
         <center><h2 className="text-white xsm:invisible md:visible  ">{name}</h2></center>
       </div>
 
-      <div className="xsm:invisible xm:visible xsm:w-0 md:px-[50px] md:py-[20px] xm:px-[20px] xm:py-[5px] xm:w-full md:h-[150px] xm:h-[120px] flex items-center justify-center  text-white">
-        asdsads
+      <div className="xsm:invisible xm:visible xsm:w-0 md:px-[50px] md:py-[20px] xm:px-[20px] xm:py-[5px] xm:w-full md:h-[100px] md:w-[100px] xm:h-[120px] flex items-center justify-center  text-white">
+      <ul className=" writeup">
+          <li>{parsedData.os}</li>
+          <li>{parsedData.difficulty}</li>
+          <li>{parsedData.release}</li>
+          <li>{parsedData.state}</li>
+        </ul>
       </div>
     </div>
   )

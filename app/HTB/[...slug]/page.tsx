@@ -7,10 +7,19 @@ import { PageWrapper } from "@/components/PageWrapper";
 import rehypeRaw from "rehype-raw";
 import MDRenderer from "@/components/MDRenderer";
 import TopOfPageButton from "@/components/backTopOfPage";
+import { FC } from "react";
+import { getDirectoryData } from "@/lib/apiUtils";
 
-export default async function Boxes({ params }: any) {
+interface PageProps{
+  params:{
+    slug : string[]
+  }
+}
+
+const page: FC<PageProps> = async ({ params }) => {
   const { slug} = params || {};
-  const response = await getReadmeContent(`HackTheBox/${slug[0]}/${slug[1]}`);
+  console.log(slug)
+  const response:any = await fetch(`https://api.github.com/repos/Wanasgheo/Writeups/contents/HackTheBox/${slug[0]}/${slug[1]}/README.md?ref=main`,{next:{revalidate:60}}).then(res=>res.json());
   //console.log(response)
   return (
     <>
@@ -19,7 +28,20 @@ export default async function Boxes({ params }: any) {
                       xsm:right-[10px]">
         <TopOfPageButton/>
       </div> 
-      <MDRenderer decodedContent={response}/>
+      <MDRenderer decodedContent={atob(response.content)}/>
     </>
   );
 }
+
+export async function generateStaticParams(){
+  const r = await Promise.all([getDirectoryData('HackTheBox/Easy'),getDirectoryData('HackTheBox/Medium')])
+  const boxes = r.reduce((a,b)=> {return a.concat(b)})
+  return boxes.map((box) => {
+    return{
+      slug:[box.path.split('/')[1],box.name]
+    }
+  })
+}
+
+export default page
+

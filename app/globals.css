@@ -65,3 +65,12 @@ code{
   padding: 20px;
   overflow-x: scroll;
 }
+
+.writeup li{
+  display: inline;
+  border-radius: 8px;
+  border-color:rgb(63, 66, 70);
+  border-width: 1px;
+  background-color: #136db6;
+  padding: 3px;
+}
