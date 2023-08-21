@@ -1,5 +1,6 @@
-export default async function ctf() {
+import { getDirectoryData } from "@/lib/apiUtils";
 
+export default async function ctf() {
 
 
   return (  

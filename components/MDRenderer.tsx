@@ -4,12 +4,15 @@ import gfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
 import "highlight.js/styles/github-dark-dimmed.css";
 import React from "react";
+import { useInView } from "react-intersection-observer";
+import Image from "next/image";
 import {
   atomDark,
   oneDark,
 } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { Content } from "next/font/google";
 
-export default async function MDRenderer({ decodedContent }: any) {
+export default function MDRenderer({ decodedContent }: any) {
   return (
     <>
       <div
@@ -43,7 +46,7 @@ export default async function MDRenderer({ decodedContent }: any) {
                   {children}
                 </code>
               );
-            },
+            }, 
           }}
         >
           {decodedContent}
