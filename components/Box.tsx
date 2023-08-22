@@ -3,11 +3,11 @@ import Image from "next/image"
 
 type BoxItemProps = {
   name : string,
-  difficulty : string,
+  path : string,
   decodedContent : string
 }
 
-export const Box = ({name, difficulty, decodedContent}:BoxItemProps) =>{
+export const Box = ({name, path, decodedContent}:BoxItemProps) =>{
   const parsedData = JSON.parse(decodedContent);
   return(
 
@@ -17,12 +17,12 @@ export const Box = ({name, difficulty, decodedContent}:BoxItemProps) =>{
                     xsm:w-[100px] xsm:h-[100px]
                     m-2
                     bg-[#3c3c3c] 
-                    justify-center rounded-[50px]
+                    justify-left rounded-[50px]
                     transform hover:scale-[0.95]
                     transition-all"
     >
-      <Link href={`/HTB/${difficulty}/${name}`} className="w-[100px] h-[100px] relative">
-        <div className=" w-full h-full  ">
+      <Link href={path} className="w-[100px] h-[100px] relative">
+        <div className=" w-full h-full m-7">
           <Image className="rounded-[50px]" layout='fill' objectFit='contain' objectPosition="center" loading='lazy' src={parsedData.link}  alt=" "/>
         </div>
       </Link> 

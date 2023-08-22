@@ -7,6 +7,7 @@ import { components } from "@octokit/openapi-types"
 import BoxPreview from "@/components/BoxPreview";
 import Filter from "@/components/Filter";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
+import { Box } from "@/components/Box";
 /*
 function compareDiff(a:any,b:any):number{
   const difficulties = ["Easy","Medium","Hard","Insane"];
@@ -29,12 +30,18 @@ export default async function HTB_Home() {
     }
   }))
 
+  const options = [
+    { value : 'Easy' },
+    { value : 'Medium' },
+    { value : 'Hard' },
+    { value : 'Insane' },
+  ]
 
   return (  
     
     <main>
       {/* <PageWrapper> */}
-      <Filter boxes={boxProps}/>
+      <Filter items={boxProps} options={options}/>
       {/* </PageWrapper> */}
     </main>
     

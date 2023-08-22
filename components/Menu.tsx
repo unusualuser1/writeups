@@ -7,8 +7,8 @@ import { usePathname } from 'next/navigation'
 
 const links = [
     {href: "/", text: "Home", id: 1},
-    {href: "/HTB", text: "HTB", id: 2},
-    {href: "/ctf", text: "CTF", id: 3}
+    {href: "/HackTheBox", text: "HTB", id: 2},
+    {href: "/ctf-writeups", text: "CTF", id: 3}
 ]
 
 

@@ -18,7 +18,6 @@ interface PageProps{
 
 const page: FC<PageProps> = async ({ params }) => {
   const { slug} = params || {};
-  console.log(slug)
   const response:any = await fetch(`https://api.github.com/repos/Wanasgheo/Writeups/contents/HackTheBox/${slug[0]}/${slug[1]}/README.md?ref=main`,{next:{revalidate:60}}).then(res=>res.json());
   //console.log(response)
   return (
