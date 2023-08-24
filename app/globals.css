@@ -57,7 +57,7 @@ code{
   font-size:medium;
 }
 
-.writeup li{
+.filter div{
   display: inline;
   border-radius: 8px;
   border-color:rgb(63, 66, 70);
