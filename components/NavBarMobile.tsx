@@ -40,7 +40,7 @@ export default function NavBarMobile() {
                                             onClick();
                                         }
                                 } 
-                        className='fixed  z-10 w-[50px] h-[50px] grid px-3 py-3 space-y-0 '
+                        className='fixed  z-10 w-[50px] h-[50px] grid px-3 py-3 space-y-0 dealy-300'
             >
                 <div><hr className={isMenuOpen ? " rotate-45 translate-y-[9.5px] bg-white" : "bg-[white]" }/></div>
                 <div><hr className={isMenuOpen ? " -rotate-45 -translate-y-[3.5px] bg-white" : "bg-white" }/></div>
