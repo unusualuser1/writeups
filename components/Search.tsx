@@ -19,8 +19,8 @@ import { itemsProps } from "@/lib/types";
           <div className="text-white bg-[#111111] rounded xsm:w-[150px] xsm:m-auto xm:w-[40vw] xm:translate-x-[30vw] xm:m-0 flex flex-wrap py-[50px] justify-center text-right border-2 border-[#3F4246]">
             <input 
             onChange={e => setText(e.target.value)}
-            className=" bg-[#3F4246] xm:fixed  right-[20px] -translate-y-[40px] rounded"
-            placeholder="  Search here"
+            className=" bg-[#3F4246] xm:fixed xsm:w-[70%] xm:w-[200px] right-[20px] -translate-y-[40px] rounded"
+            placeholder="Search here"
             />
              
             <div className="flex flex-wrap w-full h-full justify-center m:px-[10px]">

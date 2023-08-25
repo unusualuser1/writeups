@@ -1,6 +1,9 @@
 import { getReadmeContent } from "@/lib/apiUtils";
 import MDRenderer from "@/components/MDRenderer";
 import { getDirectoryData } from "@/lib/apiUtils";
+import TopOfPageButton from "@/components/backTopOfPage";
+import Feedback from "@/components/feedbackBox";
+import { useState } from "react";
 
 interface PageProps{
   params:{
@@ -11,8 +14,16 @@ interface PageProps{
 export default async function Page({params}:PageProps) {
   const { slug } = params || {}
   const res = await getReadmeContent(`ctf-writeups/${slug[0]}/${slug[1]}`)
+  
     return (  
       <main>
+        <div className="fixed w-[40px] h-[150px] flex justify-end 
+                      xsm:bottom-10 md:right-[40px]
+                      xsm:right-[10px]">
+          {/* <Feedback /> */}
+          <TopOfPageButton/>
+          
+        </div> 
         <MDRenderer decodedContent={res}/>
       </main>
     );

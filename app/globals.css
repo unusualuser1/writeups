@@ -65,3 +65,11 @@ code{
   background-color: #136db6;
   padding: 3px;
 }
+
+input::placeholder{
+  text-align: center;
+}
+
+input::placeholder:focus{
+  color: white;
+}
