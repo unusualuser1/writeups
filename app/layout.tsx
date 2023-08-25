@@ -43,7 +43,7 @@ export default function RootLayout({
 
       <body className="h-screen"> {/*previous h-full*/}
         
-        <header>
+        <header className='md:w-full md:flex md:justify-center'>
           <DynamicNavBar/>
         </header>
 
