@@ -24,16 +24,16 @@ export const Ctf = ({name,path,decodedContent}:Props) =>{
                                     bg-[#3c3c3c] m-2
                                     transform hover:scale-[0.95]
                                     transition-all items-center xm:px-3
-                                    inline-flex justify-center xm:space-x-4"
+                                    flex flex-wrap justify-center "
                 >
                     
-                    <div className="xm:w-[30%] h-full flex text-center items-center
+                    <div className="xm:w-full h-[50%] flex text-center items-center
                                     xsm:w-full xsm:justify-center"
                     >
                         {name.toLowerCase()}
                     </div>
 
-                    <div className="xm:w-[50%] xm:visible h-full flex text-center items-center
+                    <div className="xm:w-full xm:visible h-[50%] flex text-center justify-center     items-center
                                     xsm:w-0 xsm:invisible "
                     >
                     {parsedData.description}
