@@ -2,6 +2,7 @@
 import Link from "next/link";
 import {  useEffect, useState } from "react"
 import { useRouter } from "next/router";
+import { animate } from "framer-motion";
 
 
 // the "interface" just set what props HamburgerMenu const will accept and its return
@@ -39,9 +40,9 @@ export default function NavBarMobile() {
                                             onClick();
                                         }
                                 } 
-                        className='fixed z-10 w-[50px] h-[50px] grid px-3 py-3 space-y-0 '
+                        className='fixed  z-10 w-[50px] h-[50px] grid px-3 py-3 space-y-0 '
             >
-                <div><hr className={isMenuOpen ? " rotate-45 translate-y-[9.5px] bg-white" : "bg-white" }/></div>
+                <div><hr className={isMenuOpen ? " rotate-45 translate-y-[9.5px] bg-white" : "bg-[white]" }/></div>
                 <div><hr className={isMenuOpen ? " -rotate-45 -translate-y-[3.5px] bg-white" : "bg-white" }/></div>
             </div>
         );
@@ -56,7 +57,7 @@ export default function NavBarMobile() {
         
             
                 // black background div
-                <div className={isMenuOpen ? 'md:hidden  w-[50vw] h-screen transp bg-opacity-85 bg-black fixed z-10 rounded-r-xl' : ' w-0 h-0 '}> 
+                <div className={isMenuOpen ? 'md:hidden  w-[50vw] h-screen transp bg-opacity-100 bg-[#0F4C75] transition-all duration-300 fixed z-10 rounded-r-xl' : ' w-0 h-0 transition-all duration-300'}> 
 
                     {/* menu div */}
                     <div    className="text-white translate-y-[50px] translate-x-[20px] w-[15px] space-y-2">
