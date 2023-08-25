@@ -53,8 +53,8 @@ export default async function Home(){
       const htbParsed = JSON.parse(htbDecoded)
     return(  
       <main>
-          <HomePageBoxes htbDecoded={htbParsed.link} htbPath={(htbPath as string).split("/")} 
-          learnDecoded={parsedData.link} learnPath={(learnPath as string).split("/")}/>
+          <HomePageBoxes htbDecoded={htbParsed.link} htbPath={(htbPath as string)} 
+          learnDecoded={parsedData.link} learnPath={(learnPath as string)}/>
       </main>
     )
 }

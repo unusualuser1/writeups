@@ -13,13 +13,11 @@ import Image from "next/legacy/image";
 interface HomePageProps{
   htbDecoded : string,
   learnDecoded : string,
-  learnPath : string[],
-  htbPath : string[]
+  learnPath : string,
+  htbPath : string
 }
 
 const HomePageBoxes : React.FC<HomePageProps> = ({htbDecoded,htbPath,learnDecoded,learnPath}) => {
-
-    htbDecoded = htbDecoded
 
     const handleMouseEnter = (event:any) =>{
         if(window.innerWidth>768){
@@ -62,7 +60,7 @@ const HomePageBoxes : React.FC<HomePageProps> = ({htbDecoded,htbPath,learnDecode
                 <div className="w-full h-[50px] text-center"><p className="xsm:text-[12px] sm:text-base">LAST BOX UPLOADED</p></div>
                 <div className="relative py-4  w-full h-[80%] xsm:flex sm:flex-none m:flex xsm:justify-center xsm:w-full">
                     
-                    <Link href={`/HTB/${htbPath[1]}/${htbPath[2]}`} >
+                    <Link href={htbPath} >
                         <Image layout='fill' objectFit='contain' loading="lazy"  alt="lastLearn" src={htbDecoded}/>
                     </Link>
                     
@@ -80,7 +78,7 @@ const HomePageBoxes : React.FC<HomePageProps> = ({htbDecoded,htbPath,learnDecode
                 <div className="w-full h-[50px] text-center"><p className="xsm:text-[12px] sm:text-base">LAST CTF UPLOADED</p></div>
                 <div className="relative w-full h-[80%] xsm:flex sm:flex-none m:flex xsm:justify-center xsm:w-full">
                     
-                    <Link href={`ctf/${learnPath[1]}/${learnPath[2]}`}>
+                    <Link href={learnPath}>
                         <Image layout='fill' objectFit='contain' loading="lazy"  alt="lastLearn" src={learnDecoded}/>
                     </Link>
                     
