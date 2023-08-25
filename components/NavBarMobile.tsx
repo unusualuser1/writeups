@@ -66,7 +66,7 @@ export default function NavBarMobile() {
                         {/* menu list */}
                         <ul className={isMenuOpen ? 'md:hidden flex translate-y-[100px] flex-col gap-4 translate-x-6 xsm:text-[12px]' : 'hidden md:flex justify-end gap-4' }>
                             <li><Link onClick={toggleMenu} className={window.location.pathname === "/" ? 'font-bold md:text-[24px] sm:text-[20px] xsm:text-[14px]':''} href={"../../"} >HOME</Link></li>
-                            <li><Link onClick={toggleMenu} className={window.location.pathname === "/HTB" ? 'font-bold md:text-[24px] sm:text-[20px] xsm:text-[14px]':''} href={"../../HTB"} >HTB</Link></li>
+                            <li><Link onClick={toggleMenu} className={window.location.pathname === "/HackTheBox" ? 'font-bold md:text-[24px] sm:text-[20px] xsm:text-[14px]':''} href={"../../HTB"} >HTB</Link></li>
                             <li><Link onClick={toggleMenu} className={window.location.pathname === "/Learn" ? 'font-bold md:text-[24px] sm:text-[20px] xsm:text-[14px]':''} href={"../../Learn"} >LEARN</Link></li>
                         </ul>
                     </div>
