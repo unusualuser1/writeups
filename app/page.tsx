@@ -5,7 +5,10 @@ import { octokit } from "@/lib/octo";
 
 
 
-
+export const metadata = {
+  title: 'Writeups',
+  description: 'Here u can find a lot of stuff',
+}
 
 
 export default async function Home(){

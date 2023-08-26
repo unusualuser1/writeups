@@ -13,12 +13,18 @@ import Image from "next/legacy/image";
 
 //type Data = Endpoints["GET /repos/{owner}/{repo}/contents/{path}"]["response"]["data"];
 
-    async function LearnPreview({id}:any){
-        const decodedContent = await getDirFile(id.path+`/${id.name}.txt`)
-        return(
-            <AnimatedElement id={id.name} link={decodedContent}/>
-        )
-    }
+export const metadata = {
+    title: 'Learn',
+    description: 'Here u can Learn a lot about hacking machines',
+  }
+
+
+async function LearnPreview({id}:any){
+    const decodedContent = await getDirFile(id.path+`/${id.name}.txt`)
+    return(
+        <AnimatedElement id={id.name} link={decodedContent}/>
+    )
+}
 
 
 export default async function Learn_Home(){

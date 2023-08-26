@@ -14,6 +14,11 @@ function compareDiff(a:any,b:any):number{
   return difficulties.indexOf(a.name) - difficulties.indexOf(b.name);
 }*/
 
+export const metadata = {
+  title: 'Hack The Box Writeups',
+  description: 'Writeups are here',
+}
+
 type DirectoryItem = components["schemas"]["content-directory"];
 
 export default async function HTB_Home() {
