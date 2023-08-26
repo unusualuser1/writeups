@@ -3,8 +3,6 @@ import HomePageLearn from "@/components/HomePageLearn"
 import { getDirFile } from "@/lib/apiUtils";
 import { octokit } from "@/lib/octo";
 
-export const title = "Writeups"
-export const description = "Here u can find writeups about hack the box machine and also other ctf challenge"
 
 
 
@@ -75,10 +73,4 @@ export default async function Home(){
           <HomePageLearn/>
  */
 
-Home.getInitialProps = () => {
-  return{
-    title:"Writeups:: ",
-    description: "- A lot of stuf here"
-  };
-};
 
