@@ -67,4 +67,14 @@ async function getDirFile(path : string) {
   }
 }
 
-export{getDirectoryData, getReadmeContent, getCommits, getDirFile};
+async function getAllBoxes(){
+  const r = await Promise.all([getDirectoryData('HackTheBox/Easy'),getDirectoryData('HackTheBox/Medium')])
+  return r.reduce((a,b)=> {return a.concat(b)})
+}
+
+async function getAllCtfs(){
+  const r = await Promise.all([getDirectoryData('ctf-writeups/TeenableCtf-2023')])
+  return r.reduce((a,b)=> {return a.concat(b)})
+}
+
+export{getDirectoryData, getReadmeContent, getCommits, getDirFile, getAllBoxes, getAllCtfs};
