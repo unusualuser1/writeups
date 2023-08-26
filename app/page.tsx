@@ -6,6 +6,10 @@ import { octokit } from "@/lib/octo";
 export const title = "Writeups"
 export const description = "Here u can find writeups about hack the box machine and also other ctf challenge"
 
+
+
+
+
 export default async function Home(){
     
 
@@ -54,15 +58,27 @@ export default async function Home(){
       await getDirFile(learnPath+`${(learnPath as string).split("/")[2]}.txt`)])
       const parsedData = JSON.parse(learnDecoded)
       const htbParsed = JSON.parse(htbDecoded)
-    return(  
+
+
+
+    return(
+        
       <main>
           <HomePageBoxes htbDecoded={htbParsed.link} htbPath={(htbPath as string)} 
           learnDecoded={parsedData.link} learnPath={(learnPath as string)}/>
       </main>
     )
-}
+};
 /**
  * <HomePageBoxes htbDecoded={htbDecoded} htbPath={(htbPath as string).split("/")} 
           learnDecoded={learnDecoded} learnPath={(learnPath as string).split("/")}/>
           <HomePageLearn/>
  */
+
+Home.getInitialProps = () => {
+  return{
+    title:"Writeups:: ",
+    description: "- A lot of stuf here"
+  };
+};
+
