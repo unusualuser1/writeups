@@ -63,11 +63,13 @@ export default async function Home(){
 
 
     return(
-        
-      <main>
-          <HomePageBoxes htbDecoded={htbParsed.link} htbPath={(htbPath as string)} 
-          learnDecoded={parsedData.link} learnPath={(learnPath as string)}/>
-      </main>
+      <>
+        <head><meta name="google-site-verification" content="T2FrRrzXLHAe12g7Tf0b-r0P_0anHnydtBJOPcG53Ro" /></head>
+        <main>
+            <HomePageBoxes htbDecoded={htbParsed.link} htbPath={(htbPath as string)} 
+            learnDecoded={parsedData.link} learnPath={(learnPath as string)}/>
+        </main>
+      </>
     )
 };
 /**
