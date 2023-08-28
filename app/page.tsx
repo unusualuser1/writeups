@@ -2,6 +2,7 @@ import HomePageBoxes from "@/components/HomePageBoxes"
 import HomePageLearn from "@/components/HomePageLearn"
 import { getDirFile } from "@/lib/apiUtils";
 import { octokit } from "@/lib/octo";
+import Head from 'next/head';
 
 
 
@@ -64,7 +65,7 @@ export default async function Home(){
 
     return(
       <>
-        <head><meta name="google-site-verification" content="T2FrRrzXLHAe12g7Tf0b-r0P_0anHnydtBJOPcG53Ro" /></head>
+        <Head><meta name="google-site-verification" content="T2FrRrzXLHAe12g7Tf0b-r0P_0anHnydtBJOPcG53Ro" /></Head>
         <main>
             <HomePageBoxes htbDecoded={htbParsed.link} htbPath={(htbPath as string)} 
             learnDecoded={parsedData.link} learnPath={(learnPath as string)}/>
