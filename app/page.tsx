@@ -2,8 +2,6 @@ import HomePageBoxes from "@/components/HomePageBoxes"
 import HomePageLearn from "@/components/HomePageLearn"
 import { getDirFile } from "@/lib/apiUtils";
 import { octokit } from "@/lib/octo";
-import Head from 'next/head';
-
 
 
 export const metadata = {
