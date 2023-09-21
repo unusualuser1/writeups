@@ -22,7 +22,6 @@ const inter = Comfortaa({ subsets: ['latin'] })
 export default function RootLayout({children}:{children: React.ReactNode}) {
   return (
     <html lang="en" className='h-screen'>     {/*previous h-full*/} 
-     <Head> 
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GA_ANALYTICS_ID}`}
           strategy="afterInteractive"
@@ -35,9 +34,9 @@ export default function RootLayout({children}:{children: React.ReactNode}) {
             gtag('config', '${process.env.GA_ANALYTICS_ID}');
           `}
         </Script>
-</Head>
+        <Head>
         <meta name='keywords' content='writeups, 0xwriteups, htb, hackthebox, hack the box, hack the box writeups, writeups hack the box, writeups htb' />
-        
+        </Head>
 
       <body className="h-screen"> {/*previous h-full*/}
         
