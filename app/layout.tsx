@@ -40,7 +40,7 @@ export default function RootLayout({children}:{children: React.ReactNode}) {
 
       <body className="h-screen"> {/*previous h-full*/}
         
-        <header className='md:w-full md:flex md:justify-center'>
+        <header className='w-full md:flex md:justify-center'>
           <DynamicNavBar/>
         </header>
 

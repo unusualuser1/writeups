@@ -41,7 +41,7 @@ export default function NavBarMobile() {
                 onClick();
             }
             }
-                className='fixed z-50 w-[50px] h-[50px] grid px-3 py-3 space-y-0 dealy-300 translate-y-[50px] translate-x-[20px]'
+                className='fixed z-50 w-[50px] h-[50px] grid px-3 py-3 translate-y-[50px] translate-x-[20px]'
             >
                 <div>
                     <hr className={isMenuOpen ? " rotate-45 translate-y-[9.5px] bg-white" : "bg-[white]"} />
@@ -67,7 +67,7 @@ export default function NavBarMobile() {
     return (
         <>
             <HamburgerMenu onClick={toggleMenu} />
-            <div className={isMenuOpen ? "w-1/2 h-screen top-0 left-[0px] bg-[#143347] z-10 transform duration-1000 ease-in-out fixed rounded-r-2xl rounded-b-[0px]" : "w-1/2 h-screen bg-[#143347] z-10 transform duration-1000 ease-in-out fixed rounded-r-2xl rounded-b-[0px] translate-x-[-50vw]"}>
+            <div className={isMenuOpen ? "md:w-1/2 w-[200px] h-screen top-0 left-[0px] bg-[#143347] z-10 transform duration-1000 ease-in-out fixed rounded-r-2xl rounded-b-[0px]" : "md:w-1/2 w-[200px] h-screen bg-[#143347] z-10 transform duration-1000 ease-in-out fixed rounded-r-2xl rounded-b-[0px] md:translate-x-[-50vw] translate-x-[-200px] "}>
 
                 <ul className={isMenuOpen ? 'flex translate-y-[150px] flex-col gap-4 translate-x-6 xsm:text-[12px]' : 'flex translate-y-[150px] flex-col gap-4 translate-x-6 xsm:text-[12px]'}>
                     <li><Link onClick={toggleMenu} className={window.location.pathname === "/" ? 'font-bold md:text-[24px] sm:text-[20px] xsm:text-[14px]' : ''} href={"/"} >HOME</Link> 
@@ -76,7 +76,7 @@ export default function NavBarMobile() {
                     </li>
                     <li><Link onClick={toggleMenu} className={window.location.pathname === "/ctf-writeups" ? 'font-bold md:text-[24px] sm:text-[20px] xsm:text-[14px]' : ''} href={"/ctf-writeups"} >CTF</Link></li>
                 </ul>
-            </div >
+            </div>
         </>
     );
 }
