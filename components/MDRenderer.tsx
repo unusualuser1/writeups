@@ -21,8 +21,9 @@ export default function MDRenderer({ decodedContent }: any) {
                         xld:px-[450px]
                         ld:px-[250px]
                         xsm:text-[14px] xsm:px-[35px]
-                        md: writeup
-                        text-white"
+                        md:writeup
+                        text-white 
+                        md:break-words"
       >
         <ReactMarkdown
           rehypePlugins={[rehypeRaw]}
@@ -46,7 +47,7 @@ export default function MDRenderer({ decodedContent }: any) {
                   {children}
                 </code>
               );
-            }, 
+            },
           }}
         >
           {decodedContent}
