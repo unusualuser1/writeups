@@ -8,7 +8,7 @@ import { components } from "@octokit/openapi-types"
 const owner = 'Wanasgheo';
 const repo='Writeups';
 
-/*
+
 async function getDirectoryData(x:string){
   try {
     const { data } =  await  octokit.rest.repos.getContent({
@@ -20,23 +20,6 @@ async function getDirectoryData(x:string){
     if (!Array.isArray(data)) return [];
     
     return data;
-  } catch (error) {
-    throw new Error('Failed to fetch data');
-  }
-}
-*/
-
-type dir = {
-  name:string,
-  path:string,
-  sha:string,
-  url:string
-}
-
-async function getDirectoryData(x:string): Promise<dir[]>{
-  try {
-    const response:any = await fetch(`https://api.github.com/repos/Wanasgheo/Writeups/contents/${x}`,{next:{revalidate:60}}).then(res=>res.json());
-    return response;
   } catch (error) {
     throw new Error('Failed to fetch data');
   }
