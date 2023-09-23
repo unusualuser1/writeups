@@ -12,6 +12,7 @@ import { FC } from "react";
 import { getDirectoryData } from "@/lib/apiUtils";
 import Feedback from "@/components/feedbackBox";
 import { useState } from "react";
+import next from "next/types";
 
 export const metadata = {
   title: 'Writeups',
@@ -25,14 +26,9 @@ interface PageProps {
 }
 
 const page: FC<PageProps> = async ({ params }) => {
+
   const { slug } = params || {};
   const response: any = await fetch(`https://api.github.com/repos/Wanasgheo/Writeups/contents/HackTheBox/${slug[0]}/${slug[1]}/README.md?ref=main`, { next: { revalidate: 60 } }).then(res => res.json());
-
-  // <div className="fixed w-[40px] h-[150px] flex justify-end 
-  //                     xsm:bottom-10 md:right-[40px]
-  //                     xsm:right-[10px]">
-  //       {/* <Feedback /> */}
-  //       </div> 
 
   //console.log(response)
   return (
