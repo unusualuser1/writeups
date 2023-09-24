@@ -64,20 +64,10 @@ code {
   border-radius: 8px;
   border-color: #136db6;
   border-width: 2px;
-  background-color: #3c3c3c;
+  background-color: #136db6;
   padding: 3px;
 }
 
-
-@media (min-width:600px) and (max-width:768px) {
-  .filter div {
-    border-radius: 8px;
-    border-color: #136db6;
-    border-width: 2px;
-    background-color: #136db6;
-    padding: 3px;
-  }
-}
 
 
 

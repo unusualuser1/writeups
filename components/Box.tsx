@@ -41,14 +41,10 @@ export const Box = ({name, path, decodedContent}:BoxItemProps) =>{
                         xsm:w-0 xsm:invisible
                         xm:visible xm:w-full xm:h-[70%] xm:flex xm:flex-wrap xm:justify-center xm:items-center "
         >
-            <div className="xm:duration-1000 
-                      md:group-hover:bg-[#136db6] md:group-hover:text-white md:group-hover:duration-1000">{parsedData.os}</div>
-            <div className="xm:duration-1000 
-                      md:group-hover:bg-[#136db6] md:group-hover:text-white md:group-hover:duration-1000">{parsedData.difficulty}</div>
-            <div className="xm:duration-1000 
-                      md:group-hover:bg-[#136db6] md:group-hover:text-white md:group-hover:duration-1000">{parsedData.release}</div>
-            <div className="xm:duration-1000 
-                      md:group-hover:bg-[#136db6] md:group-hover:text-white md:group-hover:duration-1000">{parsedData.state}</div>
+            <div>{parsedData.os}</div>
+            <div>{parsedData.difficulty}</div>
+            <div>{parsedData.release}</div>
+            <div>{parsedData.state}</div>
         </div>
       </div>
     </div>
