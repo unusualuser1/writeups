@@ -22,8 +22,7 @@ export default function MDRenderer({ decodedContent }: any) {
                         ld:px-[250px]
                         xsm:text-[14px] xsm:px-[35px]
                         md:writeup
-                        text-white 
-                        md:break-words"
+                        text-white"
       >
         <ReactMarkdown
           rehypePlugins={[rehypeRaw]}

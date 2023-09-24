@@ -34,7 +34,7 @@ export const Ctf = ({name,path,decodedContent}:Props) =>{
                     </div>
 
                     <div className="xm:w-full xm:visible h-[50%] flex text-center justify-center     items-center
-                                    xsm:w-0 xsm:invisible "
+                                    xsm:w-0 xsm:invisible  xm:text-[12px] md:text-[16px]"
                     >
                     {parsedData.description}
                     </div>
