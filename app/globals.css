@@ -3,47 +3,48 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0,123, 0;
-  --background-start-rgb: 0, 0, 0;/*previous 6, 24, 38*/
-  --background-end-rgb: 0, 0, 0;/*previous 6, 24, 38*/
+  --foreground-rgb: 0, 123, 0;
+  --background-start-rgb: 0, 0, 0;
+  /*previous 6, 24, 38*/
+  --background-end-rgb: 0, 0, 0;
+  /*previous 6, 24, 38*/
 }
 
 
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;  /*previous 6, 24, 38*/
-    --background-end-rgb: 0, 0, 0;    /*previous 6, 24, 38*/
+    --background-start-rgb: 0, 0, 0;
+    /*previous 6, 24, 38*/
+    --background-end-rgb: 0, 0, 0;
+    /*previous 6, 24, 38*/
   }
 }
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
+  background: linear-gradient(to bottom,
       transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+      rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
 }
 
 .gradient {
-  background-image: linear-gradient(rgba(255, 255, 255, 0.2),#061826);
+  background-image: linear-gradient(rgba(255, 255, 255, 0.2), #061826);
 }
 
-.bigText{
+.bigText {
   font-size: 90px;
 }
 
-.writeup{
+.writeup {
 
-  font-size:20px;
+  font-size: 20px;
   display: block;
   margin-left: auto;
   margin-right: auto;
 }
 
-.writeup img{
+.writeup img {
   width: 800px;
   display: block;
   margin-left: auto;
@@ -52,24 +53,38 @@ body {
   margin-bottom: 40px;
 }
 
-code{
-  font-size:medium;
+code {
+  font-size: medium;
   width: 100%;
   word-wrap: break-word;
 }
 
-.filter div{
+
+.filter div {
   border-radius: 8px;
-  border-color:rgb(63, 66, 70);
-  border-width: 1px;
-  background-color: #136db6;
+  border-color: #136db6;
+  border-width: 2px;
+  background-color: #3c3c3c;
   padding: 3px;
 }
 
-input::placeholder{
+
+@media (min-width:600px) and (max-width:768px) {
+  .filter div {
+    border-radius: 8px;
+    border-color: #136db6;
+    border-width: 2px;
+    background-color: #136db6;
+    padding: 3px;
+  }
+}
+
+
+
+input::placeholder {
   text-align: center;
 }
 
-input::placeholder:focus{
+input::placeholder:focus {
   color: white;
 }

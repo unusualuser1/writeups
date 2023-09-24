@@ -17,12 +17,12 @@ export const Box = ({name, path, decodedContent}:BoxItemProps) =>{
                     bg-[#3c3c3c] m-2
                     transform hover:scale-[0.95]
                     transition-all items-center xm:px-3
-                    inline-flex justify-center xm:space-x-4"
+                    inline-flex justify-center xm:space-x-4 group"
 
     >
       
       <div className=" w-[100px] h-[100px] relative">
-        <Link href={path} className="">
+        <Link href={path}>
           <Image className="rounded-[50px]" layout='fill' objectFit='contain' objectPosition="center" loading='lazy' src={parsedData.link}  alt="box-image"/>
         </Link>
       </div>
@@ -31,7 +31,8 @@ export const Box = ({name, path, decodedContent}:BoxItemProps) =>{
         
         <div className="flex justify-center items-center 
                         xsm:w-0 xsm:invisible
-                        xm:visible xm:w-[105px] xm:h-[30%] xm:rounded-[8px] xm:border-white xm:border-2"
+                        xm:visible xm:w-[105px] xm:h-[30%] xm:rounded-[8px] xm:border-white xm:border-2 xm:duration-1000
+                      group-hover:bg-white group-hover:text-[#3c3c3c] group-hover:duration-1000"
         >
         {name}
         </div>
@@ -40,10 +41,14 @@ export const Box = ({name, path, decodedContent}:BoxItemProps) =>{
                         xsm:w-0 xsm:invisible
                         xm:visible xm:w-full xm:h-[70%] xm:flex xm:flex-wrap xm:justify-center xm:items-center "
         >
-            <div>{parsedData.os}</div>
-            <div>{parsedData.difficulty}</div>
-            <div>{parsedData.release}</div>
-            <div>{parsedData.state}</div>
+            <div className="xm:duration-1000 
+                      md:group-hover:bg-[#136db6] md:group-hover:text-white md:group-hover:duration-1000">{parsedData.os}</div>
+            <div className="xm:duration-1000 
+                      md:group-hover:bg-[#136db6] md:group-hover:text-white md:group-hover:duration-1000">{parsedData.difficulty}</div>
+            <div className="xm:duration-1000 
+                      md:group-hover:bg-[#136db6] md:group-hover:text-white md:group-hover:duration-1000">{parsedData.release}</div>
+            <div className="xm:duration-1000 
+                      md:group-hover:bg-[#136db6] md:group-hover:text-white md:group-hover:duration-1000">{parsedData.state}</div>
         </div>
       </div>
     </div>
