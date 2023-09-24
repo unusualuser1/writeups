@@ -44,7 +44,7 @@ export default function RootLayout({children}:{children: React.ReactNode}) {
           <DynamicNavBar/>
         </header>
 
-        <main className='xsm:pt-[100px] md:pt-0 min-h-screen'> {/* pt-[100px] previous min-h-full*/}
+        <main className='xsm:pt-[100px] md:pt-0 min-h-full '> {/* pt-[100px] previous min-h-screen */}
           {children}
         </main>
 
