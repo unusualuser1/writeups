@@ -10,13 +10,13 @@ export default function Footer(){
                 </div>
 
                 <div className="flex justify-center w-full h-1/2 space-x-2">
-                    <div className="w-[40px] h-[40px] relative hover:scale-[0.8] rounded-xl hover:bg-white transition duration-700">
+                    <div className="w-[40px] h-[40px] relative hover:scale-[0.8] rounded-xl hover:bg-white hover:cursor-pointer transition duration-700">
                         <Image className="hover:filter hover:brightness-0 transition  duration-700" layout='fill' objectFit='contain' objectPosition="center" src="/Insta.png" alt="Instagram" loading="lazy"/>
                     </div>
-                    <div className="w-[40px] h-[40px] relative hover:scale-[0.8] rounded-xl hover:bg-white transition duration-700">
+                    <div className="w-[40px] h-[40px] relative hover:scale-[0.8] rounded-xl hover:bg-white hover:cursor-pointer transition duration-700">
                         <Image className="hover:filter hover:brightness-0 transition  duration-700" layout='fill' objectFit='contain' objectPosition="center" src="/Facebook.png" alt="FaceBook" loading="lazy"/>
                         </div>
-                    <div className="w-[40px] h-[40px] relative hover:scale-[0.8] rounded-xl hover:bg-white transition duration-700">
+                    <div className="w-[40px] h-[40px] relative hover:scale-[0.8] rounded-xl hover:bg-white hover:cursor-pointer transition duration-700">
                         <Image className="hover:filter hover:brightness-0 transition  duration-700" layout='fill' objectFit='contain' objectPosition="center" src="/Linkedin.png" alt="Linkedin" loading="lazy"/>
                     </div>
                 </div>
