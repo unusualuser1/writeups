@@ -27,18 +27,18 @@ export const Box = ({name, path, decodedContent}:BoxItemProps) =>{
         </Link>
       </div>
       <div className="xsm:w-0 xsm:space-x-0 xsm:invisible
-                      xm:space-x-2 xm:flex xm:flex-wrap xm:items-center xm:py-2 xm:w-[80%] xm:h-full xm:visible">
+                      xm:space-x-2 xm:flex xm:flex-wrap xm:items-center xm:py-2 xm:w-[80%] xm:h-full xm:visible xm:justify-center">
         
         <div className="flex justify-center items-center 
                         xsm:w-0 xsm:invisible
-                        xm:visible xm:w-full xm:h-[30%]"
+                        xm:visible xm:w-[105px] xm:h-[30%] xm:rounded-[8px] xm:border-white xm:border-2"
         >
         {name}
         </div>
         
         <div className="filter
                         xsm:w-0 xsm:invisible
-                        xm:visible xm:w-full xm:h-[70%] xm:flex xm:flex-wrap xm:justify-center xm:items-center"
+                        xm:visible xm:w-full xm:h-[70%] xm:flex xm:flex-wrap xm:justify-center xm:items-center "
         >
             <div>{parsedData.os}</div>
             <div>{parsedData.difficulty}</div>

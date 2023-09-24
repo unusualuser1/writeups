@@ -41,10 +41,7 @@ body {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  
-  word-wrap: break-word;
 }
-
 
 .writeup img{
   width: 800px;
