@@ -1,10 +1,10 @@
 import Link from "next/link";
 
 type Props = {
-    name : string,
-    path : string,
-    decodedContent : string
-  }
+    name: string,
+    path: string,
+    decodedContent: string
+}
 
 //   <div className="flex md:w-[200px] md:h-[30px] xmd:h-[100px] xm:w-[150px] xm:h-[30px] xsm:w-0 justify-center items-center "> 
 //                         <center><h2 className="text-white xsm:invisible md:visible  ">{name.toLowerCase()}</h2></center>
@@ -14,32 +14,33 @@ type Props = {
 //                     <p>{parsedData.description}</p>
 //                     </div>
 
-export const Ctf = ({name,path,decodedContent}:Props) =>{
+export const Ctf = ({ name, path, decodedContent }: Props) => {
     const parsedData = JSON.parse(decodedContent);
-    return(
+    return (
         <>
-                <Link   href={path} 
-                        className=" xm:w-full xm:h-[150px] xm:rounded-[30px]
+            <Link href={path}
+                className=" xm:w-full xm:h-[150px] xm:rounded-[30px]
                                     xsm:w-[100px] xsm:h-[100px] xsm:rounded-[50px]
                                     bg-[#3c3c3c] m-2
                                     transform hover:scale-[0.95]
                                     transition-all items-center xm:px-3
                                     flex flex-wrap justify-center "
-                >
-                    
-                    <div className="xm:w-full h-[50%] flex text-center items-center
-                                    xsm:w-full xsm:justify-center"
-                    >
-                        {name.toLowerCase()}
-                    </div>
+            >
 
-                    <div className="xm:w-full xm:visible h-[50%] flex text-center justify-center     items-center
-                                    xsm:w-0 xsm:invisible  xm:text-[12px] md:text-[16px]"
-                    >
-                    {parsedData.description}
-                    </div>
-                    
-                </Link>
+                <div className="xm:w-full h-[50%] flex text-center items-center
+                                    xsm:w-full xsm:justify-center"
+                >
+                    {name.toLowerCase()}
+                </div>
+            </Link>
+
+            <div className="xm:w-full xm:visible xm:h-[50%] flex text-center justify-center items-center
+                                    xsm:w-0 xsm:invisible xsm:h-0 xm:text-[12px] md:text-[16px]"
+            >
+                {parsedData.description}
+            </div>
+
+
 
         </>
     )
