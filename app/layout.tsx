@@ -19,29 +19,32 @@ const inter = Comfortaa({ subsets: ['latin'] })
 // }
 
 
-export default function RootLayout({children}:{children: React.ReactNode}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className='h-screen'>     {/*previous h-full*/} 
-        <Script
-          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GA_ANALYTICS_ID}`}
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
+    <html lang="en" className='h-screen'>     {/*previous h-full*/}
+      <head>
+        <meta name="google-site-verification" content="T2FrRrzXLHAe12g7Tf0b-r0P_0anHnydtBJOPcG53Ro" />
+      </head>
+      <Script
+        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GA_ANALYTICS_ID}`}
+        strategy="afterInteractive"
+      />
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
             gtag('config', '${process.env.GA_ANALYTICS_ID}');
           `}
-        </Script>
-        <Head>
+      </Script>
+      <Head>
         <meta name='keywords' content='writeups, 0xwriteups, htb, hackthebox, hack the box, hack the box writeups, writeups hack the box, writeups htb' />
-        </Head>
+      </Head>
 
       <body className="h-screen"> {/*previous h-full*/}
-        
+
         <header className='w-full md:flex md:justify-center'>
-          <DynamicNavBar/>
+          <DynamicNavBar />
         </header>
 
         <main className='xsm:pt-[100px] md:pt-0 min-h-full '> {/* pt-[100px] previous min-h-screen */}
@@ -49,7 +52,7 @@ export default function RootLayout({children}:{children: React.ReactNode}) {
         </main>
 
         <footer>
-          <Footer/>
+          <Footer />
         </footer>
 
       </body>
