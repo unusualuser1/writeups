@@ -34,11 +34,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             gtag('config', '${process.env.GA_ANALYTICS_ID}');
           `}
       </Script>
-      <head>
+      <Head>
         <meta name="google-site-verification" content="T2FrRrzXLHAe12g7Tf0b-r0P_0anHnydtBJOPcG53Ro" />
-
+      </Head>
+      <Head>
         <meta name='keywords' content='writeups, 0xwriteups, htb, hackthebox, hack the box, hack the box writeups, writeups hack the box, writeups htb' />
-      </head>
+      </Head>
+
 
       <body className="h-screen"> {/*previous h-full*/}
 
