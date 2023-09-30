@@ -24,22 +24,21 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className='h-screen'>     {/*previous h-full*/}
       <head>
         <meta name="google-site-verification" content="T2FrRrzXLHAe12g7Tf0b-r0P_0anHnydtBJOPcG53Ro" />
-      </head>
-      <Script
-        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GA_ANALYTICS_ID}`}
-        strategy="afterInteractive"
-      />
-      <Script id="google-analytics" strategy="afterInteractive">
-        {`
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GA_ANALYTICS_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
             gtag('config', '${process.env.GA_ANALYTICS_ID}');
           `}
-      </Script>
-      <Head>
+        </Script>
         <meta name='keywords' content='writeups, 0xwriteups, htb, hackthebox, hack the box, hack the box writeups, writeups hack the box, writeups htb' />
-      </Head>
+      </head>
+
 
       <body className="h-screen"> {/*previous h-full*/}
 
