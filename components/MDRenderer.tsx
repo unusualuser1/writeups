@@ -5,10 +5,8 @@ import rehypeRaw from "rehype-raw";
 import React from "react";
 import { useInView } from "react-intersection-observer";
 import Image from "next/image";
-import {
-  atomDark,
-  oneDark,
-} from "react-syntax-highlighter/dist/esm/styles/prism";
+import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { atomOneDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import { Content } from "next/font/google";
 
 export default function MDRenderer({ decodedContent }: any) {
@@ -34,7 +32,7 @@ export default function MDRenderer({ decodedContent }: any) {
                   {...props}
                   codeTagProps={{ style: { fontSize: "inherit" } }}
                   customStyle={{ fontSize: 18 }}
-                  style={oneDark}
+                  style={atomOneDark}
                   language={lang}
                   PreTag="div"
                 >
