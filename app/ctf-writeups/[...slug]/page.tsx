@@ -26,8 +26,10 @@ export default async function Page({ params }: PageProps) {
 }
 
 export async function generateStaticParams() {
-  const r = await Promise.all([getDirectoryData('ctf-writeups/TeenableCtf-2023')])
-  const items = r.reduce((a, b) => { return a.concat(b) })
+  const dirs = await getDirectoryData('ctf-writeups');
+  const promises = dirs.map( (d)=>{return getDirectoryData(d.path)});
+  const r = await Promise.all(promises);
+  const items = r.reduce((a,b)=> {return a.concat(b)})
   return items.map((item) => {
     return {
       slug: [item.path.split('/')[1], item.name]

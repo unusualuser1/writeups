@@ -2,7 +2,6 @@ import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 import SyntaxHighlighter from "react-syntax-highlighter/dist/esm/default-highlight";
 import gfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
-import "highlight.js/styles/github-dark-dimmed.css";
 import React from "react";
 import { useInView } from "react-intersection-observer";
 import Image from "next/image";

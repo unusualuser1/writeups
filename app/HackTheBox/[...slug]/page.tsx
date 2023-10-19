@@ -29,8 +29,6 @@ const page: FC<PageProps> = async ({ params }) => {
 
   const { slug } = params || {};
   const response: any = await fetch(`https://api.github.com/repos/Wanasgheo/Writeups/contents/HackTheBox/${slug[0]}/${slug[1]}/README.md?ref=main`, { next: { revalidate: 60 } }).then(res => res.json());
-
-  //console.log(response)
   return (
     <>
       <div className="bottom-2 right-0 w-screen h-[40px] flex fixed z-50 px-[8px] justify-end">
@@ -42,7 +40,9 @@ const page: FC<PageProps> = async ({ params }) => {
 }
 
 export async function generateStaticParams() {
-  const r = await Promise.all([getDirectoryData('HackTheBox/Easy'), getDirectoryData('HackTheBox/Medium')])
+  const dirs = await getDirectoryData('HackTheBox');
+  const promises = dirs.map( (d)=>{return getDirectoryData(d.path)});
+  const r = await Promise.all(promises);
   const boxes = r.reduce((a, b) => { return a.concat(b) })
   return boxes.map((box) => {
     return {
