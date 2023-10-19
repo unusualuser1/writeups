@@ -22,9 +22,11 @@ export const metadata = {
 type DirectoryItem = components["schemas"]["content-directory"];
 
 export default async function HTB_Home() {
-  const r = await Promise.all([getDirectoryData('HackTheBox/Easy'),getDirectoryData('HackTheBox/Medium')])
+  const dirs = await getDirectoryData('HackTheBox');
+  const promises = dirs.map( (d)=>{return getDirectoryData(d.path)});
+  const r = await Promise.all(promises);
+  
   const boxes = r.reduce((a,b)=> {return a.concat(b)})
-
   const boxProps = await Promise.all(boxes.map(async (box)=> {
     const decodedContent = await getDirFile(box.path+`/${box.name}.txt`)
     return {

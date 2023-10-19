@@ -1,6 +1,9 @@
 import { getDirectoryData, getDirFile } from "@/lib/apiUtils";
 import React, { FC } from "react";
 import Search from "@/components/Search";
+import { resolve } from "path";
+import { rejects } from "assert";
+import { decode } from "punycode";
 
 export const metadata = {
   title: 'Writeups CTF',
@@ -9,9 +12,10 @@ export const metadata = {
 
 
 export default async function ctf() {
-  const r = await Promise.all([getDirectoryData('ctf-writeups/TeenableCtf-2023')])
+  const dirs = await getDirectoryData('ctf-writeups');
+  const promises = dirs.map( (d)=>{return getDirectoryData(d.path)});
+  const r = await Promise.all(promises);
   const ctfs = r.reduce((a,b)=> {return a.concat(b)})
-
   const ctfProps = await Promise.all(ctfs.map(async (ctf)=> {
     const decodedContent = await getDirFile(ctf.path+`/${ctf.name}.txt`)
     return {
@@ -33,3 +37,4 @@ export default async function ctf() {
   </main>
   );
 }
+//<Search items={ctfProps} options={options}/>
