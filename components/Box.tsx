@@ -20,11 +20,10 @@ export const Box = ({name, path, decodedContent}:BoxItemProps) =>{
                     inline-flex justify-center xm:space-x-4 group"
 
     >
-      <Link href={path}>
       <div className=" w-[100px] h-[100px] relative">
-        
+        <Link href={path}>
           <Image className="rounded-[50px]" layout='fill' objectFit='contain' objectPosition="center" loading='lazy' src={parsedData.link}  alt="box-image"/>
-        
+        </Link>
       </div>
       <div className="xsm:w-0 xsm:space-x-0 xsm:invisible
                       xm:space-x-2 xm:flex xm:flex-wrap xm:items-center xm:py-2 xm:w-[80%] xm:h-full xm:visible xm:justify-center">
@@ -47,7 +46,6 @@ export const Box = ({name, path, decodedContent}:BoxItemProps) =>{
             <div>{parsedData.state}</div>
         </div>
       </div>
-      </Link>
     </div>
   )
 }
