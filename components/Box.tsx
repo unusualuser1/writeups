@@ -11,7 +11,7 @@ type BoxItemProps = {
 export const Box = ({name, path, decodedContent}:BoxItemProps) =>{
   const parsedData = JSON.parse(decodedContent);
   return(
-<Link href={path}>
+
     <div className="xm:w-full xm:h-[150px] xm:rounded-[30px]
                     xsm:w-[100px] xsm:h-[100px] xsm:rounded-[50px]
                     bg-[#3c3c3c] m-2
@@ -20,7 +20,7 @@ export const Box = ({name, path, decodedContent}:BoxItemProps) =>{
                     inline-flex justify-center xm:space-x-4 group"
 
     >
-      
+      <Link href={path}>
       <div className=" w-[100px] h-[100px] relative">
         
           <Image className="rounded-[50px]" layout='fill' objectFit='contain' objectPosition="center" loading='lazy' src={parsedData.link}  alt="box-image"/>
@@ -47,7 +47,7 @@ export const Box = ({name, path, decodedContent}:BoxItemProps) =>{
             <div>{parsedData.state}</div>
         </div>
       </div>
+      </Link>
     </div>
-  </Link>
   )
 }
