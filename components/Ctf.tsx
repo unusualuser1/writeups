@@ -19,28 +19,38 @@ export const Ctf = ({ name, path, decodedContent }: Props) => {
     return (
         <>
             <Link href={path}
-                className=" xm:w-full xm:h-[150px] xm:rounded-[30px]
-                                    xsm:w-[100px] xsm:h-[100px] xsm:rounded-[50px]
-                                    bg-[#3c3c3c] m-2
-                                    transform hover:scale-[0.95]
-                                    transition-all items-center xm:px-3
-                                    flex flex-wrap justify-center "
+                className=" xm:w-full xm:h-[150px] xm:rounded-[30px] xm:px-3
+                xsm:w-[100px] xsm:h-[100px] xsm:rounded-[50px]
+                bg-[#3c3c3c] m-2
+                transform hover:scale-[0.95]
+                flex flex-wrap justify-center py-[5px]
+                transition-all items-center group"
             >
 
-                <div className="xm:w-full h-[50%] flex text-center items-center
-                                    xsm:w-full xsm:justify-center"
+                <div className="xm:w-[30%] h-[40%] flex text-center items-center
+                                xsm:w-full xsm:justify-center
+                                rounded-[20px] 
+                                group-hover:bg-white
+                                group-hover:text-[#3c3c3c]
+                                duration-1000"
                 >
                     {name.toLowerCase()}
                 </div>
+
+
+                <div className="xm:w-full xm:visible xm:h-[50%] 
+                                xsm:w-0 xsm:invisible xsm:h-0 xm:text-[12px] md:text-[16px]
+                                inline-flex text-center justify-center space-x-2"
+                >
+                    <div className="w-[30%] h-full flex items-center text-center pl-[8px] rounded-[20px] duration-1000 ">
+                        Description
+                    </div>
+                    <div className="w-[70%] h-full flex items-center text-center pl-[8px] rounded-[20px] duration-1000   ">
+                        {parsedData.description}
+                    </div>
+
+                </div>
             </Link>
-
-            <div className="xm:w-full xm:visible xm:h-[50%] flex text-center justify-center items-center
-                                    xsm:w-0 xsm:invisible xsm:h-0 xm:text-[12px] md:text-[16px]"
-            >
-                {parsedData.description}
-            </div>
-
-
 
         </>
     )
