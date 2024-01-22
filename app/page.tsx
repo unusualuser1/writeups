@@ -7,6 +7,7 @@ import { octokit } from "@/lib/octo";
 export const metadata = {
   title: 'Writeups',
   description: 'Here u can find a lot of stuff',
+  googleSiteVerification: 'm2eD3FwRXY2uoE0xvElzDvKNOSAGr9t3RPldk3X24es',
 }
 
 
