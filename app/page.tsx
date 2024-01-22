@@ -6,7 +6,7 @@ import { octokit } from "@/lib/octo";
 
 export const metadata: Metadata = { robots: { index: false, follow: false }, 
                                    title: '0xWriteups', 
-                                   description: 'Here u can find a lot of stuff', 
+                                   description: 'Pronto', 
                                    verification: { google: 'your verification content', }, };
 
 
