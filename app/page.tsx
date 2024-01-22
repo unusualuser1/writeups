@@ -64,7 +64,6 @@ export default async function Home(){
 
     return(
       <>
-        <Head><meta name="google-site-verification" content={metadata.googleSiteVerification} /></Head>
         <main>
             <HomePageBoxes htbDecoded={htbParsed.link} htbPath={(htbPath as string)} 
             learnDecoded={parsedData.link} learnPath={(learnPath as string)}/>
