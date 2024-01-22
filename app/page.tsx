@@ -4,11 +4,10 @@ import { getDirFile } from "@/lib/apiUtils";
 import { octokit } from "@/lib/octo";
 
 
-export const metadata = {
-  title: 'Writeups',
-  description: 'Here u can find a lot of stuff',
-  googleSiteVerification: 'm2eD3FwRXY2uoE0xvElzDvKNOSAGr9t3RPldk3X24es',
-}
+export const metadata: Metadata = { robots: { index: false, follow: false }, 
+                                   title: '0xWriteups', 
+                                   description: 'Here u can find a lot of stuff', 
+                                   verification: { google: 'your verification content', }, };
 
 
 export default async function Home(){
