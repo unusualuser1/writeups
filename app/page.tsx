@@ -8,7 +8,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = { robots: { index: false, follow: false }, 
                                    title: '0xWriteups', 
                                    description: 'Pronto', 
-                                   verification: { google: 'your verification content', }, };
+                                   verification: { google: 'm2eD3FwRXY2uoE0xvElzDvKNOSAGr9t3RPldk3X24es', }, };
 
 
 export default async function Home(){
