@@ -36,7 +36,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           `}
       </Script>
       <Head>
-        <meta name="google-site-verification" content="T2FrRrzXLHAe12g7Tf0b-r0P_0anHnydtBJOPcG53Ro" />
+        <meta name="google-site-verification" content={metadata.googleSiteVerification} />
         <meta name='keywords' content='writeups, 0xwriteups, htb, hackthebox, hack the box, hack the box writeups, writeups hack the box, writeups htb' />
       </Head>
 
