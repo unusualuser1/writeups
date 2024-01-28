@@ -65,7 +65,7 @@ export default async function Home(){
 
     return(
       <>
-        <main className="flex flex-wrap justify-center items-center">
+        <main className = " flex flex-wrap justify-center items-center ">
             <HomePage htbDecoded={htbParsed.link} htbPath={(htbPath as string)} 
             learnDecoded={parsedData.link} learnPath={(learnPath as string)}/>
         </main>
