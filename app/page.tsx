@@ -1,5 +1,6 @@
 import HomePageBoxes from "@/components/HomePageBoxes"
 import HomePageLearn from "@/components/HomePageLearn"
+import HomePage from "@/components/HomePage_v2"
 import { getDirFile } from "@/lib/apiUtils";
 import { octokit } from "@/lib/octo";
 import type { Metadata } from "next";
@@ -65,7 +66,7 @@ export default async function Home(){
     return(
       <>
         <main>
-            <HomePageBoxes htbDecoded={htbParsed.link} htbPath={(htbPath as string)} 
+            <HomePage htbDecoded={htbParsed.link} htbPath={(htbPath as string)} 
             learnDecoded={parsedData.link} learnPath={(learnPath as string)}/>
         </main>
       </>
