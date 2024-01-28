@@ -67,7 +67,7 @@ export default function NavBarMobile() {
     return (
         <>
             <HamburgerMenu onClick={toggleMenu} />
-            <div className={isMenuOpen ? "md:w-1/2 w-[200px] h-screen top-0 left-[0px] bg-[#143347] z-10 transform duration-1000 ease-in-out fixed rounded-r-2xl rounded-b-[0px] text-white" : "text-white md:w-1/2 w-[200px] h-screen bg-[#143347] z-10 transform duration-1000 ease-in-out fixed rounded-r-2xl rounded-b-[0px] md:translate-x-[-50vw] translate-x-[-200px] "}>
+            <div className={isMenuOpen ? "md:w-1/2 w-[200px] h-screen top-0 left-[0px] bg-black bg-opacity-[95%] z-10 transform duration-1000 ease-in-out fixed rounded-r-2xl rounded-b-[0px] text-white" : "text-white md:w-1/2 w-[200px] h-screen bg-black z-10 transform duration-1000 ease-in-out fixed rounded-r-2xl rounded-b-[0px] md:translate-x-[-50vw] translate-x-[-200px] "}>
 
                 <ul className={isMenuOpen ? 'flex translate-y-[150px] flex-col gap-4 translate-x-6 xsm:text-[12px]' : 'flex translate-y-[150px] flex-col gap-4 translate-x-6 xsm:text-[12px]'}>
                     <li><Link onClick={toggleMenu} className={window.location.pathname === "/" ? 'font-bold md:text-[24px] sm:text-[20px] xsm:text-[14px]' : ''} href={"/"} >HOME</Link> 
