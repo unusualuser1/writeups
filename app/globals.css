@@ -78,3 +78,50 @@ input::placeholder {
 input::placeholder:focus {
   color: white;
 }
+
+.watch,
+.in-page {
+  display: flex;
+  padding: 30px 30px;
+  align-items: center;
+}
+
+.watch h2, .watch div h2 {
+  transform: translateX(-55%);
+  transition: all 0.8s ease-in-out;
+  color: transparent;
+}
+
+.watch div p, .watch div p a, .watch p {
+  transform: translateX(-55%);
+  transition: all 0.3s ease-in-out;
+  color: transparent;
+}
+
+.in-page h2, .in-page div h2 {
+  transform: translateX(0%);
+  transition: all 0.8s ease-in-out;
+  color: white;
+}
+
+.in-page div p, .in-page p, .in-page div p a {
+  transform: translateX(5%);
+  transition: all 0.8s ease-in-out;
+  color: white;
+  transition-delay:0.3s;
+}
+
+.in-page div p a, .watch div p a{
+  color: #136db6;
+}
+
+.check {
+  transform: scale(0);
+  transition: transform 0.3s cubic-bezier(0.0, 0.50, 0.165, 1);
+}
+
+.in-page-animatedBox {
+  transform: scale(1);
+  transition: transform 1s cubic-bezier(0.0, 0.50, 0.165, 1);
+  transition-delay: 0.9s;
+}
