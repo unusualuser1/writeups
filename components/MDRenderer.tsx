@@ -9,6 +9,12 @@ import {
   atomDark,
   oneDark,
 } from "react-syntax-highlighter/dist/esm/styles/prism";
+
+import {
+  atomOneDark
+} from "react-syntax-highlighter/dist/esm/styles/hljs";
+
+
 import { Content } from "next/font/google";
 
 export default function MDRenderer({ decodedContent }: any) {
@@ -34,7 +40,7 @@ export default function MDRenderer({ decodedContent }: any) {
                   {...props}
                   codeTagProps={{ style: { fontSize: "inherit" } }}
                   customStyle={{ fontSize: 18 }}
-                  style={oneDark}
+                  style={atomOneDark}
                   language={lang}
                   PreTag="div"
                 >
