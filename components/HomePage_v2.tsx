@@ -46,34 +46,31 @@ const HomePage: React.FC<HomePageProps> = ({ htbDecoded, htbPath, learnDecoded, 
             </div>
 
 
-            <div className="w-[50%] h-[200vh] ">
+            <div className="w-[70%] h-[200vh] md:w-[50%] ">
 
                 {/* First Section */}
                 <div className="w-full h-[30%] watch">
-                    <div className="w-[50%] h-auto">
+                    <div className="w-full h-auto">
                         <h2 className="mb-[10px] text-3xl">Titolo sezione 1</h2>
                         <p className=" text-sm">
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis assumenda accusamus quos exercitationem quo neque in libero quis ab ex earum,
                             
                         </p>
                     </div>
-
-                    <div className="w-[40%] aspect-square ml-auto">
-                    </div>
                 </div>
 
 
                 {/* Second Section */}
-                <div className="w-full h-[30%] watch">
-                    <div className="w-[50%] h-auto">
+                <div className="w-full h-[30%] watch flex flex-wrap ">
+                    <div className="md:w-[50%] w-full h-auto">
                         <h2 className="mb-[10px] text-3xl">Titolo sezione 2</h2>
                         <p className=" text-sm">
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis assumenda accusamus quos exercitationem quo neque in libero quis ab ex earum,
-                            <br /><br /> <a href="/HackTheBox" className=" font-light text-blue-700"> Follow the link</a>
+                            <br /><br /> <a href="/HackTheBox" className=" font-normal text-blue-700"> Follow the link</a>
                         </p>
                     </div>
 
-                    <div className="w-[40%] aspect-square ml-auto">
+                    <div className="md:w-[40%] w-[80%] aspect-square md:ml-auto m-auto">
                         <AnimatedBox srcImg={htbDecoded} pathLink={htbPath} />
                     </div>
                 </div>
@@ -81,8 +78,8 @@ const HomePage: React.FC<HomePageProps> = ({ htbDecoded, htbPath, learnDecoded, 
 
 
                 {/* Third Section */}
-                <div className="w-full h-[30%] watch">
-                    <div className="w-[50%] h-auto">
+                <div className="w-full h-[30%] watch flex flex-wrap">
+                    <div className="md:w-[50%] h-auto">
                         <h2 className="mb-[10px] text-3xl">Titolo sezione 3</h2>
                         <p className=" text-sm">
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis assumenda accusamus quos exercitationem quo neque in libero quis ab ex earum,
@@ -90,7 +87,7 @@ const HomePage: React.FC<HomePageProps> = ({ htbDecoded, htbPath, learnDecoded, 
                         </p>
                     </div>
 
-                    <div className="w-[40%] aspect-square ml-auto">
+                    <div className="md:w-[40%] w-[80%] aspect-square md:ml-auto m-auto">
                         <AnimatedBox srcImg={learnDecoded} pathLink={learnPath} />
                     </div>
                 </div>
