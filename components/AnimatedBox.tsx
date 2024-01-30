@@ -35,8 +35,7 @@ const AnimatedBox: React.FC<Props> = ({ srcImg, pathLink }) => {
 
     return (
         <div className=" check w-full h-full bg-transparent rounded-[40px]">
-            
-            <Link className="w-full h-full" href={pathLink}>
+            <Link className="w-full h-full" href={pathLink} >
                 <Image layout='fill' objectFit='contain' loading="lazy"  alt="lastUpload" src={srcImg}/>
             </Link>
         </div>

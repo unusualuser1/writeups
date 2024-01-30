@@ -1,7 +1,6 @@
 'use client'
 import { useEffect } from "react";
 import AnimatedBox from "./AnimatedBox";
-import HomePageBoxes from "./HomePageBoxes";
 
 interface HomePageProps {
     htbDecoded: string,
