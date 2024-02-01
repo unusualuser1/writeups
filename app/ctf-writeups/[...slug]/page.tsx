@@ -4,12 +4,21 @@ import { getDirectoryData } from "@/lib/apiUtils";
 import TopOfPageButton from "@/components/backTopOfPage";
 import Feedback from "@/components/feedbackBox";
 import { useState } from "react";
+import { Metadata } from "next";
 
 interface PageProps {
   params: {
     slug: string[]
   }
 }
+
+export const metadata: Metadata = {
+  robots: { index: false, follow: false },
+  title: '0xwriteups',
+  description: 'Pronto',
+  verification: { google: 'T2FrRrzXLHAe12g7Tf0b-r0P_0anHnydtBJOPcG53Ro', },
+  keywords : ['0xwriteups','writeups','htb','htb machines','hack the box','hack the box writeups','htb writeups','0Xwriteups','devel','soccer','devel writeup','socer writeup'],
+};
 
 export default async function Page({ params }: PageProps) {
   const { slug } = params || {}
