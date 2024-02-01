@@ -8,16 +8,20 @@ import BoxPreview from "@/components/BoxPreview";
 import Filter from "@/components/Filter";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
 import { Box } from "@/components/Box";
+import { Metadata } from "next";
 /*
 function compareDiff(a:any,b:any):number{
   const difficulties = ["Easy","Medium","Hard","Insane"];
   return difficulties.indexOf(a.name) - difficulties.indexOf(b.name);
 }*/
 
-export const metadata = {
-  title: 'Hack The Box Writeups',
-  description: 'Writeups are here',
-}
+export const metadata: Metadata = {
+  robots: { index: false, follow: false },
+  title: '0xwriteups',
+  description: 'Pronto',
+  verification: { google: 'T2FrRrzXLHAe12g7Tf0b-r0P_0anHnydtBJOPcG53Ro', },
+  keywords : ['0xwriteups','writeups','htb','htb machines','hack the box','hack the box writeups','htb writeups','0Xwriteups','devel','soccer','devel writeup','socer writeup'],
+};
 
 type DirectoryItem = components["schemas"]["content-directory"];
 
