@@ -13,7 +13,6 @@ interface PageProps {
 }
 
 export const metadata: Metadata = {
-  robots: { index: false, follow: false },
   title: '0xwriteups',
   description: 'Pronto',
   verification: { google: 'T2FrRrzXLHAe12g7Tf0b-r0P_0anHnydtBJOPcG53Ro', },
