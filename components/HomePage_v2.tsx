@@ -6,11 +6,13 @@ interface HomePageProps {
     htbDecoded: string,
     learnDecoded: string,
     learnPath: string,
-    htbPath: string
+    htbPath: string,
+    htbDescription: string,
+    learnDescription : string
 }
 
-const HomePage: React.FC<HomePageProps> = ({ htbDecoded, htbPath, learnDecoded, learnPath }) => {
-
+const HomePage: React.FC<HomePageProps> = ({ htbDecoded, htbPath, learnDecoded, learnPath, htbDescription,learnDescription }) => {
+    
     useEffect(() => {
         var elemenstToWatch = document.querySelectorAll('.watch');
         var callback: IntersectionObserverCallback = function (items) {
@@ -47,24 +49,13 @@ const HomePage: React.FC<HomePageProps> = ({ htbDecoded, htbPath, learnDecoded, 
 
             <div className="w-[70%] h-[200vh] md:w-[50%] ">
 
-                {/* First Section */}
-                <div className="w-full h-[30%] watch">
-                    <div className="w-full h-auto">
-                        <h2 className="mb-[10px] text-3xl">Titolo sezione 1</h2>
-                        <p className=" text-sm">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis assumenda accusamus quos exercitationem quo neque in libero quis ab ex earum,
-                            
-                        </p>
-                    </div>
-                </div>
-
 
                 {/* Second Section */}
                 <div className="w-full h-[30%] watch flex flex-wrap ">
                     <div className="md:w-[50%] w-full h-auto">
-                        <h2 className="mb-[10px] text-3xl">Titolo sezione 2</h2>
+                        <h2 className="mb-[10px] text-3xl">{(htbPath as string).split("/")[2]}</h2>
                         <p className=" text-sm">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis assumenda accusamus quos exercitationem quo neque in libero quis ab ex earum,
+                            {htbDescription}
                             <br /><br /> <a href="/HackTheBox" className=" font-normal text-blue-700"> Follow the link</a>
                         </p>
                     </div>
@@ -79,9 +70,9 @@ const HomePage: React.FC<HomePageProps> = ({ htbDecoded, htbPath, learnDecoded, 
                 {/* Third Section */}
                 <div className="w-full h-[30%] watch flex flex-wrap">
                     <div className="md:w-[50%] h-auto">
-                        <h2 className="mb-[10px] text-3xl">Titolo sezione 3</h2>
+                        <h2 className="mb-[10px] text-3xl">{(learnPath as string).split("/")[2]}</h2>
                         <p className=" text-sm">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis assumenda accusamus quos exercitationem quo neque in libero quis ab ex earum,
+                            {learnDescription}
                             <br /><br /> <a href="/ctf-writeups" className=" font-light"> Follow the link</a>
                         </p>
                     </div>

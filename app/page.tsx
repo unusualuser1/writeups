@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 };
 
 export default async function Home() {
-
+  
 
   let htbCommit;
   let htbPath;
@@ -61,14 +61,13 @@ export default async function Home() {
   await getDirFile(learnPath + `${(learnPath as string).split("/")[2]}.txt`)])
   const parsedData = JSON.parse(learnDecoded)
   const htbParsed = JSON.parse(htbDecoded)
-
-
-
+  
+  console.log(learnDecoded);
   return (
     <>
       <main className=" flex flex-wrap justify-center items-center ">
         <HomePage htbDecoded={htbParsed.link} htbPath={(htbPath as string)}
-          learnDecoded={parsedData.link} learnPath={(learnPath as string)} />
+          learnDecoded={parsedData.link} learnPath={(learnPath as string)} htbDescription={htbParsed.description} learnDescription={parsedData.description}/>
       </main>
     </>
   )
@@ -78,5 +77,4 @@ export default async function Home() {
           learnDecoded={learnDecoded} learnPath={(learnPath as string).split("/")}/>
           <HomePageLearn/>
  */
-
 
